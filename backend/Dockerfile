@@ -9,5 +9,3 @@ RUN npm install
 COPY express-pomodoro/.env .
 COPY express-pomodoro/tsconfig.json .
 COPY express-pomodoro/src/ ./src
-
-ENTRYPOINT [ "tsc" ]

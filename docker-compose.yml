@@ -1,6 +1,6 @@
 version: '3.1'
 services:
-  db: 
+  db:
     image: mongo
     container_name: mongo-pomodoro
     command:
@@ -10,26 +10,26 @@ services:
     volumes:
       - ./db:/data/db
   backend:
-    build: 
+    build:
       context: ./backend/
       dockerfile: Dockerfile
-    container_name: "server-express"
+    container_name: 'server-express'
     environment:
       - NODE_ENV=development
     ports:
       - 3000:3000
     depends_on:
       - db
-    command: "npx ts-node src/main.js"
+    command: 'npx ts-node src/main.ts'
   frontend:
-    build: 
+    build:
       context: ./frontend/
       dockerfile: Dockerfile
-    container_name: "client-react"
+    container_name: 'client-react'
     environment:
       - NODE_ENV=development
     ports:
       - 8080:3000
     volumes:
       - ./frontend/react-pomodoro:/usr/src/app
-    command: "npm run start"
+    command: 'npm run start'
