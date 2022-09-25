@@ -1,27 +1,41 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 type Props = {
+  /** 描画する要素 */
   children: React.ReactNode | string
+  /** display要素 */
   display?: string
+  /** line-heightの値 */
   lineheight?: number
+  /** text-align要素 */
   textalign?: 'center' | 'right' | 'left'
+  /** fontのcolor要素 */
   color?: string
+  /** font-sizeの値 */
   size?: string
+  /** font-weightの値 */
   bold?: string | number
 }
 
+/** textを描画するコンポーネント */
 const Text: React.FC<Props> = ({ children, ...props }) => {
-  return <StyledP {...props}>{children}</StyledP>
+  return (
+    <StyledP
+      css={`
+        display: ${props.display || 'block'};
+        line-height: ${props.lineheight || 1};
+        text-align: ${props.textalign || 'left'};
+        color: ${props.color || '#000'};
+        font-size: ${props.size || '1.2rem'};
+        font-weight: ${props.bold || 400};
+      `}
+    >
+      {children}
+    </StyledP>
+  )
 }
 
 export default Text
 
-const StyledP = styled.p<Omit<Props, 'children'>>`
-  display: ${({ display }) => display || 'block'};
-  line-height: ${({ lineheight }) => lineheight || 1};
-  text-align: ${({ textalign }) => textalign || 'left'};
-  color: ${({ color }) => color || '#000'};
-  font-size: ${({ size }) => size || '1.2rem'};
-  font-weight: ${({ bold }) => bold || 400};
-`
+const StyledP = styled.p``
