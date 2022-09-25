@@ -31,6 +31,10 @@ export const parameters = {
 export const decorators = [
   (Story) => (
     <Theme>
+      <link
+        href='https://fonts.googleapis.com/icon?family=Material+Icons'
+        rel='stylesheet'
+      ></link>
       <Story />
     </Theme>
   ),

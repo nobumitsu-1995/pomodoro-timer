@@ -11,11 +11,13 @@ const Theme: React.FC<Props> = ({ children }) => {
 
 const theme = {
   color: {
-    black: '#000',
-    white: '#fff',
-    red: 'red',
-    blue: 'blue',
-    green: 'green',
+    black: '#666666',
+    gray: '#B5B5B5',
+    white: '#ebebeb',
+    red: '#CF4F4F',
+    blue: '#5FA8D3',
+    lightblue: '#D6EFFF',
+    green: '#46C35B',
   },
   size: {
     small: '1.0rem',
