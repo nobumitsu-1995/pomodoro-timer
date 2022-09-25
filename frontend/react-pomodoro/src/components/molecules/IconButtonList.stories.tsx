@@ -25,8 +25,7 @@ export const Default = Template.bind({})
 Default.args = {
   iconButtonItems: [
     {
-      name: 'play',
-      icon: <span className='material-icons'>play_arrow</span>,
+      name: 'play_arrow',
       disable: false,
       onClick: () => {
         console.log('play')
@@ -34,7 +33,6 @@ Default.args = {
     },
     {
       name: 'pause',
-      icon: <span className='material-icons'>pause</span>,
       disable: true,
       onClick: () => {
         console.log('pause')
@@ -42,7 +40,6 @@ Default.args = {
     },
     {
       name: 'stop',
-      icon: <span className='material-icons'>stop</span>,
       disable: false,
       onClick: () => {
         console.log('stop')

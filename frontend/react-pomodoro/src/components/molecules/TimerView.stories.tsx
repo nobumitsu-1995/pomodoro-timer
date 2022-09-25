@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import TimerView from './TimerView'
 
 export default {
-  title: 'molecules/Timer',
+  title: 'molecules/TimerView',
   component: TimerView,
   argTypes: {},
   decorators: [

@@ -4,23 +4,23 @@ import { Button } from '../atoms'
 
 type Props = {
   /** 描画するButtonの情報配列
-   * @param {string}  name - Buttonの名前
-   * @param {string | React.ReactNode}  icon - Buttonに使用するアイコン
+   * @param {string}  name - Iconの名前
    * @param {boolean}  disable - Buttonのクリックの可否
    * @param {(event: React.MouseEvent<HTMLButtonElement>) => void}  onClick - Buttonクリック時のアクション
    */
   iconButtonItems: {
     name: string
-    icon: string | React.ReactNode
     disable: boolean
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
   }[]
+  /** styled-componentsのstyle継承 */
+  className?: string
 }
 
 /** IconButtonの配列 */
-const IconButtonList: React.FC<Props> = ({ iconButtonItems }) => {
+const IconButtonList: React.FC<Props> = ({ iconButtonItems, className }) => {
   return (
-    <StyledUl>
+    <StyledUl className={className}>
       {iconButtonItems.map((iconButton) => {
         return (
           <li key={iconButton.name}>
@@ -29,7 +29,7 @@ const IconButtonList: React.FC<Props> = ({ iconButtonItems }) => {
               onClick={iconButton.onClick}
               disabled={iconButton.disable}
             >
-              {iconButton.icon}
+              <span className='material-icons'>{iconButton.name}</span>
             </Button>
           </li>
         )
