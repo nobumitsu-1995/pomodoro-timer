@@ -26,7 +26,7 @@ const Text: React.FC<Props> = ({ children, ...props }) => {
         display: ${props.display || 'block'};
         line-height: ${props.lineheight || 1};
         text-align: ${props.textalign || 'left'};
-        color: ${props.color || '#000'};
+        color: ${props.color || '#666'};
         font-size: ${props.size || '1.2rem'};
         font-weight: ${props.bold || 400};
       `}

@@ -15,5 +15,7 @@ export const Default = Template.bind({})
 
 Default.args = {
   children: 'Button',
+  fontsize: '',
   size: '100px',
+  borderradius: '',
 }

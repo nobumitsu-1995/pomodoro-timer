@@ -10,11 +10,13 @@ type Props = ButtonProps & {
   fontsize?: string
   /** width, heightの値 */
   size?: string
+  /** border-radiusの値 */
+  borderradius?: string
 }
 
 /** ニューモフィズムButtonコンポーネント */
 const Button: React.FC<Props> = (props) => {
-  const { children, fontsize, size, ...buttonProps } = props
+  const { children, fontsize, size, borderradius, ...buttonProps } = props
 
   return (
     <StyledButton
@@ -23,6 +25,7 @@ const Button: React.FC<Props> = (props) => {
       css={`
         height: ${size || '100%'};
         width: ${size || '100%'};
+        border-radius: ${borderradius || '50%'};
         font-size: ${fontsize || '1.2rem'};
       `}
     >
@@ -37,7 +40,6 @@ const StyledButton = styled.button`
   padding: 10px;
   background: #ebebeb;
   box-shadow: 10px 10px 20px #c8c8c8, -10px -10px 20px #ffffff;
-  border-radius: 50%;
   text-align: center;
   color: ${(props) => props.theme.color.black};
   transition: box-shadow ease-out 0.13s;
