@@ -1,6 +1,6 @@
 import React from 'react'
-import { useModalContext } from '../../lib/functions/ModalContext'
-import { Button } from '../atoms'
+import { useModalContext } from '../../../lib/functions/ModalContext'
+import { Button } from '../../atoms'
 
 type Props = {
   children: React.ReactNode | string

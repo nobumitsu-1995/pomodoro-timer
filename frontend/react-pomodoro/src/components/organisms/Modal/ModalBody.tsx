@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { useModalContext } from '../../lib/functions/ModalContext'
-import { Paper } from '../atoms'
+import { useModalContext } from '../../../lib/functions/ModalContext'
+import { Paper } from '../../atoms'
 
 const ModalBody = () => {
   const { open, setOpen, contents, setContents } = useModalContext()
@@ -57,4 +57,5 @@ const StyledPaper = styled(Paper)`
   left: 0px;
   z-index: 15;
   margin: auto;
+  box-shadow: 40px 40px 80px #999999, -40px -40px 80px #ffffff;
 `
