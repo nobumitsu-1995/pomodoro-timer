@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { useModalContext } from '../../lib/functions/ModalContext'
-import { Paper } from '../atoms'
+import { useModalContext } from '../../../lib/functions/ModalContext'
+import { Paper } from '../../atoms'
 
 const ModalBody = () => {
   const { open, setOpen, contents, setContents } = useModalContext()

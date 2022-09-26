@@ -140,7 +140,16 @@ const index: React.FC = () => {
     },
   ]
 
-  return <Presenter time={time} iconButtonItems={iconButtonItems} />
+  return (
+    <Presenter
+      time={time}
+      iconButtonItems={iconButtonItems}
+      cycleBar={{
+        cycle: timerConfig.cycle,
+        leftCycle: leftCycle,
+      }}
+    />
+  )
 }
 
 export default index

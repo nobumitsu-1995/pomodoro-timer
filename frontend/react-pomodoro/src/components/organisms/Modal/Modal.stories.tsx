@@ -2,7 +2,7 @@ import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import ModalButton from './ModalButton'
-import { ModalProvider } from '../../lib/functions/ModalContext'
+import { ModalProvider } from '../../../lib/functions/ModalContext'
 import ModalBody from './ModalBody'
 
 export default {
