@@ -2,16 +2,24 @@ import React, { useEffect, useRef, useState } from 'react'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {
-  /** 作業時間(秒) */
-  const workingTime = 60 * 25
-  /** 休憩時間(秒) */
-  const restTime = 60 * 5
-  /** タイマーのID。スタート、ストップ、ポーズの操作に応じて切り替わる */
-  const timerId = useRef<NodeJS.Timeout>()
-  /** タイマーに表示される分秒 */
-  const [time, setTime] = useState({ minutes: '25', seconds: '00' })
+  /** タイマーの設定 */
+  const [timerConfig, setTimerConfig] = useState({
+    /** タイマーを繰り返す回数 */
+    cycle: 3,
+    /** 作業時間(秒) */
+    workingTime: 60 * 25,
+    /** 休憩時間(秒) */
+    restTime: 60 * 5,
+  })
+  /** タイマーの残り回数 */
+  const [leftCycle, setLeftCycle] = useState(timerConfig.cycle)
   /** 残り時間(秒) */
-  const [leftTime, setLeftTime] = useState(workingTime)
+  const [leftTime, setLeftTime] = useState(timerConfig.workingTime)
+  /** タイマーに表示される分秒 */
+  const [time, setTime] = useState({
+    minutes: ('00' + Math.floor(leftTime / 60)).slice(-2),
+    seconds: ('00' + (leftTime % 60)).slice(-2),
+  })
   /** ポモドーロタイマーのstatus */
   const [timerStatus, setTimerStatus] = useState({
     isRunning: false,
@@ -20,7 +28,7 @@ const index: React.FC = () => {
   })
 
   /** 1000msごとに実行される関数 */
-  const tick = () =>
+  const tick = () => {
     setLeftTime((t) => {
       if (timerStatus.isRunning && !timerStatus.isPause) {
         //稼働中でポーズしていない
@@ -30,7 +38,10 @@ const index: React.FC = () => {
         return t
       }
     })
+  }
 
+  /** タイマーのID。スタート、ストップ、ポーズの操作に応じて切り替わる */
+  const timerId = useRef<NodeJS.Timeout>()
   /** tick関数、タイマーのIDのリセットなどを実行 */
   useEffect(() => {
     const clearTimer = () => {
@@ -41,7 +52,7 @@ const index: React.FC = () => {
     return () => {
       clearTimer
     }
-  }, [timerStatus, workingTime])
+  }, [timerStatus, timerConfig.workingTime])
 
   /** 残り時間を分秒に変換 */
   useEffect(() => {
@@ -52,12 +63,16 @@ const index: React.FC = () => {
 
   /** タイマーリセット処理 */
   const resetTimer = () => {
+    //statusの初期化
     setTimerStatus({
-      ...timerStatus,
       isRunning: false,
       isPause: false,
+      isRest: false,
     })
-    setLeftTime(workingTime)
+    //タイマー残り回数の初期化
+    setLeftCycle(timerConfig.cycle)
+    //残り時間の初期化
+    setLeftTime(timerConfig.workingTime)
   }
 
   /** タイマー終了時の処理 */
@@ -65,13 +80,26 @@ const index: React.FC = () => {
     if (leftTime < 0 && !timerStatus.isRest) {
       //作業時間終了の処理
       setTimerStatus({
-        ...timerStatus,
+        isRunning: true,
+        isPause: false,
         isRest: true,
       })
-      setLeftTime(restTime)
+      setLeftTime(timerConfig.restTime)
     } else if (leftTime < 0 && timerStatus.isRest) {
       //休憩時間終了の処理
-      resetTimer()
+      if (leftCycle === 1) {
+        //タイマーが最後のサイクルの場合
+        resetTimer()
+      } else {
+        //タイマーサイクルを減らす(-1)
+        setLeftCycle((cycle) => cycle - 1)
+        setTimerStatus({
+          isRunning: true,
+          isPause: false,
+          isRest: false,
+        })
+        setLeftTime(timerConfig.workingTime)
+      }
     }
   }, [leftTime])
 
