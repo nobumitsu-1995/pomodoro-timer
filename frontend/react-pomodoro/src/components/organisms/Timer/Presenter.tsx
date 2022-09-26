@@ -1,5 +1,6 @@
 import React from 'react'
-import styled from 'styled-components/macro'
+import 'styled-components/macro'
+import { Paper } from '../../atoms'
 import { IconButtonList, TimerCycleBar, TimerView } from '../../molecules'
 
 type Props = {
@@ -20,22 +21,17 @@ type Props = {
 
 const Presenter: React.FC<Props> = ({ time, cycleBar, iconButtonItems }) => {
   return (
-    <StyledDiv>
+    <Paper width='350px' padding='120px 20px 50px'>
       <TimerView {...time} />
       <TimerCycleBar {...cycleBar} css='margin-top: 25px;' />
       <IconButtonList
         iconButtonItems={iconButtonItems}
         css={`
-          margin-top: 100px;
+          margin-top: 120px;
         `}
       />
-    </StyledDiv>
+    </Paper>
   )
 }
 
 export default Presenter
-
-const StyledDiv = styled.div`
-  margin: 0 auto;
-  max-width: 350px;
-`

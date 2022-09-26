@@ -1,5 +1,6 @@
 import Theme from '../src/assets/Theme'
 import '../src/assets/index.css'
+import '../src/assets/material-icons.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

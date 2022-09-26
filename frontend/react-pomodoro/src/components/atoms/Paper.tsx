@@ -35,6 +35,6 @@ export default Paper
 
 const StyledDiv = styled.div`
   background: ${(props) => props.theme.color.white};
-  box-shadow: 41px 41px 82px #999999, -41px -41px 82px #ffffff;
+  box-shadow: 10px 10px 20px #dddddd, -10px -10px 20px #f9f9f9;
   border-radius: 5px;
 `

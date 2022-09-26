@@ -57,4 +57,5 @@ const StyledPaper = styled(Paper)`
   left: 0px;
   z-index: 15;
   margin: auto;
+  box-shadow: 40px 40px 80px #999999, -40px -40px 80px #ffffff;
 `

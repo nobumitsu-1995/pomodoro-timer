@@ -16,12 +16,14 @@ type Props = {
   size?: string
   /** font-weightの値 */
   bold?: string | number
+  className?: string
 }
 
 /** textを描画するコンポーネント */
 const Text: React.FC<Props> = ({ children, ...props }) => {
   return (
     <StyledP
+      className={props.className}
       css={`
         display: ${props.display || 'block'};
         line-height: ${props.lineheight || 1};
