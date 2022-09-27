@@ -1,8 +1,20 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { cycleSelector } from '../../../feature/selectors'
+import { useSelector } from '../../../feature/store'
+import { updateCycle as reduxUpdateCycle } from '../../../feature/timerConfig'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {
-  const [cycle, setCycle] = useState(3)
+  const dispatch = useDispatch()
+  const updateCycle = useCallback(
+    (cycle: number) => {
+      dispatch(reduxUpdateCycle(cycle))
+    },
+    [dispatch]
+  )
+  const globalCycle = useSelector(cycleSelector)
+  const [cycle, setCycle] = useState(globalCycle)
   const [error, setError] = useState('')
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +35,7 @@ const index: React.FC = () => {
     if (error) {
       return console.log(error)
     }
-    console.log(cycle)
+    updateCycle(cycle)
   }
 
   return (
