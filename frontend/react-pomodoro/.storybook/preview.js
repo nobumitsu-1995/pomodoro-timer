@@ -1,3 +1,5 @@
+import { Provider } from 'react-redux'
+import { store } from '../src/feature/store'
 import Theme from '../src/assets/Theme'
 import '../src/assets/index.css'
 import '../src/assets/material-icons.css'
@@ -31,12 +33,14 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <Theme>
-      <link
-        href='https://fonts.googleapis.com/icon?family=Material+Icons'
-        rel='stylesheet'
-      ></link>
-      <Story />
-    </Theme>
+    <Provider store={store}>
+      <Theme>
+        <link
+          href='https://fonts.googleapis.com/icon?family=Material+Icons'
+          rel='stylesheet'
+        ></link>
+        <Story />
+      </Theme>
+    </Provider>
   ),
 ]
