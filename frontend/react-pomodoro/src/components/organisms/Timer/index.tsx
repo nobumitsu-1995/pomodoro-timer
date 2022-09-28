@@ -27,6 +27,12 @@ const index: React.FC = () => {
     isRest: false,
   })
 
+  /** workTime, restTimeの設定が変更された時の処理 */
+  useEffect(() => {
+    setLeftTime(workTime)
+    setLeftCycle(cycle)
+  }, [workTime, restTime, cycle])
+
   /** 1000msごとに実行される関数 */
   const tick = () => {
     setLeftTime((t: number) => {

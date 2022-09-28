@@ -11,7 +11,7 @@ type Props = {
 
 const Presenter: React.FC<Props> = ({ value, error, onChange, onClick }) => {
   return (
-    <Paper width='350px' padding='30px'>
+    <Paper width='350px' padding='20px'>
       <label htmlFor='cycle'>
         <Text bold='bold' size='1.4rem'>
           <span className='material-icons md-18 md-dark'>timer</span>
