@@ -1,20 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
+import {
+  cycleSelector,
+  restTimeSelector,
+  workTimeSelector,
+} from '../../../feature/selectors'
+import { useSelector } from '../../../feature/store'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {
-  /** タイマーの設定 */
-  const [timerConfig, setTimerConfig] = useState({
-    /** タイマーを繰り返す回数 */
-    cycle: 3,
-    /** 作業時間(秒) */
-    workingTime: 60 * 25,
-    /** 休憩時間(秒) */
-    restTime: 60 * 5,
-  })
+  const cycle = useSelector(cycleSelector)
+  const workTime = useSelector(workTimeSelector)
+  const restTime = useSelector(restTimeSelector)
   /** タイマーの残り回数 */
-  const [leftCycle, setLeftCycle] = useState(timerConfig.cycle)
+  const [leftCycle, setLeftCycle] = useState(cycle)
   /** 残り時間(秒) */
-  const [leftTime, setLeftTime] = useState(timerConfig.workingTime)
+  const [leftTime, setLeftTime] = useState(workTime)
   /** タイマーに表示される分秒 */
   const [time, setTime] = useState({
     minutes: ('00' + Math.floor(leftTime / 60)).slice(-2),
@@ -27,9 +27,15 @@ const index: React.FC = () => {
     isRest: false,
   })
 
+  /** workTime, restTimeの設定が変更された時の処理 */
+  useEffect(() => {
+    setLeftTime(workTime)
+    setLeftCycle(cycle)
+  }, [workTime, restTime, cycle])
+
   /** 1000msごとに実行される関数 */
   const tick = () => {
-    setLeftTime((t) => {
+    setLeftTime((t: number) => {
       if (timerStatus.isRunning && !timerStatus.isPause) {
         //稼働中でポーズしていない
         return t - 1
@@ -52,7 +58,7 @@ const index: React.FC = () => {
     return () => {
       clearTimer
     }
-  }, [timerStatus, timerConfig.workingTime])
+  }, [timerStatus, workTime])
 
   /** 残り時間を分秒に変換 */
   useEffect(() => {
@@ -70,9 +76,9 @@ const index: React.FC = () => {
       isRest: false,
     })
     //タイマー残り回数の初期化
-    setLeftCycle(timerConfig.cycle)
+    setLeftCycle(cycle)
     //残り時間の初期化
-    setLeftTime(timerConfig.workingTime)
+    setLeftTime(workTime)
   }
 
   /** タイマー終了時の処理 */
@@ -84,7 +90,7 @@ const index: React.FC = () => {
         isPause: false,
         isRest: true,
       })
-      setLeftTime(timerConfig.restTime)
+      setLeftTime(restTime)
     } else if (leftTime < 0 && timerStatus.isRest) {
       //休憩時間終了の処理
       if (leftCycle === 1) {
@@ -92,13 +98,13 @@ const index: React.FC = () => {
         resetTimer()
       } else {
         //タイマーサイクルを減らす(-1)
-        setLeftCycle((cycle) => cycle - 1)
+        setLeftCycle((_cycle: number) => _cycle - 1)
         setTimerStatus({
           isRunning: true,
           isPause: false,
           isRest: false,
         })
-        setLeftTime(timerConfig.workingTime)
+        setLeftTime(workTime)
       }
     }
   }, [leftTime])
@@ -145,7 +151,7 @@ const index: React.FC = () => {
       time={time}
       iconButtonItems={iconButtonItems}
       cycleBar={{
-        cycle: timerConfig.cycle,
+        cycle: cycle,
         leftCycle: leftCycle,
       }}
     />
