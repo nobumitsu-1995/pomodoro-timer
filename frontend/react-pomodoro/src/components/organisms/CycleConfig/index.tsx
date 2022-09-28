@@ -21,10 +21,10 @@ const index: React.FC = () => {
     const _cycle = Number(e.target.value)
     if (_cycle > 10) {
       setError('Only numbers 1-10 are allowed.')
-      return setCycle(11)
-    } else if (_cycle <= 0) {
+      return setCycle(10)
+    } else if (_cycle < 1) {
       setError('Only numbers 1-10 are allowed.')
-      return setCycle(0)
+      return setCycle(1)
     } else {
       setError('')
     }
@@ -32,9 +32,10 @@ const index: React.FC = () => {
   }
 
   const handleClickButton = () => {
-    if (error) {
+    if (error && (cycle > 10 || cycle < 1)) {
       return console.log(error)
     }
+    setError('')
     updateCycle(cycle)
   }
 

@@ -10,10 +10,10 @@ export const cycleSelector = createSelector(
   }
 )
 
-export const workingTimeSelector = createSelector(
+export const workTimeSelector = createSelector(
   timerConfigSelector,
   (timerConfig) => {
-    return timerConfig.workingTime
+    return timerConfig.workTime
   }
 )
 

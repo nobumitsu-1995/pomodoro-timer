@@ -5,7 +5,7 @@ export type TimerConfigType = {
   /** タイマーを繰り返す回数 */
   cycle: number
   /** 作業時間(秒) */
-  workingTime: number
+  workTime: number
   /** 休憩時間(秒) */
   restTime: number
 }
@@ -13,7 +13,7 @@ export type TimerConfigType = {
 /** timerConfigのfeatureの初期値 */
 const initialState: TimerConfigType = {
   cycle: 3,
-  workingTime: 60 * 25,
+  workTime: 60 * 25,
   restTime: 60 * 5,
 }
 
@@ -25,15 +25,27 @@ export const timerConfigSlice = createSlice({
     updateCycle: (state, action: PayloadAction<number>) => {
       state.cycle = action.payload
     },
-    updateWorkingTime: (state, action: PayloadAction<number>) => {
-      state.workingTime = action.payload
+    incrementWorkTime: (state) => {
+      state.workTime += 60 * 5
     },
-    updateRestTime: (state, action: PayloadAction<number>) => {
-      state.restTime = action.payload
+    decrementWorkTime: (state) => {
+      state.workTime -= 60 * 5
+    },
+    incrementRestTime: (state) => {
+      state.restTime += 60 * 5
+    },
+    decrementRestTime: (state) => {
+      state.restTime -= 60 * 5
     },
   },
 })
 
 const { actions, reducer } = timerConfigSlice
-export const { updateCycle, updateWorkingTime, updateRestTime } = actions
+export const {
+  updateCycle,
+  incrementWorkTime,
+  decrementWorkTime,
+  incrementRestTime,
+  decrementRestTime,
+} = actions
 export const timerConfigReducer = reducer

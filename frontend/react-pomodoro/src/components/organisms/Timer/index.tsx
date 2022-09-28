@@ -2,19 +2,19 @@ import React, { useEffect, useRef, useState } from 'react'
 import {
   cycleSelector,
   restTimeSelector,
-  workingTimeSelector,
+  workTimeSelector,
 } from '../../../feature/selectors'
 import { useSelector } from '../../../feature/store'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {
   const cycle = useSelector(cycleSelector)
-  const workingTime = useSelector(workingTimeSelector)
+  const workTime = useSelector(workTimeSelector)
   const restTime = useSelector(restTimeSelector)
   /** タイマーの残り回数 */
   const [leftCycle, setLeftCycle] = useState(cycle)
   /** 残り時間(秒) */
-  const [leftTime, setLeftTime] = useState(workingTime)
+  const [leftTime, setLeftTime] = useState(workTime)
   /** タイマーに表示される分秒 */
   const [time, setTime] = useState({
     minutes: ('00' + Math.floor(leftTime / 60)).slice(-2),
@@ -52,7 +52,7 @@ const index: React.FC = () => {
     return () => {
       clearTimer
     }
-  }, [timerStatus, workingTime])
+  }, [timerStatus, workTime])
 
   /** 残り時間を分秒に変換 */
   useEffect(() => {
@@ -72,7 +72,7 @@ const index: React.FC = () => {
     //タイマー残り回数の初期化
     setLeftCycle(cycle)
     //残り時間の初期化
-    setLeftTime(workingTime)
+    setLeftTime(workTime)
   }
 
   /** タイマー終了時の処理 */
@@ -98,7 +98,7 @@ const index: React.FC = () => {
           isPause: false,
           isRest: false,
         })
-        setLeftTime(workingTime)
+        setLeftTime(workTime)
       }
     }
   }, [leftTime])
