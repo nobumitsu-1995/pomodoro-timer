@@ -1,16 +1,22 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-type InputProps = Omit<JSX.IntrinsicElements['input'], 'ref'>
-
-type Props = InputProps & {
+type Props = {
   width: number
+  value: number
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const RangeBar: React.FC<Props> = (props) => {
-  const { width, ...inputProps } = props
+const RangeBar: React.FC<Props> = ({ width, value, onChange }) => {
   return (
-    <StyledInput width={width} type='range' min='0' max='100' {...inputProps} />
+    <StyledInput
+      width={width}
+      type='range'
+      min='0'
+      max='100'
+      onChange={onChange}
+      value={value}
+    />
   )
 }
 

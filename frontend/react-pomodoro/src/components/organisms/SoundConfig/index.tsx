@@ -1,14 +1,51 @@
-import React, { useState } from 'react'
+import React, { useCallback } from 'react'
+import { useDispatch } from 'react-redux'
+import { volumeSelector } from '../../../feature/selectors'
+import {
+  updateVolume as reduxUpdateVolume,
+  muteVolume as reduxMuteVolume,
+  unMuteVolume as reduxUnMuteVolume,
+} from '../../../feature/soundConfig'
+import { useSelector } from '../../../feature/store'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {
-  const [isMuted, setIsMuted] = useState(false)
+  const globalVolume = useSelector(volumeSelector)
+  const dispatch = useDispatch()
+  const updateVolume = useCallback(
+    (_volume: number) => {
+      dispatch(reduxUpdateVolume(_volume))
+    },
+    [dispatch]
+  )
+  const muteVolume = useCallback(() => {
+    dispatch(reduxMuteVolume())
+  }, [dispatch])
+  const unMuteVolume = useCallback(() => {
+    dispatch(reduxUnMuteVolume())
+  }, [dispatch])
 
-  const handleClickButton = () => {
-    setIsMuted(!isMuted)
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const _volume = Number(e.target.value)
+    updateVolume(_volume)
   }
 
-  return <Presenter isMuted={isMuted} onClick={handleClickButton} />
+  const handleClickButton = () => {
+    if (globalVolume === 0) {
+      unMuteVolume()
+    } else {
+      muteVolume()
+    }
+  }
+
+  return (
+    <Presenter
+      isMuted={globalVolume === 0}
+      onClick={handleClickButton}
+      onChange={handleChangeInput}
+      value={globalVolume}
+    />
+  )
 }
 
 export default index

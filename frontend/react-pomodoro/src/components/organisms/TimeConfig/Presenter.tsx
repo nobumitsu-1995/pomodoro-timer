@@ -38,7 +38,8 @@ const Presenter: React.FC<Props> = ({ consoleItems }) => {
 export default Presenter
 
 const StyledDiv = styled.div`
-  display: flex;
+  width: 100%;
+  display: grid;
   justify-content: space-between;
-  gap: 10px;
+  grid-template-columns: 155px 155px;
 `
