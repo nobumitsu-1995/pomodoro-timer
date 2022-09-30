@@ -23,3 +23,19 @@ export const restTimeSelector = createSelector(
     return timerConfig.restTime
   }
 )
+
+const soundConfigSelector = (state: StoreType) => state.soundConfig
+
+export const volumeSelector = createSelector(
+  soundConfigSelector,
+  (soundConfig) => {
+    return soundConfig.volume
+  }
+)
+
+export const casheVolumeSelector = createSelector(
+  soundConfigSelector,
+  (soundConfig) => {
+    return soundConfig.casheVolume
+  }
+)
