@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Paper, RangeBar, Text } from '../../atoms'
+import { PlayFunction } from 'use-sound/dist/types'
+import { Button, Paper, RangeBar, Text } from '../../atoms'
 import { MuteButton } from '../../molecules'
 
 type InputProps = Omit<JSX.IntrinsicElements['input'], 'size'>
@@ -10,9 +11,16 @@ type Props = InputProps & {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
   value: number
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClickTry: PlayFunction
 }
 
-const Presenter: React.FC<Props> = ({ isMuted, onClick, onChange, value }) => {
+const Presenter: React.FC<Props> = ({
+  isMuted,
+  onClick,
+  onChange,
+  value,
+  onClickTry,
+}) => {
   return (
     <Paper width='250px'>
       <Text size='0.8rem' bold='bold' textalign='center'>
@@ -25,7 +33,10 @@ const Presenter: React.FC<Props> = ({ isMuted, onClick, onChange, value }) => {
           borderRadius='10px'
           onClick={onClick}
         />
-        <RangeBar width={160 as number} onChange={onChange} value={value} />
+        <RangeBar width={140 as number} onChange={onChange} value={value} />
+        <Button size='20px' onClick={() => onClickTry()}>
+          <span className='material-icons md-10'>audiotrack</span>
+        </Button>
       </StyledDiv>
     </Paper>
   )

@@ -1,4 +1,6 @@
 import React, { useCallback } from 'react'
+import useSound from 'use-sound'
+import RestFinish from '../../../../public/sounds/RestFinish.mp3'
 import { useDispatch } from 'react-redux'
 import { volumeSelector } from '../../../feature/selectors'
 import {
@@ -10,7 +12,9 @@ import { useSelector } from '../../../feature/store'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {
+  const volume = useSelector(volumeSelector)
   const globalVolume = useSelector(volumeSelector)
+  const [playRestFinish] = useSound(RestFinish, { volume: volume / 100 })
   const dispatch = useDispatch()
   const updateVolume = useCallback(
     (_volume: number) => {
@@ -44,6 +48,7 @@ const index: React.FC = () => {
       onClick={handleClickButton}
       onChange={handleChangeInput}
       value={globalVolume}
+      onClickTry={playRestFinish}
     />
   )
 }
