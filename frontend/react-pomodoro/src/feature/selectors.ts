@@ -39,3 +39,9 @@ export const casheVolumeSelector = createSelector(
     return soundConfig.casheVolume
   }
 )
+
+const noticeSelector = (state: StoreType) => state.notices
+
+export const noticesSelector = createSelector(noticeSelector, (notices) => {
+  return notices.notices
+})
