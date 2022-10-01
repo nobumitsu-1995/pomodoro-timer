@@ -38,6 +38,9 @@ export default Button
 
 const StyledButton = styled.button`
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #ebebeb;
   box-shadow: 10px 10px 20px #c8c8c8, -10px -10px 20px #ffffff;
   text-align: center;
