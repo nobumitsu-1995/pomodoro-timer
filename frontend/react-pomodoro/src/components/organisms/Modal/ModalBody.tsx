@@ -11,7 +11,11 @@ const ModalBody = () => {
   }
   return (
     <StyledDiv open={open} onClick={handleClick}>
-      <StyledPaper onClick={(e) => e.stopPropagation()} width='800px'>
+      <StyledPaper
+        padding='0'
+        onClick={(e) => e.stopPropagation()}
+        width='80vw'
+      >
         {contents}
       </StyledPaper>
     </StyledDiv>
@@ -52,10 +56,15 @@ const StyledDiv = styled.div<{ open: boolean }>`
 
 const StyledPaper = styled(Paper)`
   position: fixed;
-  top: 100px;
+  top: 0;
+  bottom: 0;
   right: 0px;
   left: 0px;
   z-index: 15;
+  max-height: 80vh;
   margin: auto;
   box-shadow: 40px 40px 80px #999999, -40px -40px 80px #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  overflow-y: scroll;
 `

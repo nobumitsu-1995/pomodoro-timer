@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
+import useSound from 'use-sound'
+import WorkFinish from '../../../../public/sounds/WorkFinish.mp3'
+import RestFinish from '../../../../public/sounds/RestFinish.mp3'
 import {
   cycleSelector,
   restTimeSelector,
+  volumeSelector,
   workTimeSelector,
 } from '../../../feature/selectors'
 import { useSelector } from '../../../feature/store'
@@ -11,6 +15,9 @@ const index: React.FC = () => {
   const cycle = useSelector(cycleSelector)
   const workTime = useSelector(workTimeSelector)
   const restTime = useSelector(restTimeSelector)
+  const volume = useSelector(volumeSelector)
+  const [playWorkFinish] = useSound(WorkFinish, { volume: volume / 100 })
+  const [playRestFinish] = useSound(RestFinish, { volume: volume / 100 })
   /** タイマーの残り回数 */
   const [leftCycle, setLeftCycle] = useState(cycle)
   /** 残り時間(秒) */
@@ -85,6 +92,7 @@ const index: React.FC = () => {
   useEffect(() => {
     if (leftTime < 0 && !timerStatus.isRest) {
       //作業時間終了の処理
+      playWorkFinish()
       setTimerStatus({
         isRunning: true,
         isPause: false,
@@ -93,6 +101,7 @@ const index: React.FC = () => {
       setLeftTime(restTime)
     } else if (leftTime < 0 && timerStatus.isRest) {
       //休憩時間終了の処理
+      playRestFinish()
       if (leftCycle === 1) {
         //タイマーが最後のサイクルの場合
         resetTimer()
