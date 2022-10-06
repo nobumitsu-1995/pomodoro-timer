@@ -4,53 +4,58 @@ import WorkFinish from '../../../../public/sounds/WorkFinish.mp3'
 import RestFinish from '../../../../public/sounds/RestFinish.mp3'
 import {
   cycleSelector,
+  isPauseSelector,
+  isRestSelector,
+  isRunningSelector,
+  leftTimeSelector,
   restTimeSelector,
   volumeSelector,
   workTimeSelector,
 } from '../../../feature/selectors'
 import { useSelector } from '../../../feature/store'
 import Presenter from './Presenter'
+import { useDispatch } from 'react-redux'
+import {
+  initTimerStatus,
+  passLeftTime,
+  restFinish,
+  setLeftTime,
+  updatePause,
+  updatePlay,
+  workFinish,
+} from 'src/feature/timerStatus'
 
 const index: React.FC = () => {
+  const dispatch = useDispatch()
   const cycle = useSelector(cycleSelector)
   const workTime = useSelector(workTimeSelector)
   const restTime = useSelector(restTimeSelector)
   const volume = useSelector(volumeSelector)
+  const isRunning = useSelector(isRunningSelector)
+  const isPause = useSelector(isPauseSelector)
+  const isRest = useSelector(isRestSelector)
+  const leftTime = useSelector(leftTimeSelector)
   const [playWorkFinish] = useSound(WorkFinish, { volume: volume / 100 })
   const [playRestFinish] = useSound(RestFinish, { volume: volume / 100 })
   /** タイマーの残り回数 */
   const [leftCycle, setLeftCycle] = useState(cycle)
-  /** 残り時間(秒) */
-  const [leftTime, setLeftTime] = useState(workTime)
   /** タイマーに表示される分秒 */
   const [time, setTime] = useState({
     minutes: ('00' + Math.floor(leftTime / 60)).slice(-2),
     seconds: ('00' + (leftTime % 60)).slice(-2),
   })
-  /** ポモドーロタイマーのstatus */
-  const [timerStatus, setTimerStatus] = useState({
-    isRunning: false,
-    isPause: false,
-    isRest: false,
-  })
 
   /** workTime, restTimeの設定が変更された時の処理 */
   useEffect(() => {
-    setLeftTime(workTime)
+    dispatch(setLeftTime(workTime))
     setLeftCycle(cycle)
   }, [workTime, restTime, cycle])
 
   /** 1000msごとに実行される関数 */
   const tick = () => {
-    setLeftTime((t: number) => {
-      if (timerStatus.isRunning && !timerStatus.isPause) {
-        //稼働中でポーズしていない
-        return t - 1
-      } else {
-        //稼働していない、もしくはポーズ中
-        return t
-      }
-    })
+    if (isRunning && !isPause) {
+      dispatch(passLeftTime())
+    }
   }
 
   /** タイマーのID。スタート、ストップ、ポーズの操作に応じて切り替わる */
@@ -65,7 +70,7 @@ const index: React.FC = () => {
     return () => {
       clearTimer
     }
-  }, [timerStatus, workTime])
+  }, [isRunning, isPause, isRest, workTime])
 
   /** 残り時間を分秒に変換 */
   useEffect(() => {
@@ -77,29 +82,21 @@ const index: React.FC = () => {
   /** タイマーリセット処理 */
   const resetTimer = () => {
     //statusの初期化
-    setTimerStatus({
-      isRunning: false,
-      isPause: false,
-      isRest: false,
-    })
+    dispatch(initTimerStatus())
     //タイマー残り回数の初期化
     setLeftCycle(cycle)
     //残り時間の初期化
-    setLeftTime(workTime)
+    dispatch(dispatch(setLeftTime(workTime)))
   }
 
   /** タイマー終了時の処理 */
   useEffect(() => {
-    if (leftTime < 0 && !timerStatus.isRest) {
+    if (leftTime < 0 && !isRest) {
       //作業時間終了の処理
       playWorkFinish()
-      setTimerStatus({
-        isRunning: true,
-        isPause: false,
-        isRest: true,
-      })
-      setLeftTime(restTime)
-    } else if (leftTime < 0 && timerStatus.isRest) {
+      dispatch(workFinish())
+      dispatch(setLeftTime(restTime))
+    } else if (leftTime < 0 && isRest) {
       //休憩時間終了の処理
       playRestFinish()
       if (leftCycle === 1) {
@@ -108,12 +105,8 @@ const index: React.FC = () => {
       } else {
         //タイマーサイクルを減らす(-1)
         setLeftCycle((_cycle: number) => _cycle - 1)
-        setTimerStatus({
-          isRunning: true,
-          isPause: false,
-          isRest: false,
-        })
-        setLeftTime(workTime)
+        dispatch(restFinish())
+        dispatch(setLeftTime(workTime))
       }
     }
   }, [leftTime])
@@ -121,34 +114,24 @@ const index: React.FC = () => {
   const iconButtonItems = [
     {
       name: 'play_arrow',
-      disable: timerStatus.isPause || !timerStatus.isRunning ? false : true,
+      disable: isPause || !isRunning ? false : true,
       onClick: () => {
-        setTimerStatus({
-          ...timerStatus,
-          isRunning: true,
-          isPause: false,
-        })
+        dispatch(updatePlay())
       },
     },
     {
       name: 'pause',
-      disable: timerStatus.isPause || !timerStatus.isRunning ? true : false,
+      disable: isPause || !isRunning ? true : false,
       onClick: () => {
-        if (!timerStatus.isRunning) return
-        setTimerStatus({
-          ...timerStatus,
-          isPause: true,
-        })
+        if (!isRunning) return
+        dispatch(updatePause())
       },
     },
     {
       name: 'stop',
-      disable: !timerStatus.isRunning,
+      disable: !isRunning,
       onClick: () => {
-        if (
-          timerStatus.isRunning &&
-          confirm('タイマーを中断してよろしいですか？')
-        ) {
+        if (isRunning && confirm('タイマーを中断してよろしいですか？')) {
           resetTimer()
         }
       },

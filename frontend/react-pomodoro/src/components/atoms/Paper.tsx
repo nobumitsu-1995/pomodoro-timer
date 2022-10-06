@@ -37,4 +37,5 @@ const StyledDiv = styled.div`
   background: ${(props) => props.theme.color.white};
   box-shadow: 10px 10px 20px #dddddd, -10px -10px 20px #f9f9f9;
   border-radius: 5px;
+  overflow: hidden;
 `

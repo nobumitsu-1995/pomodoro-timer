@@ -15,4 +15,15 @@ const Template: ComponentStory<typeof NoticesListItem> = (args) => (
 
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  notice: {
+    id: `id`,
+    title: `タイトル`.repeat(10),
+    content: `内容`.repeat(20),
+    updated_at: '',
+    created_at: `2022/01/01`,
+  },
+  setCurrentNotice: () => {
+    console.log('click')
+  },
+}

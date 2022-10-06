@@ -33,14 +33,24 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <Provider store={store}>
-      <Theme>
+    <>
+      <head>
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
         <link
-          href='https://fonts.googleapis.com/icon?family=Material+Icons'
+          href='https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap'
           rel='stylesheet'
-        ></link>
-        <Story />
-      </Theme>
-    </Provider>
+        />
+      </head>
+      <Provider store={store}>
+        <Theme>
+          <link
+            href='https://fonts.googleapis.com/icon?family=Material+Icons'
+            rel='stylesheet'
+          ></link>
+          <Story />
+        </Theme>
+      </Provider>
+    </>
   ),
 ]
