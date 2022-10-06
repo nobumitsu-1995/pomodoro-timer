@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Text } from '../atoms'
 
 type Props = {
@@ -11,10 +12,19 @@ type Props = {
 /** タイマーの表示部分 */
 const TimerView: React.FC<Props> = ({ minutes, seconds }) => {
   return (
-    <Text size='3.6rem' bold='bold' textalign='center'>
+    <StyledText color='#fff' size='3rem' bold='bold' textalign='center'>
       {minutes}:{seconds}
-    </Text>
+    </StyledText>
   )
 }
 
 export default TimerView
+
+const StyledText = styled(Text)`
+  padding: 10px;
+  background-color: #000;
+  border-radius: 5px;
+  text-shadow: 0px 0px 30px rgba(95, 168, 211, 1),
+    0px 0px 27px rgba(95, 168, 211, 1);
+  font-family: 'Orbitron', sans-serif;
+`

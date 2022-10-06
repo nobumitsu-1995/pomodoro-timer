@@ -24,6 +24,36 @@ export const restTimeSelector = createSelector(
   }
 )
 
+const timerStatusSelector = (state: StoreType) => state.timerStatus
+
+export const isRunningSelector = createSelector(
+  timerStatusSelector,
+  (timerStatus) => {
+    return timerStatus.isRunning
+  }
+)
+
+export const isPauseSelector = createSelector(
+  timerStatusSelector,
+  (timerStatus) => {
+    return timerStatus.isPause
+  }
+)
+
+export const isRestSelector = createSelector(
+  timerStatusSelector,
+  (timerStatus) => {
+    return timerStatus.isRest
+  }
+)
+
+export const leftTimeSelector = createSelector(
+  timerStatusSelector,
+  (timerStatus) => {
+    return timerStatus.leftTime
+  }
+)
+
 const soundConfigSelector = (state: StoreType) => state.soundConfig
 
 export const volumeSelector = createSelector(

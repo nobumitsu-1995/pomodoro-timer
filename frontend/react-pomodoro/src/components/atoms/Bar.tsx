@@ -20,7 +20,7 @@ const Bar: React.FC<Props> = ({ backgroundColor }) => {
 export default Bar
 
 const StyledSpan = styled.span`
-  height: 10px;
+  height: 8px;
   width: 100%;
   display: block;
   box-shadow: 5px 5px 10px #a2a2a2, -5px -5px 10px #ffffff;
