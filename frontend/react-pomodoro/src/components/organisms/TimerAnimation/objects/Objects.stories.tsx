@@ -7,7 +7,6 @@ import * as THREE from 'three'
 import Objects from '../index'
 import { icosahedron, initIcosahedron, updateIcosahedron } from './icosahedron'
 import { plane, updatePlane } from './plane'
-import { createCapsules } from './capsules'
 
 export default {
   title: 'organisms/TimerAnimation/Objects',
