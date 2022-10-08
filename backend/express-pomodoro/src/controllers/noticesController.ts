@@ -99,7 +99,11 @@ export const deleteNotice = (
   next: NextFunction
 ) => {
   const noticeId = req.params.id
-  Notice.findByIdAndDelete(noticeId).then(() => {
-    res.redirect('/notices')
-  })
+  Notice.findByIdAndDelete(noticeId)
+    .then(() => {
+      res.redirect('/notices')
+    })
+    .catch((e) => {
+      next(e)
+    })
 }
