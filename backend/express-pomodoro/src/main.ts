@@ -1,7 +1,10 @@
 import express from 'express'
+import methodOverride from 'method-override'
+import layouts from 'express-ejs-layouts'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import { config } from 'dotenv'
+import router from './routes'
 
 // 変数の定義
 const app = express()
@@ -18,6 +21,14 @@ const dbPath = isTest
 const port = isTest ? 3001 : 3000
 
 // applicationの基本設定
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
+app.use(layouts)
+app.use(
+  methodOverride('_method', {
+    methods: ['POST', 'GET'],
+  })
+)
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(
@@ -34,6 +45,8 @@ const db = mongoose.connection
 db.once('open', () => {
   console.log(`Successfully connected to ${dbPath} useing Mongoose`)
 })
+
+app.use('/', router)
 
 // サーバーの起動
 app.listen(port, () => {
