@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { Notice } from '../../../models/notice'
+import Notice from '../../../models/notice'
 
 export const getNotices = (req: Request, res: Response, next: NextFunction) => {
   Notice.find({})

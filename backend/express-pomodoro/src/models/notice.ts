@@ -23,4 +23,4 @@ export type NoticeType = {
   updatedAt: Date
 }
 
-export const Notice = mongoose.model('Notice', noticeSchema)
+export default mongoose.model('Notice', noticeSchema)

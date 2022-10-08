@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Request, Response, NextFunction } from 'express'
-import { Notice, NoticeType } from '../models/notice'
+import Notice, { NoticeType } from '../models/notice'
 
 export const getNoticeParams = (body: NoticeType) => {
   return {
