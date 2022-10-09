@@ -2,7 +2,10 @@
 import { Request, Response, NextFunction } from 'express'
 import Notice, { NoticeType } from '../models/notice'
 
-export const getNoticeParams = (body: NoticeType) => {
+export const getNoticeParams = (body: {
+  content: string
+  publishedAt: Date
+}) => {
   return {
     content: body.content,
     publishedAt: body.publishedAt,

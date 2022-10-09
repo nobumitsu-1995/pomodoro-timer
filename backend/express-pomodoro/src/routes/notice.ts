@@ -1,6 +1,7 @@
 import express from 'express'
 import {
   createNotice,
+  deleteNotice,
   getNotice,
   getNotices,
   renderEditPage,
@@ -16,6 +17,6 @@ router.get('/new', renderNewPage)
 router.post('/create', createNotice)
 router.get('/:id/edit', renderEditPage)
 router.patch('/:id/update', updateNotice)
-router.delete('/:id/delete')
+router.delete('/:id/delete', deleteNotice)
 
 export default router
