@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Request, Response, NextFunction } from 'express'
-import Notice, { NoticeType } from '../models/notice'
+import { check, validationResult } from 'express-validator'
+import Notice from '../models/notice'
 
 export const getNoticeParams = (body: {
   content: string
@@ -15,7 +16,7 @@ export const getNoticeParams = (body: {
 export const getNotices = (req: Request, res: Response, next: NextFunction) => {
   Notice.find({})
     .then((notices) => {
-      res.render('notices/index', notices)
+      res.status(200).render('notices/index', notices)
     })
     .catch((e) => {
       next(e)
@@ -27,7 +28,7 @@ export const getNotice = (req: Request, res: Response, next: NextFunction) => {
   Notice.findById(noticeId)
     .then((notice) => {
       if (notice) {
-        res.render('notices/show', notice)
+        res.status(200).render('notices/show', notice)
       }
       next({ message: "Notice's data is not find!" })
     })
@@ -41,7 +42,7 @@ export const renderNewPage = (
   res: Response,
   next: NextFunction
 ) => {
-  res.render('notices/new')
+  res.status(200).render('notices/new')
 }
 
 export const createNotice = (
@@ -49,10 +50,11 @@ export const createNotice = (
   res: Response,
   next: NextFunction
 ) => {
+  if (res.locals.error) next()
   const noticeParams = getNoticeParams(req.body)
   Notice.create(noticeParams)
     .then((notice) => {
-      res.render('notices/show', notice)
+      res.status(201).render('notices/show', notice)
     })
     .catch((e) => {
       next(e)
@@ -68,7 +70,7 @@ export const renderEditPage = (
   Notice.findById(noticeId)
     .then((notice) => {
       if (notice) {
-        res.render('notices/edit', notice)
+        res.status(200).render('notices/edit', notice)
       }
       next({ message: "Notice's data is not find!" })
     })
@@ -82,12 +84,13 @@ export const updateNotice = (
   res: Response,
   next: NextFunction
 ) => {
+  if (res.locals.error) next()
   const noticeId = req.params.id
   const noticeParams = getNoticeParams(req.body)
   Notice.findByIdAndUpdate(noticeId, { $set: noticeParams }, { new: true })
     .then((notice) => {
       if (notice) {
-        res.render('notices/show', notice)
+        res.status(200).render('notices/show', notice)
       }
       next({ message: "Notice's data is not find!" })
     })
@@ -104,9 +107,29 @@ export const deleteNotice = (
   const noticeId = req.params.id
   Notice.findByIdAndDelete(noticeId)
     .then(() => {
-      res.redirect('/notices')
+      res.status(200).redirect('/notices')
     })
     .catch((e) => {
       next(e)
     })
+}
+
+export const validator = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  await check('content', '内容を入力してください').notEmpty().run(req)
+  await check('publishedAt', 'お知らせの発行日を入力してください')
+    .notEmpty()
+    .run(req)
+  const error = validationResult(req)
+  if (error.isEmpty()) {
+    next()
+  } else {
+    const messages = error.array().map((e) => ({ msg: e.msg, params: e.param }))
+    res.locals.error = messages
+    res.status(404)
+    next()
+  }
 }

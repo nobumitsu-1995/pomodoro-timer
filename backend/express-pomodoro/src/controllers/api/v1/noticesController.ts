@@ -4,7 +4,7 @@ import Notice from '../../../models/notice'
 export const getNotices = (req: Request, res: Response, next: NextFunction) => {
   Notice.find({})
     .then((notices) => {
-      res.json(notices)
+      res.status(200).json(notices)
     })
     .catch((e) => {
       next(e)
