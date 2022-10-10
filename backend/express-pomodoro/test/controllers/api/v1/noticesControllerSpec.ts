@@ -19,6 +19,21 @@ beforeEach((done) => {
 
 describe('noticesController', () => {
   describe('GET api/v1/notices', () => {
-    it('it should GET all notices json', (done) => {})
+    it('it should GET all notices json', (done) => {
+      Notice.create({
+        content: 'notice content test',
+        publishedAt: new Date(),
+      }).then(() => {
+        chai
+          .request(app)
+          .get('/api/v1/notices')
+          .end((errors, res) => {
+            expect(res).to.be.status(200)
+            expect(res.body.length).to.eq(1)
+            expect(errors).to.be.null
+            done()
+          })
+      })
+    })
   })
 })
