@@ -16,7 +16,7 @@ export const getNoticeParams = (body: {
 export const getNotices = (req: Request, res: Response, next: NextFunction) => {
   Notice.find({})
     .then((notices) => {
-      res.status(200).render('notices/index', notices)
+      res.status(200).render('notices/index', { notices })
     })
     .catch((e) => {
       next(e)
@@ -28,7 +28,7 @@ export const getNotice = (req: Request, res: Response, next: NextFunction) => {
   Notice.findById(noticeId)
     .then((notice) => {
       if (notice) {
-        res.status(200).render('notices/show', notice)
+        res.status(200).render('notices/show', { notice })
       }
       next({ message: "Notice's data is not find!" })
     })
@@ -54,7 +54,7 @@ export const createNotice = (
   const noticeParams = getNoticeParams(req.body)
   Notice.create(noticeParams)
     .then((notice) => {
-      res.status(201).render('notices/show', notice)
+      res.status(201).render('notices/show', { notice })
     })
     .catch((e) => {
       next(e)
@@ -70,7 +70,7 @@ export const renderEditPage = (
   Notice.findById(noticeId)
     .then((notice) => {
       if (notice) {
-        res.status(200).render('notices/edit', notice)
+        res.status(200).render('notices/edit', { notice })
       }
       next({ message: "Notice's data is not find!" })
     })
@@ -90,7 +90,7 @@ export const updateNotice = (
   Notice.findByIdAndUpdate(noticeId, { $set: noticeParams }, { new: true })
     .then((notice) => {
       if (notice) {
-        res.status(200).render('notices/show', notice)
+        res.status(200).render('notices/show', { notice })
       }
       next({ message: "Notice's data is not find!" })
     })

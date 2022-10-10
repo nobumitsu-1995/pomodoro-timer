@@ -46,6 +46,7 @@ db.once('open', () => {
   console.log(`Successfully connected to ${dbPath} useing Mongoose`)
 })
 
+// routerの読み込み
 app.use('/', router)
 
 // サーバーの起動
