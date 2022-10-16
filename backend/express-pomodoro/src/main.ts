@@ -5,22 +5,27 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import { config } from 'dotenv'
 import router from './routes'
+import './assets/styles/index.scss'
 
 // 変数の定義
 const app = express()
 config()
 const isTest = process.env.NODE_ENV === 'test'
-const isDev = process.env.NODE_ENV === 'development'
+const isLocal = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development:docker'
 const isProd = process.env.NODE_ENV === 'production'
 const client = process.env.CLIENT_URL || 'http://localhost:8080'
 const dbPath = isTest
   ? 'mongodb://localhost:27017/pomodoro_test' // test環境
+  : isLocal
+  ? 'mongodb://localhost:27017/pomodoro_dev' // local環境
   : isDev
   ? 'mongodb://mongo-pomodoro:27017/pomodoro_dev' // dev環境
   : 'mongodb://mongo-pomodoro:27017/pomodoro' // 本番環境
 const port = isTest ? 3001 : 3000
 
 // applicationの基本設定
+app.use(express.static(__dirname + '/public'))
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.use(layouts)
