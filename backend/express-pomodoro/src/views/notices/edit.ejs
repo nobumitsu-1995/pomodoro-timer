@@ -1,41 +1,57 @@
-<section class="p-noticeEdit">
-  <h2 class="c-ttl1">お知らせ編集</h2>
-  <form
-    action="/notices/<%= notice._id %>/update?_method=PATCH"
-    method="POST"
-    class="c-form1"
-  >
-    <label
-      for="publishedAt"
-      class="c-label1"
+<div class="p-noticeEdit">
+  <section class="l-container">
+    <h2 class="c-ttl1">お知らせ編集</h2>
+    <form
+      action="/notices/<%= notice._id %>/update?_method=PATCH"
+      method="POST"
+      class="c-form1"
     >
-      公開日
-      <input
-        id="publishedAt"
-        name="publishedAt"
-        value="<%= notice.publishedAt %>"
-        type="date"
-        class="c-input1"
-      />
-    </label>
-    <label
-      for="content"
-      class="c-label1"
-    >
-      内容
-      <input
-        id="content"
-        name="content"
-        value="<%= notice.content %>"
-        type="string"
-        class="c-input1"
-      />
-    </label>
-    <button
-      type="submit"
-      class="c-btn1"
-    >
-      更新
-    </button>
-  </form>
-</section>
+      <label
+        for="publishedAt"
+        class="c-label1"
+      >
+        公開日
+        <input
+          id="publishedAt"
+          name="publishedAt"
+          value="<%= notice.publishedAt %>"
+          type="date"
+          class="c-input1"
+        />
+      </label>
+      <label
+        for="title"
+        class="c-label1"
+      >
+        タイトル
+        <input
+          id="title"
+          name="title"
+          value="<%= notice.title %>"
+          type="string"
+          class="c-input1"
+        />
+      </label>
+      <label
+        for="content"
+        class="c-label1"
+      >
+        内容
+        <textarea
+          id="content"
+          name="content"
+          type="string"
+          class="c-input1"
+        >
+<%= notice.content %>
+        </textarea>
+      </label>
+      <button
+        type="submit"
+        class="c-btn1"
+      >
+        更新
+      </button>
+    </form>
+  </section>
+</div>

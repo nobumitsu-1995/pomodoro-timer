@@ -15,7 +15,11 @@
         <tr class="c-table__row">
           <td class="c-table__data"><%= notice._id %></td>
           <td class="c-table__data"><%= notice.publishedAt %></td>
-          <td class="c-table__data"><%= notice.content %></td>
+          <td class="c-table__data">
+            <a href="/notices/<%= notice._id %>/show">
+              <%= notice.content %>
+            </a>
+          </td>
           <td class="c-table__data">
             <ul class="c-list">
               <li class="c-list__item">
