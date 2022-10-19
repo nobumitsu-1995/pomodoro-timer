@@ -6,7 +6,7 @@
   "main": "src/main.ts",
   "scripts": {
     "test": "NODE_ENV=test mocha --require ts-node/register 'test/**/*'",
-    "start": "webpack && node build/main.js",
+    "start": "webpack --watch & nodemon build/main.js",
     "build": "webpack",
     "build:prod": "NODE_ENV=production webpack",
     "lint": "eslint src/**/*.ts"
