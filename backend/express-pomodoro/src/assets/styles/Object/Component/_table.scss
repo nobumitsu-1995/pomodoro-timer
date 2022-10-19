@@ -1,0 +1,20 @@
+.c-table {
+  width: 100%;
+  border: 1px solid #666;
+
+  &__data,
+  &__data--head {
+    padding: 15px 30px;
+  }
+
+  &__data {
+    &:nth-child(odd) {
+      background-color: #ccc;
+    }
+  }
+
+  &__data--head {
+    background-color: #666;
+    color: #fff;
+  }
+}
