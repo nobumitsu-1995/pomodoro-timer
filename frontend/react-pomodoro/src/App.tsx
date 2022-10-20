@@ -1,18 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
+import Theme from './assets/styles/Theme'
 import { ModalBody } from './components/organisms'
 import { Header, TimerBlock } from './components/templates'
 import { ModalProvider } from './lib/functions/ModalContext'
 
 const App: React.FC = () => {
   return (
-    <ModalProvider>
-      <Header />
-      <StyledMain>
-        <TimerBlock />
-        <ModalBody />
-      </StyledMain>
-    </ModalProvider>
+    <Theme>
+      <ModalProvider>
+        <Header />
+        <StyledMain>
+          <TimerBlock />
+          <ModalBody />
+        </StyledMain>
+      </ModalProvider>
+    </Theme>
   )
 }
 
