@@ -1,4 +1,8 @@
 .p-noticeShow {
+  .l-container {
+    position: relative;
+  }
+
   .c-article1 {
     margin-top: 30px;
   }
@@ -10,5 +14,11 @@
     .c-link1 {
       text-align: center;
     }
+  }
+
+  .c-btn2 {
+    position: absolute;
+    top: 50px;
+    right: 10px;
   }
 }

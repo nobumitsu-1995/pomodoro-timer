@@ -1,4 +1,8 @@
 .p-noticeEdit {
+  .l-container {
+    position: relative;
+  }
+
   .c-card1 {
     margin: 30px auto 0;
     max-width: 600px;
@@ -15,5 +19,11 @@
     .c-link1 {
       text-align: center;
     }
+  }
+
+  .c-btn2 {
+    position: absolute;
+    top: 50px;
+    right: 10px;
   }
 }
