@@ -22,6 +22,7 @@ describe('noticesController', () => {
     it('it should GET all notices json', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then(() => {
         chai

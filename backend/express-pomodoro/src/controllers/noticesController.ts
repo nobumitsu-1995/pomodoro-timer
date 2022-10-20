@@ -5,10 +5,12 @@ import Notice from '../models/notice'
 
 export const getNoticeParams = (body: {
   content: string
+  title: string
   publishedAt: Date
 }) => {
   return {
     content: body.content,
+    title: body.title,
     publishedAt: body.publishedAt,
   }
 }

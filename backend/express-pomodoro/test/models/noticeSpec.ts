@@ -18,6 +18,7 @@ describe('Save Data of Notice Model', () => {
   it('it should save one Notice with correct params', (done) => {
     const noticeParams = {
       content: 'notice content test',
+      title: 'title',
       publishedAt: new Date(),
     }
 
@@ -45,6 +46,7 @@ describe('Save Data of Notice Model', () => {
   it('it should not save one Notice without content', (done) => {
     const noticeParams = {
       content: '',
+      title: 'title',
       publishedAt: new Date(),
     }
 
@@ -61,6 +63,7 @@ describe('Save Data of Notice Model', () => {
   it('it should not save one Notice without publishedAt', (done) => {
     const noticeParams = {
       content: 'notice content test',
+      title: 'title',
       publishedAt: '',
     }
 
