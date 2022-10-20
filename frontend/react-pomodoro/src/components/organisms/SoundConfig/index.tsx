@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import useSound from 'use-sound'
-import RestFinish from '../../../../public/sounds/RestFinish.mp3'
+import RestFinish from '../../../assets/sounds/RestFinish.mp3'
 import { useDispatch } from 'react-redux'
 import { volumeSelector } from '../../../feature/selectors'
 import {

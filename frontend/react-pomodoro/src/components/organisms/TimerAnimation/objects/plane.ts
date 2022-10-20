@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import Texture from '../../../../../public/images/ring.png'
+import Texture from '../../../../assets/images/ring.png'
 
 const texture = new THREE.TextureLoader().load(Texture)
 

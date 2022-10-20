@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux'
 import { store } from '../src/feature/store'
-import Theme from '../src/assets/Theme'
+import Theme from '../src/assets/styles/Theme'
 import '../src/assets/index.css'
 import '../src/assets/material-icons.css'
 

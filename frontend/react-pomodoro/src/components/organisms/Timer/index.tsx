@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import useSound from 'use-sound'
-import WorkFinish from '../../../../public/sounds/WorkFinish.mp3'
-import RestFinish from '../../../../public/sounds/RestFinish.mp3'
+import WorkFinish from '../../../assets/sounds/WorkFinish.mp3'
+import RestFinish from '../../../assets/sounds/RestFinish.mp3'
 import {
   cycleSelector,
   isPauseSelector,
