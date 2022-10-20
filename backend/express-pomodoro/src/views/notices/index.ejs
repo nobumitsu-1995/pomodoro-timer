@@ -1,21 +1,58 @@
-<section class="p-noticeList">
-  <h2 class="c-ttl1">お知らせ一覧</h2>
-  <table class="c-table">
-    <thead class="c-table__head">
-      <tr class="c-table__row">
-        <th class="c-table__data--head">ID</th>
-        <th class="c-table__data--head">発行日</th>
-        <th class="c-table__data--head">タイトル</th>
-      </tr>
-    </thead>
-    <tbody class="c-table__body">
-      <% notices.forEach(notice => { %>
-      <tr class="c-table__row">
-        <td class="c-table__data"><%= notice._id %></td>
-        <td class="c-table__data"><%= notice.publishedAt %></td>
-        <td class="c-table__data"><%= notice.content %></td>
-      </tr>
-      <% }) %>
-    </tbody>
-  </table>
-</section>
+<div class="p-noticeList">
+  <section class="l-container">
+    <h2 class="c-ttl1">お知らせ一覧</h2>
+    <table class="c-table">
+      <thead class="c-table__head">
+        <tr class="c-table__row">
+          <th class="c-table__data--head">ID</th>
+          <th class="c-table__data--head">発行日</th>
+          <th class="c-table__data--head">タイトル</th>
+          <th class="c-table__data--head">操作</th>
+        </tr>
+      </thead>
+      <tbody class="c-table__body">
+        <% notices.forEach(notice => { %>
+        <tr class="c-table__row">
+          <td class="c-table__data"><%= notice._id %></td>
+          <td class="c-table__data"><%= notice.formatPublishedAt %></td>
+          <td class="c-table__data">
+            <a href="/notices/<%= notice._id %>/show"> <%= notice.title %> </a>
+          </td>
+          <td class="c-table__data">
+            <ul class="c-list">
+              <li class="c-list__item">
+                <a
+                  href="/notices/<%= notice._id %>/edit"
+                  class="c-link1"
+                  >編集</a
+                >
+              </li>
+              <li class="c-list__item">
+                <a
+                  onclick="clickDelete('<%= notice._id %>')"
+                  href="#"
+                  class="c-link1"
+                  >削除</a
+                >
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <a
+      href="/notices/new"
+      class="c-btn2"
+      >新規作成</a
+    >
+  </section>
+</div>
+<script>
+  function clickDelete(id) {
+    if (window.confirm('削除してよろしいですか？')) {
+      document.location.href = `/notices/${id}/delete?_method=DELETE`
+    }
+    return false
+  }
+</script>

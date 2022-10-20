@@ -1,0 +1,24 @@
+.p-noticeShow {
+  .l-container {
+    position: relative;
+  }
+
+  .c-article1 {
+    margin-top: 30px;
+  }
+
+  &__footer {
+    margin-top: 30px;
+    text-align: center;
+
+    .c-link1 {
+      text-align: center;
+    }
+  }
+
+  .c-btn2 {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+  }
+}

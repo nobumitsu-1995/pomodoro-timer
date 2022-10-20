@@ -40,6 +40,7 @@ describe('noticesController', () => {
     it('it should GET notice by ID', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then((notice) => {
         const noticeId = notice._id
@@ -57,6 +58,7 @@ describe('noticesController', () => {
     it('it should not GET notice by wrong ID', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then(() => {
         const noticeId = ''
@@ -106,6 +108,7 @@ describe('noticesController', () => {
     it('it should not POST notice without content', (done) => {
       const noticeParams = {
         content: '',
+        title: 'title',
         publishedAt: new Date(),
       }
 
@@ -123,6 +126,7 @@ describe('noticesController', () => {
     it('it should not POST notice without publishedAt', (done) => {
       const noticeParams = {
         content: 'notice content test',
+        title: 'title',
         publishedAt: '',
       }
 
@@ -142,6 +146,7 @@ describe('noticesController', () => {
     it('it should render edit page with ID', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then((notice) => {
         const noticeId = notice._id
@@ -159,6 +164,7 @@ describe('noticesController', () => {
     it('it should not render edit page with wrong ID', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then(() => {
         const noticeId = ''
@@ -178,6 +184,7 @@ describe('noticesController', () => {
     it('it should PATCH notice by ID', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then((notice) => {
         const noticeId = notice._id
@@ -199,6 +206,7 @@ describe('noticesController', () => {
     it('it should not PATCH notice by wrong ID', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then(() => {
         const noticeId = ''
@@ -219,6 +227,7 @@ describe('noticesController', () => {
     it('it should not PATCH notice without content', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then((notice) => {
         const noticeId = notice._id
@@ -239,6 +248,7 @@ describe('noticesController', () => {
     it('it should not PATCH notice without publishedAt', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then((notice) => {
         const noticeId = notice._id
@@ -258,6 +268,7 @@ describe('noticesController', () => {
     it('it should DELETE notice by ID', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       })
         .then((notice) => {
@@ -279,6 +290,7 @@ describe('noticesController', () => {
     it('it should not DELETE notice by wrong ID', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then(() => {
         const noticeId = ''
@@ -298,6 +310,7 @@ describe('noticesController', () => {
     it('return notice', () => {
       const body = {
         content: 'test',
+        title: 'title',
         publishedAt: new Date(),
       }
 

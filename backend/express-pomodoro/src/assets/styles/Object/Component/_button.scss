@@ -1,0 +1,35 @@
+@use '../../Foundation/variable';
+
+.c-btn1 {
+  padding: 10px 30px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background-color: variable.$blue;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.c-btn2 {
+  padding: 10px 30px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background-color: variable.$red;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
