@@ -16,11 +16,12 @@ services:
     container_name: 'server-express'
     environment:
       - NODE_ENV=development
+      - DOCKER=true
     ports:
       - 3000:3000
     depends_on:
       - db
-    command: 'npx ts-node src/main.ts'
+    command: 'node build/main.js'
   frontend:
     build:
       context: ./frontend/
