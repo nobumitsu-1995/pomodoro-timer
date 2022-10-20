@@ -1,4 +1,5 @@
 .c-table {
+  $root: &;
   width: 100%;
   border: 1px solid #666;
 
@@ -7,9 +8,13 @@
     padding: 15px 30px;
   }
 
-  &__data {
-    &:nth-child(odd) {
-      background-color: #ccc;
+  &__body {
+    #{$root} {
+      &__row {
+        &:nth-child(odd) {
+          background-color: #ccc;
+        }
+      }
     }
   }
 

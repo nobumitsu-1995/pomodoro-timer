@@ -16,17 +16,23 @@
           <td class="c-table__data"><%= notice._id %></td>
           <td class="c-table__data"><%= notice.publishedAt %></td>
           <td class="c-table__data">
-            <a href="/notices/<%= notice._id %>/show">
-              <%= notice.content %>
-            </a>
+            <a href="/notices/<%= notice._id %>/show"> <%= notice.title %> </a>
           </td>
           <td class="c-table__data">
             <ul class="c-list">
               <li class="c-list__item">
-                <a href="/notices/<%= notice._id %>/edit">編集</a>
+                <a
+                  href="/notices/<%= notice._id %>/edit"
+                  class="c-link1"
+                  >編集</a
+                >
               </li>
               <li class="c-list__item">
-                <a href="/notices/<%= notice._id %>/delete">削除</a>
+                <a
+                  href="/notices/<%= notice._id %>/delete"
+                  class="c-link1"
+                  >削除</a
+                >
               </li>
             </ul>
           </td>

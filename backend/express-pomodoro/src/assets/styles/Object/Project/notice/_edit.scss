@@ -1,6 +1,19 @@
 .p-noticeEdit {
+  .c-card1 {
+    margin: 30px auto 0;
+    max-width: 600px;
+  }
+
   .c-form1 {
     margin: 30px auto 0;
-    width: 600px;
+  }
+
+  &__footer {
+    margin-top: 30px;
+    text-align: center;
+
+    .c-link1 {
+      text-align: center;
+    }
   }
 }

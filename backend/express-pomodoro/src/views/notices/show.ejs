@@ -1,7 +1,37 @@
-<section class="p-noticeShow">
-  <h2 class="c-ttl1">お知らせ詳細</h2>
-  <article class="c-article">
-    <h3 class="c-ttl2"><%= notice.content %></h3>
-    <p class="c-text1"><%= notice.publishedAt %></p>
-  </article>
-</section>
+<div class="p-noticeShow">
+  <section class="l-container">
+    <h2 class="c-ttl1">お知らせ詳細</h2>
+    <article class="c-article1">
+      <h3 class="c-article1__head">
+        <p class="c-ttl2"><%= notice.content %></p>
+        <p class="c-text1">発行日：<%= notice.publishedAt %></p>
+      </h3>
+      <div class="c-article1__body"></div>
+      <div class="c-article1__footer">
+        <ul class="c-list">
+          <li class="c-list__item">
+            <a
+              href="/notices/<%= notice._id %>/edit"
+              class="c-link1"
+              >編集</a
+            >
+          </li>
+          <li class="c-list__item">
+            <a
+              href="/notices/<%= notice._id %>/delete"
+              class="c-link1"
+              >削除</a
+            >
+          </li>
+        </ul>
+      </div>
+    </article>
+    <div class="p-noticeShow__footer">
+      <a
+        href="/notices"
+        class="c-link1"
+        >お知らせ一覧</a
+      >
+    </div>
+  </section>
+</div>

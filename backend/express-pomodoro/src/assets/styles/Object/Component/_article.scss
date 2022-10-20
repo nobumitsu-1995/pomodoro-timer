@@ -1,0 +1,28 @@
+.c-article1 {
+  padding: 30px;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+
+  &__head {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+
+    .c-text1 {
+      margin-top: 10px;
+    }
+  }
+
+  &__body {
+    padding: 10px 20px;
+  }
+
+  &__footer {
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+
+    .c-list {
+      margin: 0 auto;
+      width: 150px;
+    }
+  }
+}
