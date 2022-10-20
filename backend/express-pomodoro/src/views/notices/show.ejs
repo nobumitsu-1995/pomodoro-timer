@@ -6,7 +6,7 @@
         <p class="c-ttl2"><%= notice.content %></p>
         <p class="c-text1">発行日：<%= notice.publishedAt %></p>
       </h3>
-      <div class="c-article1__body"></div>
+      <div class="c-article1__body"><%= notice.content %></div>
       <div class="c-article1__footer">
         <ul class="c-list">
           <li class="c-list__item">
@@ -18,7 +18,8 @@
           </li>
           <li class="c-list__item">
             <a
-              href="/notices/<%= notice._id %>/delete"
+              onclick="clickDelete('<%= notice._id %>')"
+              href="#"
               class="c-link1"
               >削除</a
             >
@@ -40,3 +41,11 @@
     >
   </section>
 </div>
+<script>
+  function clickDelete(id) {
+    if (window.confirm('削除してよろしいですか？')) {
+      document.location.href = `/notices/${id}/delete?_method=DELETE`
+    }
+    return false
+  }
+</script>

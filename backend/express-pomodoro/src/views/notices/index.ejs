@@ -14,7 +14,7 @@
         <% notices.forEach(notice => { %>
         <tr class="c-table__row">
           <td class="c-table__data"><%= notice._id %></td>
-          <td class="c-table__data"><%= notice.publishedAt %></td>
+          <td class="c-table__data"><%= notice.formatPublishedAt %></td>
           <td class="c-table__data">
             <a href="/notices/<%= notice._id %>/show"> <%= notice.title %> </a>
           </td>
@@ -29,7 +29,8 @@
               </li>
               <li class="c-list__item">
                 <a
-                  href="/notices/<%= notice._id %>/delete"
+                  onclick="clickDelete('<%= notice._id %>')"
+                  href="#"
                   class="c-link1"
                   >削除</a
                 >
@@ -47,3 +48,11 @@
     >
   </section>
 </div>
+<script>
+  function clickDelete(id) {
+    if (window.confirm('削除してよろしいですか？')) {
+      document.location.href = `/notices/${id}/delete?_method=DELETE`
+    }
+    return false
+  }
+</script>
