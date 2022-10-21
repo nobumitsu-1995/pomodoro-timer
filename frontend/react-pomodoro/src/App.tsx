@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import Theme from './assets/styles/Theme'
@@ -10,9 +10,12 @@ import { ModalProvider } from './lib/functions/ModalContext'
 
 const App: React.FC = () => {
   const dispatch = useDispatch()
-  api.get('notices').then((res) => {
-    dispatch(setNotices(res.data))
-  })
+
+  useEffect(() => {
+    api.get('notices').then((res) => {
+      dispatch(setNotices(res.data))
+    })
+  }, [])
 
   return (
     <Theme>
