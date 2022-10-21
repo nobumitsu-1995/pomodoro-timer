@@ -1,8 +1,8 @@
 import { Provider } from 'react-redux'
 import { store } from '../src/feature/store'
 import Theme from '../src/assets/styles/Theme'
-import '../src/assets/index.css'
-import '../src/assets/material-icons.css'
+import '../src/assets/styles/index.css'
+import '../src/assets/styles/material-icons.css'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
