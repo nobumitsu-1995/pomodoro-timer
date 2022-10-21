@@ -6,7 +6,9 @@ export type NoticeType = {
   /** お知らせ内容 */
   content: string
   /** お知らせ更新日 */
-  updated_at: string
+  updatedAt: string
   /** お知らせ作成日 */
-  created_at: string
+  createdAt: string
+  /** お知らせ発行日 */
+  publishedAt: string
 }

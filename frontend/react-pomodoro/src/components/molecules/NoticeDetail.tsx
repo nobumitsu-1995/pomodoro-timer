@@ -12,18 +12,18 @@ type Props = NoticeType & {
 const NoticeDetail: React.FC<Props> = ({
   title,
   content,
-  updated_at,
-  created_at,
+  updatedAt,
+  publishedAt,
   onClick,
 }) => {
   return (
     <StyledDiv1>
       <Text size='0.8rem' textalign='center'>
-        <TimeTag size='0.8rem' time={created_at} />
-        {updated_at && (
+        <TimeTag size='0.8rem' time={publishedAt} />
+        {updatedAt && (
           <>
             &nbsp;(更新日:&nbsp;
-            <TimeTag size='0.8rem' time={updated_at} />)
+            <TimeTag size='0.8rem' time={updatedAt} />)
           </>
         )}
       </Text>
