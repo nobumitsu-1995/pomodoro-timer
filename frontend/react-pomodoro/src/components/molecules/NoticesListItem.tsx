@@ -9,10 +9,10 @@ type Props = {
 }
 
 const NoticesListItem: React.FC<Props> = ({ notice, setCurrentNotice }) => {
-  const { created_at, title } = notice
+  const { publishedAt, title } = notice
   return (
     <StyledLi>
-      <TimeTag size='1rem' time={created_at} />
+      <TimeTag size='1rem' time={publishedAt} />
       <StyledA onClick={() => setCurrentNotice(notice)}>{title}</StyledA>
     </StyledLi>
   )

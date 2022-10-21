@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/macro'
 
 type Props = {
   /** 描画する日付 */
-  time: string | Date
+  time: string
   /** display要素 */
   display?: string
   /** line-heightの値 */
@@ -20,7 +20,7 @@ type Props = {
 }
 
 const TimeTag: React.FC<Props> = ({ time, ...props }) => {
-  const _datetime = typeof time === 'string' ? new Date(time) : time
+  const _datetime = new Date(time)
   const _year = _datetime.getFullYear()
   const _month = `0${_datetime.getMonth() + 1}`.slice(-2)
   const _date = `0${_datetime.getDate()}`.slice(-2)
