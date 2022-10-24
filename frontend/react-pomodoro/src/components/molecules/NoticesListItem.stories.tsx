@@ -20,8 +20,9 @@ Default.args = {
     id: `id`,
     title: `タイトル`.repeat(10),
     content: `内容`.repeat(20),
-    updated_at: '',
-    created_at: `2022/01/01`,
+    updatedAt: '2022/01/01',
+    createdAt: `2022/01/01`,
+    publishedAt: '2022/01/01',
   },
   setCurrentNotice: () => {
     console.log('click')

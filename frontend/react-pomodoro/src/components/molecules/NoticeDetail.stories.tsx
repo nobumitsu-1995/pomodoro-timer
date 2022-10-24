@@ -19,6 +19,7 @@ Default.args = {
   id: 'id',
   title: 'タイトル'.repeat(10),
   content: '内容'.repeat(30),
-  updated_at: '2022/01/10',
-  created_at: '2022/01/01',
+  updatedAt: '2022/01/01',
+  createdAt: `2022/01/01`,
+  publishedAt: '2022/01/01',
 }

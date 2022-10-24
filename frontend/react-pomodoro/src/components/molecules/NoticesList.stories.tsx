@@ -23,8 +23,9 @@ const createNoticeArray = (n: number) => {
         id: `id${index + 1}`,
         title: `タイトル${index + 1} `.repeat(10),
         content: `内容${index + 1} `.repeat(20),
-        updated_at: '',
-        created_at: `2022/01/${('0' + (index + 1).toString()).slice(-2)}`,
+        updatedAt: '',
+        createdAt: `2022/01/${('0' + (index + 1).toString()).slice(-2)}`,
+        publishedAt: `2022/01/${('0' + (index + 1).toString()).slice(-2)}`,
         onClick: () => {
           console.log(`click${index + 1}`)
         },
