@@ -17,7 +17,7 @@ const isProd = process.env.NODE_ENV === 'production'
 const client = process.env.CLIENT_URL || 'http://localhost:8080'
 const dbPath = isTest
   ? 'mongodb://localhost:27017/pomodoro_test' // test環境
-  : isDocker
+  : isDocker && isLocal
   ? 'mongodb://mongo-pomodoro:27017/pomodoro_dev' // dev環境
   : isLocal
   ? 'mongodb://localhost:27017/pomodoro_dev' // local環境

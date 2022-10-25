@@ -12,10 +12,9 @@ services:
   backend:
     build:
       context: ./backend/
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
     container_name: 'server-express'
     environment:
-      - NODE_ENV=development
       - DOCKER=true
     ports:
       - 3000:3000
