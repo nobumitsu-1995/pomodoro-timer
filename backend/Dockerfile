@@ -10,4 +10,4 @@ RUN npm install
 COPY express-pomodoro/src/ ./src
 RUN npm run build
 
-COPY express-pomodoro/.env .
+ENTRYPOINT ["npm","run","start"]
