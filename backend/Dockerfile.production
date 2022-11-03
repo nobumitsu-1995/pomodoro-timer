@@ -1,17 +1,16 @@
 FROM node:18.9.0
 WORKDIR /usr/src/app
 
+# 環境変数の設定
+ENV NODE_ENV=production
+COPY express-pomodoro/.env .
+
+# npmモジュールのインストール
 COPY express-pomodoro/package.json .
 COPY express-pomodoro/package-lock.json .
 RUN npm install
 
-COPY express-pomodoro/webpack.config.js .
-COPY express-pomodoro/tsconfig.json .
-COPY express-pomodoro/src/ ./src
-
-RUN npm run build:prod
-
-ENV NODE_ENV=production
-COPY express-pomodoro/.env .
+# コンパイル後ファイルのコピー
+COPY express-pomodoro/prod ./prod
 
 ENTRYPOINT ["npm","run","start:prod"]

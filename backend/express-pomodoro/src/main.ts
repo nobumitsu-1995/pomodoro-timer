@@ -21,7 +21,7 @@ const dbPath = isTest
   ? 'mongodb://mongo-pomodoro:27017/pomodoro_dev' // dev環境
   : isLocal
   ? 'mongodb://localhost:27017/pomodoro_dev' // local環境
-  : 'mongodb://mongo-pomodoro:27017/pomodoro' // 本番環境
+  : `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_SERVER}` // 本番環境
 const port = isTest ? 3001 : 3000
 
 // applicationの基本設定
