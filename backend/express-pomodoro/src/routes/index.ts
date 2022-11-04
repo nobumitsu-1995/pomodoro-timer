@@ -5,6 +5,6 @@ import noticeRouter from './notice'
 const router = express.Router()
 
 router.use('/api/v1', apiRouterV1)
-router.use('/notices', noticeRouter)
+router.use('/', noticeRouter)
 
 export default router
