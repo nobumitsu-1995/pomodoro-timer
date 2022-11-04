@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    api.get('notices').then((res) => {
+    api.get('/v1/notices').then((res) => {
       dispatch(setNotices(res.data))
     })
   }, [])
