@@ -14,7 +14,9 @@ const isTest = process.env.NODE_ENV === 'test'
 const isDocker = process.env.DOCKER === 'true'
 const isLocal = process.env.NODE_ENV === 'development'
 const isProd = process.env.NODE_ENV === 'production'
-const client = process.env.CLIENT_URL || 'http://localhost:8080'
+const client = isProd
+  ? process.env.CLIENT_URL || 'http://localhost:8080' // 本番環境
+  : 'http://localhost:8080' // dev環境, test環境
 const dbPath = isTest
   ? 'mongodb://localhost:27017/pomodoro_test' // test環境
   : isDocker && isLocal
@@ -22,7 +24,7 @@ const dbPath = isTest
   : isLocal
   ? 'mongodb://localhost:27017/pomodoro_dev' // local環境
   : `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_SERVER}` // 本番環境
-const port = isTest ? 3001 : 3000
+const port = isTest ? 81 : 80
 
 // applicationの基本設定
 app.use(express.static(__dirname + '/public'))
