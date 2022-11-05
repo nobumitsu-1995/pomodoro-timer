@@ -3,7 +3,7 @@
     <h2 class="c-ttl1">お知らせ編集</h2>
     <div class="c-card1">
       <form
-        action="/notices/<%= notice._id %>/update?_method=PATCH"
+        action="/<%= notice._id %>/update?_method=PATCH"
         method="POST"
         class="c-form1"
       >
@@ -61,13 +61,13 @@
     </div>
     <div class="p-noticeEdit__footer">
       <a
-        href="/notices"
+        href="/"
         class="c-link1"
         >お知らせ一覧</a
       >
     </div>
     <a
-      href="/notices/new"
+      href="/new"
       class="c-btn2"
       >新規作成</a
     >

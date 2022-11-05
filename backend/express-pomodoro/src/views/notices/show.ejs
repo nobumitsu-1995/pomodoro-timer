@@ -11,7 +11,7 @@
         <ul class="c-list">
           <li class="c-list__item">
             <a
-              href="/notices/<%= notice._id %>/edit"
+              href="/<%= notice._id %>/edit"
               class="c-link1"
               >編集</a
             >
@@ -29,13 +29,13 @@
     </article>
     <div class="p-noticeShow__footer">
       <a
-        href="/notices"
+        href="/"
         class="c-link1"
         >お知らせ一覧</a
       >
     </div>
     <a
-      href="/notices/new"
+      href="/new"
       class="c-btn2"
       >新規作成</a
     >
@@ -44,7 +44,7 @@
 <script>
   function clickDelete(id) {
     if (window.confirm('削除してよろしいですか？')) {
-      document.location.href = `/notices/${id}/delete?_method=DELETE`
+      document.location.href = `/${id}/delete?_method=DELETE`
     }
     return false
   }
