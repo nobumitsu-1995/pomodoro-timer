@@ -2,6 +2,8 @@ import express from 'express'
 import methodOverride from 'method-override'
 import layouts from 'express-ejs-layouts'
 import cors from 'cors'
+import passport from 'passport'
+import passportHttp from 'passport-http'
 import mongoose from 'mongoose'
 import { config } from 'dotenv'
 import router from './routes'
@@ -42,6 +44,16 @@ app.use(
   cors({
     origin: client,
     credentials: true,
+  })
+)
+
+// basic認証
+passport.use(
+  new passportHttp.BasicStrategy((username, password, done) => {
+    if (username !== process.env.ADMIN_USER) return done(null, false)
+    if (password !== process.env.ADMIN_PASSWORD) return done(null, false)
+    console.log('authenticate success')
+    return done(null, true)
   })
 )
 
