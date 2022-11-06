@@ -1,33 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ModalButton, Notice } from '../organisms'
+import { HeaderNav } from '../organisms'
 
 const Header: React.FC = () => {
   return (
     <StyledHeader>
       <StyledH1>Pomodoro Timer</StyledH1>
-      <nav>
-        <StyledUl>
-          <li>
-            <ModalButton
-              size='50px'
-              borderradius='8px'
-              modalContent={<Notice />}
-            >
-              <span className='material-icons'>notifications</span>
-            </ModalButton>
-          </li>
-          <li>
-            <ModalButton
-              size='50px'
-              borderradius='8px'
-              modalContent={<p>Help Page</p>}
-            >
-              <span className='material-icons'>help</span>
-            </ModalButton>
-          </li>
-        </StyledUl>
-      </nav>
+      <HeaderNav />
     </StyledHeader>
   )
 }
@@ -50,9 +29,4 @@ const StyledH1 = styled.h1`
   color: ${(props) => props.theme.color.black};
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
     -2px -2px 4px rgba(255, 255, 255, 1);
-`
-
-const StyledUl = styled.ul`
-  display: flex;
-  gap: 15px;
 `
