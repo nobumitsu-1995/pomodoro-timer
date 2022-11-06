@@ -3,7 +3,7 @@ WORKDIR /usr/src/app
 
 # 環境変数の設定
 ENV NODE_ENV=production
-COPY express-pomodoro/.env.production ./.env
+COPY express-pomodoro/.env.production .env
 
 # npmモジュールのインストール
 COPY express-pomodoro/package.json .

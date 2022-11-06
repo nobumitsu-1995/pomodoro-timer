@@ -28,6 +28,9 @@
 @use 'Object/Component/_title';
 
 // Project
+// top
+@use 'Object/Project/_top';
+
 // notice
 @use 'Object/Project/notice/_new';
 @use 'Object/Project/notice/_edit';
