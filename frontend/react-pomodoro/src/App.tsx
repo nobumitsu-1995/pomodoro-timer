@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import Theme from './assets/styles/Theme'
@@ -9,13 +10,29 @@ import { api } from './lib/functions/axios'
 import { ModalProvider } from './lib/functions/ModalContext'
 
 const App: React.FC = () => {
+  const [token, setToken] = useState('')
   const dispatch = useDispatch()
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0()
 
   useEffect(() => {
-    api.get('/v1/notices').then((res) => {
-      dispatch(setNotices(res.data))
-    })
+    api
+      .get('/v1/notices', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        dispatch(setNotices(res.data))
+      })
   }, [])
+
+  useEffect(() => {
+    const getToken = async () => {
+      const token = await getAccessTokenSilently()
+      setToken(token)
+    }
+    isAuthenticated && getToken()
+  }, [isAuthenticated])
 
   return (
     <Theme>
