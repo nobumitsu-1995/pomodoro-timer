@@ -5,3 +5,18 @@
   &__item {
   }
 }
+
+.c-list2 {
+  &__item {
+    text-align: center;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    .c-link1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+  }
+}

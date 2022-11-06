@@ -16,13 +16,13 @@
           <td class="c-table__data"><%= notice._id %></td>
           <td class="c-table__data"><%= notice.formatPublishedAt %></td>
           <td class="c-table__data">
-            <a href="/<%= notice._id %>/show"> <%= notice.title %> </a>
+            <a href="/notices/<%= notice._id %>/show"> <%= notice.title %> </a>
           </td>
           <td class="c-table__data">
             <ul class="c-list">
               <li class="c-list__item">
                 <a
-                  href="/<%= notice._id %>/edit"
+                  href="/notices/<%= notice._id %>/edit"
                   class="c-link1"
                   >編集</a
                 >
@@ -42,7 +42,7 @@
       </tbody>
     </table>
     <a
-      href="/new"
+      href="/notices/new"
       class="c-btn2"
       >新規作成</a
     >
@@ -51,7 +51,7 @@
 <script>
   function clickDelete(id) {
     if (window.confirm('削除してよろしいですか？')) {
-      document.location.href = `/${id}/delete?_method=DELETE`
+      document.location.href = `/notices/${id}/delete?_method=DELETE`
     }
     return false
   }
