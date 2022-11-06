@@ -1,3 +1,4 @@
+export { default as AuthButton } from './AuthButton'
 export { default as IconButtonList } from './IconButtonList'
 export { default as MuteButton } from './MuteButton'
 export { default as NoticeDetail } from './NoticeDetail'
