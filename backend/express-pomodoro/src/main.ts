@@ -12,6 +12,9 @@ import './assets/styles/index.scss'
 // 変数の定義
 const app = express()
 config()
+export const accessToken = process.env.TOKEN || ''
+export const jwksUri = process.env.JWKS_URI || ''
+export const issuer = process.env.AUTH0_DOMAIN || ''
 const isTest = process.env.NODE_ENV === 'test'
 const isDocker = process.env.DOCKER === 'true'
 const isLocal = process.env.NODE_ENV === 'development'
