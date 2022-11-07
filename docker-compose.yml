@@ -28,7 +28,7 @@ services:
     environment:
       - NODE_ENV=development
     ports:
-      - 8080:3000
+      - 8080:8080
     volumes:
       - ./frontend/react-pomodoro:/usr/src/app
     command: 'npm run start'

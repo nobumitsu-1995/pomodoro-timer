@@ -18,13 +18,13 @@ const App: React.FC = () => {
     api
       .get('/v1/notices', {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: token,
         },
       })
       .then((res) => {
         dispatch(setNotices(res.data))
       })
-  }, [])
+  }, [token])
 
   useEffect(() => {
     const getToken = async () => {
