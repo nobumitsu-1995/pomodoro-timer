@@ -37,7 +37,7 @@ export const getCustumConfig = (
 ) => {
   const uid = res.locals.user.sub
   const configId = req.params.id
-  CustumConfig.find({
+  CustumConfig.findOne({
     uid: uid,
     _id: configId,
   })
@@ -101,7 +101,7 @@ export const deleteCustumConfig = (
   const configId = req.params.id
   CustumConfig.findByIdAndDelete(configId)
     .then(() => {
-      res.status(200).redirect('/notices')
+      res.status(204).json('Success delete custum config')
     })
     .catch((e) => {
       next(e)

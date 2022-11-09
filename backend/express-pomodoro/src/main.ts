@@ -28,7 +28,7 @@ const dbPath = isTest
   : isLocal
   ? 'mongodb://localhost:27017/pomodoro_dev' // local環境
   : `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_SERVER}` // 本番環境
-const port = isTest ? 81 : 80
+export const port = isTest ? 81 : 80
 
 // applicationの基本設定
 app.use(express.static(__dirname + '/public'))

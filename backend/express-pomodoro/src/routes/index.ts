@@ -1,6 +1,6 @@
 import express from 'express'
 import passport from 'passport'
-import apiRouterV1 from './apiV1/'
+import apiRouterV1 from './api/v1'
 import noticeRouter from './notice'
 
 const router = express.Router()
