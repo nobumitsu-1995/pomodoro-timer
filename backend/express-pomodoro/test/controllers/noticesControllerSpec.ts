@@ -4,6 +4,9 @@ import app from '../../src/main'
 import Notice from '../../src/models/notice'
 import * as noticesController from '../../src/controllers/noticesController'
 
+const userName = process.env.ADMIN_USER || ''
+const userPass = process.env.ADMIN_PASSWORD || ''
+
 chai.use(chaiHTTP)
 
 beforeEach((done) => {
@@ -22,11 +25,13 @@ describe('noticesController', () => {
     it('it should GET all notices', (done) => {
       Notice.create({
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }).then(() => {
         chai
           .request(app)
-          .get('/notices')
+          .get('/notices/')
+          .auth(userName, userPass, { type: 'auto' })
           .end((errors, res) => {
             expect(res).to.be.status(200)
             expect(errors).to.be.null
@@ -47,6 +52,7 @@ describe('noticesController', () => {
         chai
           .request(app)
           .get(`/notices/${noticeId}/show`)
+          .auth(userName, userPass, { type: 'auto' })
           .end((errors, res) => {
             expect(res).to.be.status(200)
             expect(errors).to.be.null
@@ -61,10 +67,11 @@ describe('noticesController', () => {
         title: 'title',
         publishedAt: new Date(),
       }).then(() => {
-        const noticeId = ''
+        const noticeId = 'xxx'
         chai
           .request(app)
           .get(`/notices/${noticeId}/show`)
+          .auth(userName, userPass, { type: 'auto' })
           .end((errors, res) => {
             expect(res).to.be.status(404)
             expect(errors).to.be.null
@@ -79,6 +86,7 @@ describe('noticesController', () => {
       chai
         .request(app)
         .get('/notices/new')
+        .auth(userName, userPass, { type: 'auto' })
         .end((errors, res) => {
           expect(res).to.be.status(200)
           expect(errors).to.be.null
@@ -91,12 +99,14 @@ describe('noticesController', () => {
     it('it should POST notice with correct params', (done) => {
       const noticeParams = {
         content: 'notice content test',
+        title: 'title',
         publishedAt: new Date(),
       }
 
       chai
         .request(app)
         .post('/notices/create')
+        .auth(userName, userPass, { type: 'auto' })
         .send(noticeParams)
         .end((errors, res) => {
           expect(res).to.be.status(201)
@@ -115,6 +125,7 @@ describe('noticesController', () => {
       chai
         .request(app)
         .post('/notices/create')
+        .auth(userName, userPass, { type: 'auto' })
         .send(noticeParams)
         .end((errors, res) => {
           expect(res).to.be.status(404)
@@ -133,6 +144,7 @@ describe('noticesController', () => {
       chai
         .request(app)
         .post('/notices/create')
+        .auth(userName, userPass, { type: 'auto' })
         .send(noticeParams)
         .end((errors, res) => {
           expect(res).to.be.status(404)
@@ -153,6 +165,7 @@ describe('noticesController', () => {
         chai
           .request(app)
           .get(`/notices/${noticeId}/edit`)
+          .auth(userName, userPass, { type: 'auto' })
           .end((errors, res) => {
             expect(res).to.be.status(200)
             expect(errors).to.be.null
@@ -167,10 +180,11 @@ describe('noticesController', () => {
         title: 'title',
         publishedAt: new Date(),
       }).then(() => {
-        const noticeId = ''
+        const noticeId = 'xxx'
         chai
           .request(app)
           .get(`/notices/${noticeId}/edit`)
+          .auth(userName, userPass, { type: 'auto' })
           .end((errors, res) => {
             expect(res).to.be.status(404)
             expect(errors).to.be.null
@@ -191,6 +205,7 @@ describe('noticesController', () => {
         chai
           .request(app)
           .patch(`/notices/${noticeId}/update`)
+          .auth(userName, userPass, { type: 'auto' })
           .send({
             content: 'updated content',
             publishedAt: new Date(),
@@ -209,10 +224,11 @@ describe('noticesController', () => {
         title: 'title',
         publishedAt: new Date(),
       }).then(() => {
-        const noticeId = ''
+        const noticeId = 'xxx'
         chai
           .request(app)
           .patch(`/notices/${noticeId}/update`)
+          .auth(userName, userPass, { type: 'auto' })
           .send({
             content: 'updated content',
           })
@@ -234,6 +250,7 @@ describe('noticesController', () => {
         chai
           .request(app)
           .patch(`/notices/${noticeId}/update`)
+          .auth(userName, userPass, { type: 'auto' })
           .send({
             content: '',
           })
@@ -255,6 +272,7 @@ describe('noticesController', () => {
         chai
           .request(app)
           .patch(`/notices/${noticeId}/update`)
+          .auth(userName, userPass, { type: 'auto' })
           .end((errors, res) => {
             expect(res).to.be.status(404)
             expect(errors).to.be.null
@@ -276,6 +294,7 @@ describe('noticesController', () => {
           chai
             .request(app)
             .delete(`/notices/${noticeId}/delete`)
+            .auth(userName, userPass, { type: 'auto' })
             .end((errors, res) => {
               expect(res).to.be.status(200)
               expect(errors).to.be.null
@@ -293,10 +312,11 @@ describe('noticesController', () => {
         title: 'title',
         publishedAt: new Date(),
       }).then(() => {
-        const noticeId = ''
+        const noticeId = 'xxx'
         chai
           .request(app)
           .delete(`/notices/${noticeId}/delete`)
+          .auth(userName, userPass, { type: 'auto' })
           .end((errors, res) => {
             expect(res).to.be.status(404)
             expect(errors).to.be.null

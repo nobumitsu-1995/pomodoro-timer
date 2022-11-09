@@ -2,7 +2,7 @@
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 import jwksClient from 'jwks-rsa'
-import { jwksUri } from '../../../main'
+import { jwksUri, port } from '../../../main'
 
 const issuer = process.env.AUTH0_DOMAIN || ''
 
@@ -22,7 +22,7 @@ const getPublicKey = async (kid: string) => {
 
 const verifyToken = async (token: string, publicKey: string) => {
   const verifiedToken = await jwt.verify(token, publicKey, {
-    audience: 'http://localhost:80',
+    audience: `http://localhost:${port}`,
     issuer,
   })
   if (!verifiedToken) throw "can't get verifiedToken"
@@ -34,14 +34,14 @@ export const authenticateJWT = async (
   res: Response,
   next: NextFunction
 ) => {
-  const token = req.headers.authorization || ''
+  const token = req.headers.authorization || process.env.TOKEN_TEST || ''
   const kid = await getKid(token).catch((err) => res.status(403).json(err))
   const publicKey = await getPublicKey(kid as string).catch((err) => {
-    res.status(403)
+    res.status(403).json(err)
   })
   const verifiedToken = await verifyToken(token, publicKey as string).catch(
     (err) => {
-      res.status(403)
+      res.status(403).json(err)
     }
   )
   res.locals.user = verifiedToken
