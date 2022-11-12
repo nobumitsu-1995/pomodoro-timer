@@ -23,7 +23,7 @@ import {
   updatePause,
   updatePlay,
   workFinish,
-} from 'src/feature/timerStatus'
+} from 'src/feature/slices/timerStatus'
 
 const index: React.FC = () => {
   const dispatch = useDispatch()

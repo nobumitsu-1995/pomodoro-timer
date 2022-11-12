@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Theme from './assets/styles/Theme'
 import { ModalBody } from './components/organisms'
 import { Header, TimerBlock } from './components/templates'
-import { setNotices } from './feature/notices'
+import { setNotices } from './feature/slices/notices'
 import { api } from './lib/functions/axios'
 import { ModalProvider } from './lib/functions/ModalContext'
 

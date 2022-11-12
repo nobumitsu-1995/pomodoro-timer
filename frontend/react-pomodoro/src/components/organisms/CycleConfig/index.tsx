@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { cycleSelector } from '../../../feature/selectors'
 import { useSelector } from '../../../feature/store'
-import { updateCycle as reduxUpdateCycle } from '../../../feature/timerConfig'
+import { updateCycle as reduxUpdateCycle } from '../../../feature/slices/timerConfig'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {

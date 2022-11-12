@@ -3,16 +3,18 @@ import {
   TypedUseSelectorHook,
 } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
-import { timerConfigReducer, TimerConfigType } from './timerConfig'
-import { soundConfigReducer, SoundConfigType } from './soundConfig'
-import { noticesReducer, NoticesType } from './notices'
-import { timerStatusReducer, TimerStatusType } from './timerStatus'
+import { timerConfigReducer, TimerConfigType } from './slices/timerConfig'
+import { soundConfigReducer, SoundConfigType } from './slices/soundConfig'
+import { noticesReducer, NoticesType } from './slices/notices'
+import { timerStatusReducer, TimerStatusType } from './slices/timerStatus'
+import { tokenReducer, TokenType } from './slices/token'
 
 export type StoreType = {
   timerConfig: TimerConfigType
   timerStatus: TimerStatusType
   soundConfig: SoundConfigType
   notices: NoticesType
+  token: TokenType
 }
 
 export const store = configureStore({
@@ -21,6 +23,7 @@ export const store = configureStore({
     timerStatus: timerStatusReducer,
     soundConfig: soundConfigReducer,
     notices: noticesReducer,
+    token: tokenReducer,
   },
 })
 
