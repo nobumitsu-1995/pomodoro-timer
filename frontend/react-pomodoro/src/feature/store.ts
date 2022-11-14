@@ -8,12 +8,14 @@ import { soundConfigReducer, SoundConfigType } from './slices/soundConfig'
 import { noticesReducer, NoticesType } from './slices/notices'
 import { timerStatusReducer, TimerStatusType } from './slices/timerStatus'
 import { tokenReducer, TokenType } from './slices/token'
+import { custumConfigReducer, CustumConfigsType } from './slices/custumConfig'
 
 export type StoreType = {
   timerConfig: TimerConfigType
   timerStatus: TimerStatusType
   soundConfig: SoundConfigType
   notices: NoticesType
+  custumConfig: CustumConfigsType
   token: TokenType
 }
 
@@ -23,6 +25,7 @@ export const store = configureStore({
     timerStatus: timerStatusReducer,
     soundConfig: soundConfigReducer,
     notices: noticesReducer,
+    custumConfig: custumConfigReducer,
     token: tokenReducer,
   },
 })
