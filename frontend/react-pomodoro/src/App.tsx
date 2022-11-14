@@ -1,38 +1,55 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import Theme from './assets/styles/Theme'
 import { ModalBody } from './components/organisms'
 import { Header, TimerBlock } from './components/templates'
-import { setNotices } from './feature/slices/notices'
 import { api } from './lib/functions/axios'
 import { ModalProvider } from './lib/functions/ModalContext'
+import { useSelector } from './feature/store'
+import { setNotices } from './feature/slices/notices'
+import { setToken } from './feature/slices/token'
+import { tokenGetSelector } from './feature/selectors'
+import { setCustumConfig } from './feature/slices/custumConfig'
 
 const App: React.FC = () => {
-  const [token, setToken] = useState('')
+  // Auth0認証後に受け取るトークン
+  const token = useSelector(tokenGetSelector)
   const dispatch = useDispatch()
   const { isAuthenticated, getAccessTokenSilently } = useAuth0()
 
   useEffect(() => {
-    api
-      .get('/v1/notices', {
-        headers: {
-          Authorization: token,
-        },
-      })
-      .then((res) => {
-        dispatch(setNotices(res.data))
-      })
-  }, [token])
+    api.get('/v1/notices').then((res) => {
+      dispatch(setNotices(res.data))
+    })
+  }, [])
 
+  // Auth0認証後トークンを発行、Reduxに保存
   useEffect(() => {
     const getToken = async () => {
       const token = await getAccessTokenSilently()
-      setToken(token)
+      await dispatch(setToken(token))
     }
     isAuthenticated && getToken()
   }, [isAuthenticated])
+
+  // トークン取得後、ユーザー固有の情報をAPIから取得
+  useEffect(() => {
+    if (!isAuthenticated || !token) return
+    api
+      .get('/v1/custum_config', {
+        headers: {
+          Authorization: token.token,
+        },
+      })
+      .then((res) => {
+        dispatch(setCustumConfig(res.data))
+      })
+      .catch((e) => {
+        console.error(e)
+      })
+  }, [token])
 
   return (
     <Theme>

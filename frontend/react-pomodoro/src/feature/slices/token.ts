@@ -15,8 +15,8 @@ export const tokenSlice = createSlice({
   name: 'token',
   initialState,
   reducers: {
-    setToken: (state, action: PayloadAction<TokenType>) => {
-      state = action.payload
+    setToken: (state, action: PayloadAction<string>) => {
+      state.token = action.payload
     },
   },
 })

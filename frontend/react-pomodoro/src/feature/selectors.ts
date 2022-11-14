@@ -75,3 +75,9 @@ const noticeSelector = (state: StoreType) => state.notices
 export const noticesSelector = createSelector(noticeSelector, (notices) => {
   return notices.notices
 })
+
+const tokenSelector = (state: StoreType) => state.token
+
+export const tokenGetSelector = createSelector(tokenSelector, (token) => {
+  return token
+})
