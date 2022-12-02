@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-import { tokenGetSelector } from 'src/feature/selectors'
-import { useSelector } from 'src/feature/store'
-import { api } from 'src/lib/functions/axios'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {
-  const token = useSelector(tokenGetSelector)
   const [custumConfig, setCustumConfig] = useState({
     workTime: 0,
     restTime: 0,
@@ -52,19 +48,6 @@ const index: React.FC = () => {
       ...prev,
       [name]: value,
     }))
-  }
-
-  const clickCreate = () => {
-    api(token.token)
-      .post('/v1/custum_config/create', {
-        ...custumConfig,
-      })
-      .then((res) => {
-        console.log(res.data)
-      })
-      .catch((e) => {
-        console.error(e)
-      })
   }
 
   const clickUpdate = () => {
