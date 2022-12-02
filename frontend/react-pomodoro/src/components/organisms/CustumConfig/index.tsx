@@ -1,14 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { custumConfigsSelector, tokenGetSelector } from 'src/feature/selectors'
+import { updateCustumConfig } from 'src/feature/slices/custumConfig'
+import { useSelector } from 'src/feature/store'
+import { api } from 'src/lib/functions/axios'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {
-  const [custumConfig, setCustumConfig] = useState({
-    workTime: 0,
-    restTime: 0,
-    cycle: 0,
-    longRestTime: 0,
-    cycleToLongRestTime: 0,
-  })
+  const dispatch = useDispatch()
+  const token = useSelector(tokenGetSelector)
+  const custumConfigs = useSelector(custumConfigsSelector)
+  const [selectNum, setSelectNum] = useState(0)
+  const [custumConfig, setCustumConfig] = useState(custumConfigs[0])
+
+  useEffect(() => {
+    setCustumConfig(custumConfigs[selectNum])
+  }, [selectNum, custumConfigs])
 
   const formItems = [
     {
@@ -51,11 +58,19 @@ const index: React.FC = () => {
   }
 
   const clickUpdate = () => {
-    console.log('fetch')
+    api(token)
+      .patch(`/v1/custum_config/${custumConfig._id}/update`, custumConfig)
+      .then((res) => {
+        dispatch(updateCustumConfig(res.data))
+      })
+      .catch((e) => {
+        console.error(e)
+      })
   }
 
-  const onChangeSelect = () => {
-    console.log('onChange')
+  const onChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target
+    setSelectNum(parseInt(value))
   }
 
   return (

@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import Theme from './assets/styles/Theme'
 import { ModalBody } from './components/organisms'
-import { Header, TimerBlock } from './components/templates'
+import { Header, TimerBlock, UserBlock } from './components/templates'
 import { api } from './lib/functions/axios'
 import { ModalProvider } from './lib/functions/ModalContext'
 import { useSelector } from './feature/store'
 import { setNotices } from './feature/slices/notices'
 import { setToken } from './feature/slices/token'
 import { tokenGetSelector } from './feature/selectors'
-import { setCustumConfig } from './feature/slices/custumConfig'
+import { setCustumConfigs } from './feature/slices/custumConfig'
 
 const App: React.FC = () => {
   // Auth0認証後に受け取るトークン
@@ -20,9 +20,11 @@ const App: React.FC = () => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0()
 
   useEffect(() => {
-    api.get('/v1/notices').then((res) => {
-      dispatch(setNotices(res.data))
-    })
+    api()
+      .get('/v1/notices')
+      .then((res) => {
+        dispatch(setNotices(res.data))
+      })
   }, [])
 
   // Auth0認証後トークンを発行、Reduxに保存
@@ -37,14 +39,20 @@ const App: React.FC = () => {
   // トークン取得後、ユーザー固有の情報をAPIから取得
   useEffect(() => {
     if (!isAuthenticated || !token) return
-    api
-      .get('/v1/custum_config', {
-        headers: {
-          Authorization: token.token,
-        },
-      })
+    api(token)
+      .get('/v1/custum_config')
       .then((res) => {
-        dispatch(setCustumConfig(res.data))
+        if (res.data.length === 0) {
+          return api(token)
+            .post('/v1/custum_config/initialize')
+            .then((res) => {
+              return dispatch(setCustumConfigs(res.data))
+            })
+            .catch((e) => {
+              console.error(e)
+            })
+        }
+        dispatch(setCustumConfigs(res.data))
       })
       .catch((e) => {
         console.error(e)
@@ -57,6 +65,7 @@ const App: React.FC = () => {
         <Header />
         <StyledMain>
           <TimerBlock />
+          <UserBlock />
           <ModalBody />
         </StyledMain>
       </ModalProvider>

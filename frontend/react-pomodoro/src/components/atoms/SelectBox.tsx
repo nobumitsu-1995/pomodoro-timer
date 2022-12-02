@@ -13,7 +13,7 @@ const SelectBox: React.FC<Props> = ({ onChange, configLength }) => {
       <StyledSelect onChange={onChange}>
         {new Array(configLength).fill(0).map((_, i) => {
           return (
-            <option key={i} value={i + 1}>
+            <option key={i} value={i}>
               {`option${i + 1}`}
             </option>
           )

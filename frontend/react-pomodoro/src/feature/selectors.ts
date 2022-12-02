@@ -79,5 +79,14 @@ export const noticesSelector = createSelector(noticeSelector, (notices) => {
 const tokenSelector = (state: StoreType) => state.token
 
 export const tokenGetSelector = createSelector(tokenSelector, (token) => {
-  return token
+  return token.token
 })
+
+const custumConfigSelector = (state: StoreType) => state.custumConfig
+
+export const custumConfigsSelector = createSelector(
+  custumConfigSelector,
+  (custumConfigs) => {
+    return custumConfigs.custumConfig
+  }
+)
