@@ -20,7 +20,7 @@ const createNoticeArray = (n: number) => {
     .fill(0)
     .map((_, index) => {
       return {
-        id: `id${index + 1}`,
+        _id: `id${index + 1}`,
         title: `タイトル${index + 1} `.repeat(10),
         content: `内容${index + 1} `.repeat(20),
         updatedAt: '',

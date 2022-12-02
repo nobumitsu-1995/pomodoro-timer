@@ -20,7 +20,7 @@ const NoticesList: React.FC<Props> = ({
         notices.map((notice) => {
           return (
             <NoticesListItem
-              key={notice.id}
+              key={notice._id}
               notice={notice}
               setCurrentNotice={setCurrentNotice}
             />

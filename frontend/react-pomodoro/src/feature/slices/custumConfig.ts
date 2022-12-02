@@ -11,7 +11,7 @@ export type CustumConfigsType = {
 const initialState: CustumConfigsType = {
   custumConfig: [
     {
-      id: '',
+      _id: '',
       workTime: 0,
       restTime: 0,
       cycle: 0,
@@ -37,7 +37,7 @@ export const custumConfigSlice = createSlice({
     },
     updateCustumConfig: (state, action: PayloadAction<CustumConfigType>) => {
       const targetId = state.custumConfig.findIndex((config) => {
-        return config.id === action.payload.id
+        return config._id === action.payload._id
       })
       state.custumConfig[targetId] = action.payload
     },

@@ -1,6 +1,6 @@
 export type NoticeType = {
   /** お知らせID */
-  id: string
+  _id: string
   /** お知らせ題名 */
   title: string
   /** お知らせ内容 */
@@ -15,7 +15,7 @@ export type NoticeType = {
 
 export type CustumConfigType = {
   /** id */
-  id: string
+  _id: string
   /** 作業時間 */
   workTime: number
   /** 休憩時間 */

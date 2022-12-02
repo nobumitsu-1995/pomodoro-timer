@@ -11,7 +11,7 @@ export type NoticesType = {
 const initialState: NoticesType = {
   notices: [
     {
-      id: '',
+      _id: '',
       title: '',
       content: '',
       publishedAt: '',
