@@ -10,36 +10,41 @@ type Props = {
     value: number
   }[]
   configLength: number
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+  changeEdit: (event: React.ChangeEvent<HTMLInputElement>) => void
+  clickUpdate: (event: React.MouseEvent<HTMLButtonElement>) => void
   onChangeSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
 const Presenter: React.FC<Props> = ({
   formItems,
   configLength,
-  onChange,
-  onClick,
+  changeEdit,
+  clickUpdate,
   onChangeSelect,
 }) => {
   return (
     <Paper width='100%' padding='20px'>
-      <StyledDiv>
-        <Text bold='bold'>Custum Timer Config</Text>
+      <StyledDiv1>
+        <Text bold='bold'>Custum Timer Edit</Text>
         <SelectBox onChange={onChangeSelect} configLength={configLength} />
-      </StyledDiv>
-      <StyledFrom formItems={formItems} onChange={onChange} onClick={onClick} />
+      </StyledDiv1>
+      <StyledForm
+        formItems={formItems}
+        buttonText='UPDATE'
+        onChange={changeEdit}
+        onClick={clickUpdate}
+      />
     </Paper>
   )
 }
 
 export default Presenter
 
-const StyledDiv = styled.div`
+const StyledDiv1 = styled.div`
   display: flex;
   justify-content: space-between;
 `
 
-const StyledFrom = styled(Form)`
+const StyledForm = styled(Form)`
   margin-top: 25px;
 `

@@ -9,12 +9,19 @@ type Props = {
     label: string | React.ReactNode
     value: number
   }[]
+  buttonText: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
   className?: string
 }
 
-const Form: React.FC<Props> = ({ className, formItems, onChange, onClick }) => {
+const Form: React.FC<Props> = ({
+  className,
+  buttonText,
+  formItems,
+  onChange,
+  onClick,
+}) => {
   return (
     <form className={className}>
       {formItems.map((input) => {
@@ -30,7 +37,7 @@ const Form: React.FC<Props> = ({ className, formItems, onChange, onClick }) => {
         )
       })}
       <StyledButton onClick={onClick} borderradius='10px'>
-        UPDATE
+        {buttonText}
       </StyledButton>
     </form>
   )

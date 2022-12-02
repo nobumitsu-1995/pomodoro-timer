@@ -27,9 +27,13 @@ export const custumConfigSlice = createSlice({
   name: 'custumConfig',
   initialState,
   reducers: {
-    setCustumConfig: (state, action: PayloadAction<CustumConfigType[]>) => {
+    setCustumConfigs: (state, action: PayloadAction<CustumConfigType[]>) => {
       state.custumConfig = action.payload
       state.length = action.payload.length
+    },
+    setCustumConfig: (state, action: PayloadAction<CustumConfigType>) => {
+      state.custumConfig.push(action.payload)
+      state.length += 1
     },
     updateCustumConfig: (state, action: PayloadAction<CustumConfigType>) => {
       const targetId = state.custumConfig.findIndex((config) => {
@@ -41,6 +45,6 @@ export const custumConfigSlice = createSlice({
 })
 
 const { actions, reducer } = custumConfigSlice
-export const { setCustumConfig } = actions
+export const { setCustumConfigs, setCustumConfig, updateCustumConfig } = actions
 /** カスタムタイマー設定に関するデータ */
 export const custumConfigReducer = reducer
