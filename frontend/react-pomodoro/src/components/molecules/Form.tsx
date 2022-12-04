@@ -8,6 +8,7 @@ type Props = {
     id: string
     label: string | React.ReactNode
     value: number
+    error?: string
   }[]
   buttonText: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
@@ -32,7 +33,7 @@ const Form: React.FC<Props> = ({
             label={input.label}
             value={input.value}
             onChange={onChange}
-            error='error'
+            error={input.error}
           />
         )
       })}
