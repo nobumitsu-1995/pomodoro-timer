@@ -4,6 +4,10 @@ import { custumConfigsSelector, tokenGetSelector } from 'src/feature/selectors'
 import { updateCustumConfig } from 'src/feature/slices/custumConfig'
 import { useSelector } from 'src/feature/store'
 import { api } from 'src/lib/functions/axios'
+import {
+  validateCycle,
+  validateTimerConfig,
+} from 'src/lib/functions/validation'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {
@@ -12,13 +16,13 @@ const index: React.FC = () => {
   const custumConfigs = useSelector(custumConfigsSelector)
   const [selectNum, setSelectNum] = useState(0)
   const [custumConfig, setCustumConfig] = useState(custumConfigs[0])
-  const [errors, setErrors] = useState<{
-    workTime?: ''
-    restTime?: ''
-    cycle?: ''
-    longRestTime?: ''
-    cycleToLongRestTime?: ''
-  }>({})
+  const [errors, setErrors] = useState({
+    workTime: '',
+    restTime: '',
+    cycle: '',
+    longRestTime: '',
+    cycleToLongRestTime: '',
+  })
 
   useEffect(() => {
     setCustumConfig(custumConfigs[selectNum])
@@ -63,9 +67,7 @@ const index: React.FC = () => {
 
   const changeEdit = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
-    const errors = validateForm(name, parseInt(value))
-    if (errors) return
-
+    validateForm(name, Number(value))
     setCustumConfig((prev) => ({
       ...prev,
       [name]: value,
@@ -73,10 +75,23 @@ const index: React.FC = () => {
   }
 
   const validateForm = (name: string, value: number) => {
-    return false
+    if (name === '_id') return
+    if (name === 'cycle' || name === 'cycleToLongRestTime') {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: validateCycle(value),
+      }))
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: validateTimerConfig(value),
+      }))
+    }
   }
 
   const clickUpdate = () => {
+    if (checkFormsValidaty()) return
+
     api(token)
       .patch(`/v1/custum_config/${custumConfig._id}/update`, custumConfig)
       .then((res) => {
@@ -85,6 +100,18 @@ const index: React.FC = () => {
       .catch((e) => {
         console.error(e)
       })
+  }
+
+  const checkFormsValidaty = () => {
+    Object.entries(custumConfig).forEach((data) => {
+      validateForm(data[0], Number(data[1]))
+    })
+
+    return (
+      Object.values(errors).filter((value) => {
+        return value !== ''
+      }).length !== 0
+    )
   }
 
   const onChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {

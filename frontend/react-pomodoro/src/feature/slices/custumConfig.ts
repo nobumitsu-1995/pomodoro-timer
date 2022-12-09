@@ -12,11 +12,11 @@ const initialState: CustumConfigsType = {
   custumConfig: [
     {
       _id: '',
-      workTime: 0,
-      restTime: 0,
-      cycle: 0,
-      longRestTime: 0,
-      cycleToLongRestTime: 0,
+      workTime: 5,
+      restTime: 5,
+      cycle: 1,
+      longRestTime: 5,
+      cycleToLongRestTime: 1,
     },
   ],
   length: 0,
