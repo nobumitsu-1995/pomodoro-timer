@@ -7,15 +7,27 @@ type Props = {
   cycle: number
   /** タイマーの繰り返し残り回数 */
   leftCycle: number
+  /** 長い休憩時間 */
+  cycleToLongRestTime: number
   /** styleの継承 */
   className?: string
 }
 
-const TimerCycleBar: React.FC<Props> = ({ cycle, leftCycle, className }) => {
+const TimerCycleBar: React.FC<Props> = ({
+  cycle,
+  leftCycle,
+  cycleToLongRestTime,
+  className,
+}) => {
   return (
     <StyledUl className={className}>
       {[...Array(cycle)].map((_, index) => {
-        const color = index + 1 > cycle - leftCycle ? '' : '#ebebeb'
+        const color =
+          index + 1 > cycle - leftCycle
+            ? (index + 1) % cycleToLongRestTime === 0
+              ? '#CF4F4F'
+              : ''
+            : '#ebebeb'
         return (
           <StyledLi key={`bar${index}`}>
             <Bar backgroundColor={color} />
