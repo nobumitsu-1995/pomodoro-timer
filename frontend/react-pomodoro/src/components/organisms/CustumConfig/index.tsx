@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { custumConfigsSelector, tokenGetSelector } from 'src/feature/selectors'
 import { updateCustumConfig } from 'src/feature/slices/custumConfig'
+import { setCustumTimerConfig } from 'src/feature/slices/timerConfig'
 import { useSelector } from 'src/feature/store'
 import { api } from 'src/lib/functions/axios'
 import {
@@ -26,6 +27,7 @@ const index: React.FC = () => {
 
   useEffect(() => {
     setCustumConfig(custumConfigs[selectNum])
+    dispatch(setCustumTimerConfig(custumConfigs[selectNum]))
   }, [selectNum, custumConfigs])
 
   const formItems = [
@@ -75,13 +77,13 @@ const index: React.FC = () => {
   }
 
   const validateForm = (name: string, value: number) => {
-    if (name === '_id') return
     if (name === 'cycle' || name === 'cycleToLongRestTime') {
       setErrors((prev) => ({
         ...prev,
         [name]: validateCycle(value),
       }))
-    } else {
+    }
+    if (name === 'workTime' || name === 'restTime' || name === 'longRestTime') {
       setErrors((prev) => ({
         ...prev,
         [name]: validateTimerConfig(value),
@@ -96,6 +98,7 @@ const index: React.FC = () => {
       .patch(`/v1/custum_config/${custumConfig._id}/update`, custumConfig)
       .then((res) => {
         dispatch(updateCustumConfig(res.data))
+        dispatch(setCustumTimerConfig(res.data))
       })
       .catch((e) => {
         console.error(e)
