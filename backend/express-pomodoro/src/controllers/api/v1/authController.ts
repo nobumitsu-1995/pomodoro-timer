@@ -35,15 +35,30 @@ export const authenticateJWT = async (
   next: NextFunction
 ) => {
   const token = req.headers.authorization || process.env.TOKEN_TEST || ''
-  const kid = await getKid(token).catch((err) => res.status(403).json(err))
+  const kid = await getKid(token).catch((err) => {
+    console.log(err)
+    console.log('failed get kid')
+
+    return res.status(403).json({
+      err,
+    })
+  })
   const publicKey = await getPublicKey(kid as string).catch((err) => {
-    res.status(403).json(err)
+    console.log(err)
+    console.log('failed get publicKey')
+    return res.status(403).json({
+      err,
+    })
   })
   const verifiedToken = await verifyToken(token, publicKey as string).catch(
     (err) => {
-      res.status(403).json(err)
+      console.log(err)
+      console.log('failed get verifiedToken')
+      return res.status(403).json({
+        err,
+      })
     }
   )
-  res.locals.user = verifiedToken
+  res.locals.user = await verifiedToken
   next()
 }
