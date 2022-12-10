@@ -4,7 +4,7 @@ import {
   decrementWorkTime as reduxDecrementWorktime,
   incrementRestTime as reduxIncrementResttime,
   decrementRestTime as reduxDecrementResttime,
-} from '../../../feature/timerConfig'
+} from '../../../feature/slices/timerConfig'
 import { useDispatch } from 'react-redux'
 import { useSelector } from '../../../feature/store'
 import { restTimeSelector, workTimeSelector } from '../../../feature/selectors'

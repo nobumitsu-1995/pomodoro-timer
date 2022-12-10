@@ -12,6 +12,7 @@ type Props = {
   cycleBar: {
     cycle: number
     leftCycle: number
+    cycleToLongRestTime: number
   }
   iconButtonItems: {
     name: string

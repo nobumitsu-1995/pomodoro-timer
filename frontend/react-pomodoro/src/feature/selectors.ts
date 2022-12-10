@@ -24,6 +24,20 @@ export const restTimeSelector = createSelector(
   }
 )
 
+export const longRestTimeSelector = createSelector(
+  timerConfigSelector,
+  (timerConfig) => {
+    return timerConfig.longRestTime
+  }
+)
+
+export const cycleToLongRestTimeSelector = createSelector(
+  timerConfigSelector,
+  (timerConfig) => {
+    return timerConfig.cycleToLongRestTime
+  }
+)
+
 const timerStatusSelector = (state: StoreType) => state.timerStatus
 
 export const isRunningSelector = createSelector(
@@ -54,6 +68,13 @@ export const leftTimeSelector = createSelector(
   }
 )
 
+export const isLongRestCycleSelector = createSelector(
+  timerStatusSelector,
+  (timerStatus) => {
+    return timerStatus.isLongRestCycle
+  }
+)
+
 const soundConfigSelector = (state: StoreType) => state.soundConfig
 
 export const volumeSelector = createSelector(
@@ -75,3 +96,18 @@ const noticeSelector = (state: StoreType) => state.notices
 export const noticesSelector = createSelector(noticeSelector, (notices) => {
   return notices.notices
 })
+
+const tokenSelector = (state: StoreType) => state.token
+
+export const tokenGetSelector = createSelector(tokenSelector, (token) => {
+  return token.token
+})
+
+const custumConfigSelector = (state: StoreType) => state.custumConfig
+
+export const custumConfigsSelector = createSelector(
+  custumConfigSelector,
+  (custumConfigs) => {
+    return custumConfigs.custumConfig
+  }
+)

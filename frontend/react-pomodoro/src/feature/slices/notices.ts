@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { NoticeType } from '../lib/types/modelType'
+import { NoticeType } from '../../lib/types/modelType'
 
 /** お知らせに関するfeatureの型 */
 export type NoticesType = {
@@ -11,7 +11,7 @@ export type NoticesType = {
 const initialState: NoticesType = {
   notices: [
     {
-      id: '',
+      _id: '',
       title: '',
       content: '',
       publishedAt: '',

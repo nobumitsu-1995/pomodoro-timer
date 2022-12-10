@@ -4,10 +4,13 @@ import WorkFinish from '../../../assets/sounds/WorkFinish.mp3'
 import RestFinish from '../../../assets/sounds/RestFinish.mp3'
 import {
   cycleSelector,
+  cycleToLongRestTimeSelector,
+  isLongRestCycleSelector,
   isPauseSelector,
   isRestSelector,
   isRunningSelector,
   leftTimeSelector,
+  longRestTimeSelector,
   restTimeSelector,
   volumeSelector,
   workTimeSelector,
@@ -20,10 +23,11 @@ import {
   passLeftTime,
   restFinish,
   setLeftTime,
+  updateIsLongRestCycle,
   updatePause,
   updatePlay,
   workFinish,
-} from 'src/feature/timerStatus'
+} from 'src/feature/slices/timerStatus'
 
 const index: React.FC = () => {
   const dispatch = useDispatch()
@@ -35,6 +39,9 @@ const index: React.FC = () => {
   const isPause = useSelector(isPauseSelector)
   const isRest = useSelector(isRestSelector)
   const leftTime = useSelector(leftTimeSelector)
+  const longRestTime = useSelector(longRestTimeSelector)
+  const cycleToLongRestTime = useSelector(cycleToLongRestTimeSelector)
+  const isLongRestCycle = useSelector(isLongRestCycleSelector)
   const [playWorkFinish] = useSound(WorkFinish, { volume: volume / 100 })
   const [playRestFinish] = useSound(RestFinish, { volume: volume / 100 })
   /** タイマーの残り回数 */
@@ -77,7 +84,15 @@ const index: React.FC = () => {
     const minutes = ('00' + Math.floor(leftTime / 60)).slice(-2)
     const seconds = ('00' + (leftTime % 60)).slice(-2)
     setTime({ minutes: minutes, seconds: seconds })
-  }, [leftTime])
+  }, [leftTime, isRunning])
+
+  useEffect(() => {
+    if ((cycle - leftCycle + 1) % cycleToLongRestTime === 0) {
+      dispatch(updateIsLongRestCycle(true))
+    } else {
+      dispatch(updateIsLongRestCycle(false))
+    }
+  }, [leftCycle])
 
   /** タイマーリセット処理 */
   const resetTimer = () => {
@@ -96,6 +111,9 @@ const index: React.FC = () => {
       playWorkFinish()
       dispatch(workFinish())
       dispatch(setLeftTime(restTime))
+      if (isLongRestCycle) {
+        dispatch(setLeftTime(longRestTime))
+      }
     } else if (leftTime < 0 && isRest) {
       //休憩時間終了の処理
       playRestFinish()
@@ -145,6 +163,7 @@ const index: React.FC = () => {
       cycleBar={{
         cycle: cycle,
         leftCycle: leftCycle,
+        cycleToLongRestTime: cycleToLongRestTime,
       }}
     />
   )

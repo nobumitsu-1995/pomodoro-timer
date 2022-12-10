@@ -8,6 +8,8 @@ export type TimerStatusType = {
   isPause: boolean
   /** タイマーは稼働中で休憩時間 */
   isRest: boolean
+  /** タイマーは長い休憩時間のサイクルである */
+  isLongRestCycle: boolean
   /** タイマーの残り時間 */
   leftTime: number
 }
@@ -17,6 +19,7 @@ const initialState: TimerStatusType = {
   isRunning: false,
   isPause: false,
   isRest: false,
+  isLongRestCycle: false,
   leftTime: 60 * 25,
 }
 
@@ -56,6 +59,9 @@ export const timerStatusSlice = createSlice({
     updatePause: (state) => {
       state.isPause = true
     },
+    updateIsLongRestCycle: (state, action: PayloadAction<boolean>) => {
+      state.isLongRestCycle = action.payload
+    },
     setLeftTime: (state, action: PayloadAction<number>) => {
       state.leftTime = action.payload
     },
@@ -75,6 +81,7 @@ export const {
   restFinish,
   updatePlay,
   updatePause,
+  updateIsLongRestCycle,
   setLeftTime,
   passLeftTime,
 } = actions
