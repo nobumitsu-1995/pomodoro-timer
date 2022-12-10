@@ -34,19 +34,19 @@ export const timerConfigSlice = createSlice({
     },
     incrementWorkTime: (state) => {
       state.workTime += 60 * 5
-      // if (state.workTime > 60 * 60) state.workTime = 60 * 60
+      if (state.workTime > 60 * 60) state.workTime = 60 * 60
     },
     decrementWorkTime: (state) => {
       state.workTime -= 60 * 5
-      // if (state.workTime < 60 * 5) state.workTime = 60 * 5
+      if (state.workTime < 60 * 5) state.workTime = 60 * 5
     },
     incrementRestTime: (state) => {
       state.restTime += 60 * 5
-      // if (state.restTime > 60 * 60) state.restTime = 60 * 60
+      if (state.restTime > 60 * 60) state.restTime = 60 * 60
     },
     decrementRestTime: (state) => {
       state.restTime -= 60 * 5
-      // if (state.restTime < 60 * 5) state.restTime = 60 * 5
+      if (state.restTime < 60 * 5) state.restTime = 60 * 5
     },
     setCustumTimerConfig: (state, action: PayloadAction<CustumConfigType>) => {
       state.cycle = action.payload.cycle
