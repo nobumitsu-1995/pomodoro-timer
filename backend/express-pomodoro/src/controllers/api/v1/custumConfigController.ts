@@ -13,6 +13,30 @@ export const getConfigParams = (body: custumConfigType, uid: string) => {
   }
 }
 
+export const initializeCustumConfig = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const uid = res.locals.user.sub
+  const array = new Array(5).fill({
+    uid: uid,
+    workTime: 25,
+    restTime: 5,
+    cycle: 8,
+    longRestTime: 10,
+    cycleToLongRestTime: 4,
+  })
+
+  CustumConfig.insertMany(array)
+    .then((configs) => {
+      res.status(200).json(configs)
+    })
+    .catch((e) => {
+      next(e)
+    })
+}
+
 export const getCustumConfigs = (
   req: Request,
   res: Response,
