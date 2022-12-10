@@ -7,7 +7,7 @@ import {
   updateVolume as reduxUpdateVolume,
   muteVolume as reduxMuteVolume,
   unMuteVolume as reduxUnMuteVolume,
-} from '../../../feature/soundConfig'
+} from '../../../feature/slices/soundConfig'
 import { useSelector } from '../../../feature/store'
 import Presenter from './Presenter'
 

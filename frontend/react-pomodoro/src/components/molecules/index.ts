@@ -1,5 +1,7 @@
 export { default as AuthButton } from './AuthButton'
+export { default as Form } from './Form'
 export { default as IconButtonList } from './IconButtonList'
+export { default as InputArea } from './InputArea'
 export { default as MuteButton } from './MuteButton'
 export { default as NoticeDetail } from './NoticeDetail'
 export { default as NoticesListItem } from './NoticesListItem'

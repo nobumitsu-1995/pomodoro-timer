@@ -25,4 +25,5 @@ export const Default = Template.bind({})
 Default.args = {
   cycle: 5,
   leftCycle: 3,
+  cycleToLongRestTime: 2,
 }

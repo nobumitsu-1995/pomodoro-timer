@@ -2,7 +2,6 @@ import chai, { expect } from 'chai'
 import chaiHTTP from 'chai-http'
 import app from '../../../../src/main'
 import Notice from '../../../../src/models/notice'
-import * as noticesController from '../../../../src/controllers/api/v1/noticesController'
 
 chai.use(chaiHTTP)
 

@@ -1,3 +1,4 @@
+export { default as CustumConfig } from './CustumConfig'
 export { default as CycleConfig } from './CycleConfig'
 export { default as HeaderNav } from './HeaderNav'
 export { default as ModalBody } from './Modal/ModalBody'

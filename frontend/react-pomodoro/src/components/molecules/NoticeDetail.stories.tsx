@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof NoticeDetail> = (args) => (
 export const Default = Template.bind({})
 
 Default.args = {
-  id: 'id',
+  _id: 'id',
   title: 'タイトル'.repeat(10),
   content: '内容'.repeat(30),
   updatedAt: '2022/01/01',

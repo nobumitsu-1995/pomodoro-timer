@@ -32,10 +32,10 @@ export const getNotice = (req: Request, res: Response, next: NextFunction) => {
       if (notice) {
         res.status(200).render('notices/show', { notice })
       }
-      next({ message: "Notice's data is not find!" })
+      res.status(404).send("Notice's data is not find!")
     })
     .catch((e) => {
-      next(e)
+      res.status(404).send("Notice's data is not find!")
     })
 }
 
@@ -74,10 +74,10 @@ export const renderEditPage = (
       if (notice) {
         res.status(200).render('notices/edit', { notice })
       }
-      next({ message: "Notice's data is not find!" })
+      res.status(404).send("Notice's data is not find!")
     })
     .catch((e) => {
-      next(e)
+      res.status(404).send("Notice's data is not find!")
     })
 }
 
@@ -94,10 +94,10 @@ export const updateNotice = (
       if (notice) {
         res.status(200).render('notices/show', { notice })
       }
-      next({ message: "Notice's data is not find!" })
+      res.status(404).send("Notice's data is not find!")
     })
     .catch((e) => {
-      next(e)
+      res.status(404).send("Notice's data is not find!")
     })
 }
 
@@ -112,7 +112,7 @@ export const deleteNotice = (
       res.status(200).redirect('/notices')
     })
     .catch((e) => {
-      next(e)
+      res.status(404).send("Notice's data is not find!")
     })
 }
 

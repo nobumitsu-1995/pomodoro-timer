@@ -12,6 +12,8 @@ import './assets/styles/index.scss'
 // 変数の定義
 const app = express()
 config()
+export const jwksUri = process.env.JWKS_URI || ''
+export const issuer = process.env.AUTH0_DOMAIN || ''
 const isTest = process.env.NODE_ENV === 'test'
 const isDocker = process.env.DOCKER === 'true'
 const isLocal = process.env.NODE_ENV === 'development'
@@ -26,7 +28,7 @@ const dbPath = isTest
   : isLocal
   ? 'mongodb://localhost:27017/pomodoro_dev' // local環境
   : `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_SERVER}` // 本番環境
-const port = isTest ? 81 : 80
+export const port = isTest ? 81 : 80
 
 // applicationの基本設定
 app.use(express.static(__dirname + '/public'))
