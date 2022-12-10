@@ -16,7 +16,7 @@ beforeEach((done) => {
     })
 })
 
-describe('noticesController', () => {
+describe('custumConfigController', () => {
   describe('GET api/v1/custum_config', () => {
     it('it should GET all custum_config json', (done) => {
       CustumConfig.create({
@@ -217,6 +217,26 @@ describe('noticesController', () => {
             done()
           })
       })
+    })
+  })
+
+  describe('POST api/v1/custum_config/initialize', () => {
+    it('it should create 5 custum_config data', (done) => {
+      chai
+        .request(app)
+        .post(`/api/v1/custum_config/initialize`)
+        .end((errors, res) => {
+          expect(res).to.be.status(200)
+          console.log(res.body)
+          expect(res.body.length).to.eq(5)
+          expect(res.body[0].workTime).to.eq(25)
+          expect(res.body[0].restTime).to.eq(5)
+          expect(res.body[0].cycle).to.eq(8)
+          expect(res.body[0].longRestTime).to.eq(10)
+          expect(res.body[0].cycleToLongRestTime).to.eq(4)
+          expect(errors).to.be.null
+          done()
+        })
     })
   })
 })

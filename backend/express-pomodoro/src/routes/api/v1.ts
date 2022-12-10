@@ -5,6 +5,7 @@ import {
   deleteCustumConfig,
   getCustumConfig,
   getCustumConfigs,
+  initializeCustumConfig,
   updateCustumConfig,
   validator,
 } from '../../controllers/api/v1/custumConfigController'
@@ -29,5 +30,10 @@ router.patch(
   updateCustumConfig
 )
 router.delete('/custum_config/:id/delete', authenticateJWT, deleteCustumConfig)
+router.post(
+  '/custum_config/initialize',
+  authenticateJWT,
+  initializeCustumConfig
+)
 
 export default router
