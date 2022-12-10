@@ -65,7 +65,7 @@ const App: React.FC = () => {
         <Header />
         <StyledMain>
           <TimerBlock />
-          <UserBlock />
+          {isAuthenticated && <UserBlock />}
           <ModalBody />
         </StyledMain>
       </ModalProvider>
