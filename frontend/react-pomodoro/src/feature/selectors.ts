@@ -111,3 +111,13 @@ export const custumConfigsSelector = createSelector(
     return custumConfigs.custumConfig
   }
 )
+
+const taskSelector = (state: StoreType) => state.tasks
+
+export const tasksSelector = createSelector(taskSelector, (tasks) => {
+  return tasks.tasks
+})
+
+export const currentTaskSelector = createSelector(taskSelector, (tasks) => {
+  return tasks.currentTask
+})
