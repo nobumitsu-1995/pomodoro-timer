@@ -27,3 +27,12 @@ export type CustumConfigType = {
   /** 長い休憩時間までのサイクル */
   cycleToLongRestTime: number
 }
+
+export type TaskType = {
+  /** id */
+  _id: string
+  /** タスクの作成ユーザー */
+  uid: string
+  /** タスクの内容 */
+  title: string
+}

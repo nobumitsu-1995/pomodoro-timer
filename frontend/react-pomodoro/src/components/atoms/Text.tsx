@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components/macro'
+import styled from 'styled-components/macro'
 
 type Props = {
   /** 描画する要素 */
@@ -16,6 +16,8 @@ type Props = {
   size?: string
   /** font-weightの値 */
   bold?: string | number
+  /** クリック時に発火させる関数 */
+  onClick?: () => void
   className?: string
 }
 
@@ -32,6 +34,7 @@ const Text: React.FC<Props> = ({ children, ...props }) => {
         font-size: ${props.size || '1.2rem'};
         font-weight: ${props.bold || 400};
       `}
+      onClick={props.onClick}
     >
       {children}
     </StyledP>

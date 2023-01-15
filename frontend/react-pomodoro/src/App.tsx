@@ -12,6 +12,7 @@ import { setNotices } from './feature/slices/notices'
 import { setToken } from './feature/slices/token'
 import { tokenGetSelector } from './feature/selectors'
 import { setCustumConfigs } from './feature/slices/custumConfig'
+import { setCurrentTask, setTasks } from './feature/slices/tasks'
 
 const App: React.FC = () => {
   // Auth0認証後に受け取るトークン
@@ -39,6 +40,7 @@ const App: React.FC = () => {
   // トークン取得後、ユーザー固有の情報をAPIから取得
   useEffect(() => {
     if (!isAuthenticated || !token) return
+    // ユーザーのカスタムコンフィグ情報を取得
     api(token)
       .get('/v1/custum_config')
       .then((res) => {
@@ -53,6 +55,17 @@ const App: React.FC = () => {
             })
         }
         dispatch(setCustumConfigs(res.data))
+      })
+      .catch((e) => {
+        console.error(e)
+      })
+
+    // ユーザーのタスク一覧を取得
+    api(token)
+      .get('/v1/task')
+      .then((res) => {
+        dispatch(setTasks(res.data))
+        dispatch(setCurrentTask(res.data[0]._id || ''))
       })
       .catch((e) => {
         console.error(e)
