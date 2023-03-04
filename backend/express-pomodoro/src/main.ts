@@ -6,8 +6,12 @@ import passport from 'passport'
 import passportHttp from 'passport-http'
 import mongoose from 'mongoose'
 import { config } from 'dotenv'
-import router from './routes'
 import './assets/styles/index.scss'
+import noticeRouter from './routes/notice'
+import v1CustumConfigRouter from './routes/api/v1/custumConfig'
+import v1NoticeRouter from './routes/api/v1/notice'
+import v1TaskRouter from './routes/api/v1/task'
+import v1WorkTimeRouter from './routes/api/v1/workTime'
 
 // 変数の定義
 const app = express()
@@ -68,7 +72,19 @@ db.once('open', () => {
 })
 
 // routerの読み込み
-app.use('/', router)
+app.use('/api/v1', v1AchievementRouter)
+app.use('/api/v1', v1CustumConfigRouter)
+app.use('/api/v1', v1NoticeRouter)
+app.use('/api/v1', v1TaskRouter)
+app.use('/api/v1', v1WorkTimeRouter)
+app.use(
+  '/notices',
+  passport.authenticate('basic', { session: false }),
+  noticeRouter
+)
+app.use('/', (req, res) => {
+  res.render('index')
+})
 
 // サーバーの起動
 app.listen(port, () => {
