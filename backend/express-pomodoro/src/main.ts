@@ -12,6 +12,7 @@ import v1CustumConfigRouter from './routes/api/v1/custumConfig'
 import v1NoticeRouter from './routes/api/v1/notice'
 import v1TaskRouter from './routes/api/v1/task'
 import v1WorkTimeRouter from './routes/api/v1/workTime'
+import v1AchievementRouter from './routes/api/v1/achievement'
 
 // 変数の定義
 const app = express()
