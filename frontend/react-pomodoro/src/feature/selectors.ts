@@ -54,6 +54,13 @@ export const leftTimeSelector = createSelector(
   }
 )
 
+export const endTimeSelector = createSelector(
+  timerStatusSelector,
+  (timerStatus) => {
+    return timerStatus.endTime
+  }
+)
+
 const soundConfigSelector = (state: StoreType) => state.soundConfig
 
 export const volumeSelector = createSelector(

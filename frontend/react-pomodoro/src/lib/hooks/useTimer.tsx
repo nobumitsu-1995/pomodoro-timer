@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {
-  passLeftTime,
   setLeftTime,
   TimerStatus,
   updateStatus,
@@ -26,6 +25,8 @@ type Props = {
   leftTime: number
   /** タイマーの状況 */
   status: TimerStatus
+  /** タイマーの終了時刻 */
+  endTime: number
   /** 現在設定されているタスクのID */
   taskId: string | null
   token: string | null
@@ -42,6 +43,7 @@ const useTimer = ({
   cycleToLongRestTime,
   leftTime,
   status,
+  endTime,
   taskId,
   token,
 }: Props) => {
@@ -61,11 +63,10 @@ const useTimer = ({
     setLeftCycle(cycle)
   }, [workTime, restTime, cycle])
 
-  /** 1000msごとに実行される関数 */
+  /** 200msごとに実行される関数 */
   const tick = () => {
-    if (status === 'running' || status === 'rest' || status === 'longRest') {
-      dispatch(passLeftTime())
-    }
+    const _leftTime = Math.floor((endTime - new Date().getTime()) / 1000)
+    dispatch(setLeftTime(_leftTime))
   }
 
   /** タイマーのID。スタート、ストップ、ポーズの操作に応じて切り替わる */
@@ -75,8 +76,8 @@ const useTimer = ({
     const clearTimer = () => {
       if (timerId.current) clearInterval(timerId.current)
     }
-    clearTimer()
-    timerId.current = setInterval(tick, 1000)
+    if (status === 'stop' || status === 'pause') return clearTimer()
+    timerId.current = setInterval(tick, 200)
     return () => {
       clearTimer
     }

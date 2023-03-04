@@ -6,6 +6,7 @@ import {
   leftTimeSelector,
   longRestTimeSelector,
   restTimeSelector,
+  endTimeSelector,
   statusSelector,
   tokenGetSelector,
   volumeSelector,
@@ -16,7 +17,7 @@ import Presenter from './Presenter'
 import { useDispatch } from 'react-redux'
 import useSoundConfig from 'src/lib/hooks/useSoundConfig'
 import useTimer from 'src/lib/hooks/useTimer'
-import { updateStatus } from 'src/feature/slices/timerStatus'
+import { setEndTime, updateStatus } from 'src/feature/slices/timerStatus'
 
 const index: React.FC = () => {
   const dispatch = useDispatch()
@@ -31,6 +32,7 @@ const index: React.FC = () => {
   const cycleToLongRestTime = useSelector(cycleToLongRestTimeSelector)
   const leftTime = useSelector(leftTimeSelector)
   const status = useSelector(statusSelector)
+  const endTime = useSelector(endTimeSelector)
   const taskId = useSelector(currentTaskSelector)._id || null
   const token = useSelector(tokenGetSelector)
 
@@ -44,6 +46,7 @@ const index: React.FC = () => {
     cycleToLongRestTime,
     leftTime,
     status,
+    endTime,
     taskId,
     token,
   })
@@ -57,6 +60,7 @@ const index: React.FC = () => {
           : false,
       onClick: () => {
         dispatch(updateStatus('running'))
+        dispatch(setEndTime())
       },
     },
     {
