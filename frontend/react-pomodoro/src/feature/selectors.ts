@@ -40,24 +40,10 @@ export const cycleToLongRestTimeSelector = createSelector(
 
 const timerStatusSelector = (state: StoreType) => state.timerStatus
 
-export const isRunningSelector = createSelector(
+export const statusSelector = createSelector(
   timerStatusSelector,
   (timerStatus) => {
-    return timerStatus.isRunning
-  }
-)
-
-export const isPauseSelector = createSelector(
-  timerStatusSelector,
-  (timerStatus) => {
-    return timerStatus.isPause
-  }
-)
-
-export const isRestSelector = createSelector(
-  timerStatusSelector,
-  (timerStatus) => {
-    return timerStatus.isRest
+    return timerStatus.status
   }
 )
 
@@ -65,13 +51,6 @@ export const leftTimeSelector = createSelector(
   timerStatusSelector,
   (timerStatus) => {
     return timerStatus.leftTime
-  }
-)
-
-export const isLongRestCycleSelector = createSelector(
-  timerStatusSelector,
-  (timerStatus) => {
-    return timerStatus.isLongRestCycle
   }
 )
 

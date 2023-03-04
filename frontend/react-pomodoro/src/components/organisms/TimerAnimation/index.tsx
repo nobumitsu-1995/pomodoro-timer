@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
-  isLongRestCycleSelector,
-  isRestSelector,
-  isRunningSelector,
+  statusSelector,
   leftTimeSelector,
   longRestTimeSelector,
   restTimeSelector,
@@ -16,24 +14,28 @@ const index: React.FC = () => {
   const leftTime = useSelector(leftTimeSelector)
   const workTime = useSelector(workTimeSelector)
   const restTime = useSelector(restTimeSelector)
-  const isLongRestCycle = useSelector(isLongRestCycleSelector)
   const longRestTime = useSelector(longRestTimeSelector)
-  const isRunning = useSelector(isRunningSelector)
-  const isRest = useSelector(isRestSelector)
+  const status = useSelector(statusSelector)
 
   useEffect(() => {
-    const _progress = isRunning
-      ? isRest
-        ? // 休憩中の進捗
-          isLongRestCycle
-          ? // 長時間休憩時間の進捗
-            (longRestTime - leftTime) / longRestTime
-          : // 通常休憩時間の進捗
-            (restTime - leftTime) / restTime
-        : // タスク中の進捗
-          (workTime - leftTime) / workTime
-      : // 稼働していない時
-        0
+    let _progress: number
+    switch (status) {
+      case 'running':
+        _progress = (workTime - leftTime) / workTime
+        break
+      case 'rest':
+        _progress = (restTime - leftTime) / restTime
+        break
+      case 'longRest':
+        _progress = (longRestTime - leftTime) / longRestTime
+        break
+      case 'pause':
+        _progress = progress
+        break
+      default:
+        _progress = 0
+        break
+    }
     setProgress(_progress)
   }, [leftTime])
 
