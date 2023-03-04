@@ -10,14 +10,14 @@ import {
   validator,
 } from '../controllers/noticesController'
 
-const router = express.Router()
+const noticeRouter = express.Router()
 
-router.get('/', getNotices)
-router.get('/:id/show', getNotice)
-router.get('/new', renderNewPage)
-router.post('/create', validator, createNotice)
-router.get('/:id/edit', renderEditPage)
-router.patch('/:id/update', validator, updateNotice)
-router.delete('/:id/delete', deleteNotice)
+noticeRouter.get('/', getNotices)
+noticeRouter.get('/:id/show', getNotice)
+noticeRouter.get('/new', renderNewPage)
+noticeRouter.post('/create', validator, createNotice)
+noticeRouter.get('/:id/edit', renderEditPage)
+noticeRouter.patch('/:id/update', validator, updateNotice)
+noticeRouter.delete('/:id/delete', deleteNotice)
 
-export default router
+export default noticeRouter
