@@ -5,6 +5,8 @@ const taskSchema = new Schema(
     title: {
       type: String,
       required: true,
+      maxlength: 25,
+      minlength: 1,
     },
     uid: {
       type: String,

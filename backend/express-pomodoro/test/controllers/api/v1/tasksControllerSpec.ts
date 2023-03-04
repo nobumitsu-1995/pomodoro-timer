@@ -76,7 +76,7 @@ describe('TaskController', () => {
     it('it should POST task json', (done) => {
       const taskParams = {
         uid: process.env.SUB_TEST,
-        title: 'test title',
+        title: 'a'.repeat(25),
       }
 
       chai
@@ -85,8 +85,40 @@ describe('TaskController', () => {
         .send(taskParams)
         .end((errors, res) => {
           expect(res).to.be.status(201)
-          expect(res.body.title).to.eq('test title')
+          expect(res.body.title).to.eq('aaaaaaaaaaaaaaaaaaaaaaaaa')
           expect(errors).to.be.null
+          done()
+        })
+    })
+
+    it('it should not CREATE task with 26 latters title', (done) => {
+      const taskParams = {
+        uid: process.env.SUB_TEST,
+        title: 'a'.repeat(26),
+      }
+
+      chai
+        .request(app)
+        .post(`/api/v1/task/create`)
+        .send(taskParams)
+        .end((errors, res) => {
+          expect(res).to.be.status(500)
+          done()
+        })
+    })
+
+    it('it should not CREATE task with 0 latters title', (done) => {
+      const taskParams = {
+        uid: process.env.SUB_TEST,
+        title: '',
+      }
+
+      chai
+        .request(app)
+        .post(`/api/v1/task/create`)
+        .send(taskParams)
+        .end((errors, res) => {
+          expect(res).to.be.status(404)
           done()
         })
     })

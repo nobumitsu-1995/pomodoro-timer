@@ -7,7 +7,7 @@ import passportHttp from 'passport-http'
 import mongoose from 'mongoose'
 import { config } from 'dotenv'
 import router from './routes'
-import './assets/styles/index.scss'
+// import './assets/styles/index.scss'
 
 // 変数の定義
 const app = express()
