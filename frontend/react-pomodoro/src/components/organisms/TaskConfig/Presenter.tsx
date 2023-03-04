@@ -106,6 +106,8 @@ const StyledDiv3 = styled.div`
 
 const StyledText = styled(Text)`
   width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 `

@@ -67,8 +67,10 @@ const StyledLi = styled.li`
 const StyledText = styled(Text)`
   padding: 0 8px;
   max-width: 190px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   cursor: pointer;
 
   :hover {
