@@ -65,7 +65,7 @@ const App: React.FC = () => {
       .get('/v1/task')
       .then((res) => {
         dispatch(setTasks(res.data))
-        dispatch(setCurrentTask(res.data[0]._id || ''))
+        dispatch(setCurrentTask(res.data[0] || ''))
       })
       .catch((e) => {
         console.error(e)
