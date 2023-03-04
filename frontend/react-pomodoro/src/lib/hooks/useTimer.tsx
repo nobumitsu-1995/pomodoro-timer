@@ -7,6 +7,7 @@ import {
   updateStatus,
 } from 'src/feature/slices/timerStatus'
 import { PlayFunction } from 'use-sound/dist/types'
+import { createAchievement } from '../functions/createAchievement'
 
 type Props = {
   playRestFinish: PlayFunction
@@ -25,6 +26,9 @@ type Props = {
   leftTime: number
   /** タイマーの状況 */
   status: TimerStatus
+  /** 現在設定されているタスクのID */
+  taskId: string | null
+  token: string | null
 }
 
 /** Timerの動作に関するHooks */
@@ -38,6 +42,8 @@ const useTimer = ({
   cycleToLongRestTime,
   leftTime,
   status,
+  taskId,
+  token,
 }: Props) => {
   const dispatch = useDispatch()
 
@@ -57,7 +63,7 @@ const useTimer = ({
 
   /** 1000msごとに実行される関数 */
   const tick = () => {
-    if (status === 'running') {
+    if (status === 'running' || status === 'rest' || status === 'longRest') {
       dispatch(passLeftTime())
     }
   }
@@ -107,10 +113,13 @@ const useTimer = ({
       //作業時間終了の処理
       case 'running':
         playWorkFinish()
+        taskId && token && createAchievement(token, taskId, workTime * cycle)
         dispatch(updateStatus('rest'))
         isLongRest()
-          ? dispatch(setLeftTime(longRestTime))
-          : dispatch(setLeftTime(restTime))
+          ? // 長い休憩時間の場合
+            dispatch(setLeftTime(longRestTime))
+          : // 通常の休憩時間の場合
+            dispatch(setLeftTime(restTime))
         break
 
       //休憩時間終了の処理

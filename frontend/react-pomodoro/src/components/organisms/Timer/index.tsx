@@ -1,11 +1,13 @@
 import React from 'react'
 import {
+  currentTaskSelector,
   cycleSelector,
   cycleToLongRestTimeSelector,
   leftTimeSelector,
   longRestTimeSelector,
   restTimeSelector,
   statusSelector,
+  tokenGetSelector,
   volumeSelector,
   workTimeSelector,
 } from '../../../feature/selectors'
@@ -29,6 +31,8 @@ const index: React.FC = () => {
   const cycleToLongRestTime = useSelector(cycleToLongRestTimeSelector)
   const leftTime = useSelector(leftTimeSelector)
   const status = useSelector(statusSelector)
+  const taskId = useSelector(currentTaskSelector)._id || null
+  const token = useSelector(tokenGetSelector)
 
   const { leftCycle, time, resetTimer } = useTimer({
     playRestFinish,
@@ -40,12 +44,17 @@ const index: React.FC = () => {
     cycleToLongRestTime,
     leftTime,
     status,
+    taskId,
+    token,
   })
 
   const iconButtonItems = [
     {
       name: 'play_arrow',
-      disable: status === 'running' ? true : false,
+      disable:
+        status === 'running' || status === 'rest' || status === 'longRest'
+          ? true
+          : false,
       onClick: () => {
         dispatch(updateStatus('running'))
       },
