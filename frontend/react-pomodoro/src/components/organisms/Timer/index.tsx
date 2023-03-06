@@ -60,7 +60,7 @@ const index: React.FC = () => {
           : false,
       onClick: () => {
         dispatch(updateStatus('running'))
-        dispatch(setEndTime())
+        dispatch(setEndTime(leftTime))
       },
     },
     {

@@ -2,10 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {
   setLeftTime,
+  statusLongRest,
+  statusRest,
+  statusRunning,
   TimerStatus,
   updateStatus,
 } from 'src/feature/slices/timerStatus'
 import { PlayFunction } from 'use-sound/dist/types'
+import { convertToDisplayTime } from '../functions/convertToDisplayTime'
 import { createAchievement } from '../functions/createAchievement'
 
 type Props = {
@@ -52,10 +56,7 @@ const useTimer = ({
   /** タイマーの残り回数 */
   const [leftCycle, setLeftCycle] = useState(cycle)
   /** タイマーに表示される分秒 */
-  const [time, setTime] = useState({
-    minutes: ('00' + Math.floor(leftTime / 60)).slice(-2),
-    seconds: ('00' + (leftTime % 60)).slice(-2),
-  })
+  const [time, setTime] = useState(convertToDisplayTime(leftTime))
 
   /** workTime, restTimeの設定が変更された時の処理 */
   useEffect(() => {
@@ -63,9 +64,10 @@ const useTimer = ({
     setLeftCycle(cycle)
   }, [workTime, restTime, cycle])
 
-  /** 200msごとに実行される関数 */
+  /** 1000msごとに実行される関数 */
   const tick = () => {
-    const _leftTime = Math.floor((endTime - new Date().getTime()) / 1000)
+    if (status === 'stop' || status === 'pause') return
+    const _leftTime = Math.round((endTime - new Date().getTime()) / 1000)
     dispatch(setLeftTime(_leftTime))
   }
 
@@ -76,19 +78,17 @@ const useTimer = ({
     const clearTimer = () => {
       if (timerId.current) clearInterval(timerId.current)
     }
-    if (status === 'stop' || status === 'pause') return clearTimer()
-    timerId.current = setInterval(tick, 200)
+    clearTimer()
+    timerId.current = setInterval(tick, 1000)
     return () => {
       clearTimer
     }
-  }, [status, workTime])
+  }, [status, workTime, endTime])
 
   /** 残り時間を分秒に変換 */
   useEffect(() => {
-    const minutes = ('00' + Math.floor(leftTime / 60)).slice(-2)
-    const seconds = ('00' + (leftTime % 60)).slice(-2)
-    setTime({ minutes: minutes, seconds: seconds })
-  }, [leftTime, status])
+    setTime(convertToDisplayTime(leftTime))
+  }, [leftTime])
 
   /** 長い休憩時間の判定 */
   const isLongRest = () => {
@@ -118,12 +118,13 @@ const useTimer = ({
         dispatch(updateStatus('rest'))
         isLongRest()
           ? // 長い休憩時間の場合
-            dispatch(setLeftTime(longRestTime))
+            dispatch(statusLongRest(longRestTime))
           : // 通常の休憩時間の場合
-            dispatch(setLeftTime(restTime))
+            dispatch(statusRest(restTime))
         break
 
       //休憩時間終了の処理
+      case 'longRest':
       case 'rest':
         playRestFinish()
         leftCycle === 1
@@ -131,8 +132,7 @@ const useTimer = ({
             resetTimer()
           : //タイマーサイクルを減らす(-1)
             (setLeftCycle((_cycle: number) => _cycle - 1),
-            dispatch(updateStatus('running')),
-            dispatch(setLeftTime(workTime)))
+            dispatch(statusRunning(workTime)))
         break
       default:
         break
