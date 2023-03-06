@@ -1,4 +1,5 @@
 import axios from 'axios'
+import mockAdapter from 'src/mock/mockAdapter'
 
 const url =
   process.env.NODE_ENV === 'production'
@@ -12,5 +13,6 @@ export const api = (token?: string) => {
     headers: {
       Authorization: token,
     },
+    adapter: mockAdapter,
   })
 }
