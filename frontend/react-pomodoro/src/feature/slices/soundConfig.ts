@@ -7,7 +7,7 @@ export type SoundConfigType = {
 }
 
 /** soundConfigのfeatureの初期値 */
-const initialState: SoundConfigType = {
+export const initialState: SoundConfigType = {
   volume: 50,
   casheVolume: 50,
 }

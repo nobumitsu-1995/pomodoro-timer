@@ -13,7 +13,7 @@ export type TimerStatusType = {
 }
 
 /** timerStatusのfeatureの初期値 */
-const initialState: TimerStatusType = {
+export const initialState: TimerStatusType = {
   status: 'stop',
   endTime: new Date().getTime(),
   leftTime: 60 * 25,

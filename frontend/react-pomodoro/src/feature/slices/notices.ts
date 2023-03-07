@@ -8,7 +8,7 @@ export type NoticesType = {
 }
 
 /** お知らせに関するfeatureの初期値 */
-const initialState: NoticesType = {
+export const initialState: NoticesType = {
   notices: [
     {
       _id: '',
