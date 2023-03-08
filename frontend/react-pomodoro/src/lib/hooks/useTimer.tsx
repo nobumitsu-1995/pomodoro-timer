@@ -12,7 +12,7 @@ import { PlayFunction } from 'use-sound/dist/types'
 import { convertToDisplayTime } from '../functions/convertToDisplayTime'
 import { createAchievement } from '../functions/createAchievement'
 
-type Props = {
+export type UseTimerProps = {
   playRestFinish: PlayFunction
   playWorkFinish: PlayFunction
   /** Timerを何サイクル回すか */
@@ -50,7 +50,7 @@ const useTimer = ({
   endTime,
   taskId,
   token,
-}: Props) => {
+}: UseTimerProps) => {
   const dispatch = useDispatch()
 
   /** タイマーの残り回数 */
