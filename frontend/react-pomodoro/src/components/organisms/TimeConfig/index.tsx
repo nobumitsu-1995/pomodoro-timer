@@ -7,7 +7,10 @@ import {
 } from '../../../feature/slices/timerConfig'
 import { useDispatch } from 'react-redux'
 import { useSelector } from '../../../feature/store'
-import { restTimeSelector, workTimeSelector } from '../../../feature/selectors'
+import {
+  restTimeSelector,
+  workTimeSelector,
+} from '../../../feature/selectors/timerConfig'
 import Presenter from './Presenter'
 
 const index: React.FC = () => {

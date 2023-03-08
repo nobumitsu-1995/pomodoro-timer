@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { custumConfigsSelector, tokenGetSelector } from 'src/feature/selectors'
+import { tokenGetSelector } from 'src/feature/selectors/token'
+import { custumConfigsSelector } from 'src/feature/selectors/custumConfig'
 import { updateCustumConfig } from 'src/feature/slices/custumConfig'
 import { setCustumTimerConfig } from 'src/feature/slices/timerConfig'
 import { useSelector } from 'src/feature/store'

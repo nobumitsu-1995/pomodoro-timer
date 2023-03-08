@@ -2,11 +2,7 @@ import React, { useState } from 'react'
 import { TaskType } from 'src/lib/types/modelType'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'src/feature/store'
-import {
-  currentTaskSelector,
-  tasksSelector,
-  tokenGetSelector,
-} from 'src/feature/selectors'
+import { currentTaskSelector, tasksSelector } from 'src/feature/selectors/task'
 import {
   addTask,
   setCurrentTask,
@@ -15,6 +11,7 @@ import {
 } from 'src/feature/slices/tasks'
 import { api } from '../../../lib/functions/axios'
 import Presenter from './Presenter'
+import { tokenGetSelector } from 'src/feature/selectors/token'
 
 const index: React.FC = () => {
   const dispatch = useDispatch()

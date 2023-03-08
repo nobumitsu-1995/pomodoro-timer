@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { cycleSelector } from '../../../feature/selectors'
+import { cycleSelector } from '../../../feature/selectors/timerConfig'
 import { useSelector } from '../../../feature/store'
 import { updateCycle as reduxUpdateCycle } from '../../../feature/slices/timerConfig'
 import Presenter from './Presenter'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { noticesSelector } from '../../../feature/selectors'
+import { noticesSelector } from '../../../feature/selectors/notice'
 import { useSelector } from '../../../feature/store'
 import { NoticeType } from '../../../lib/types/modelType'
 import Presenter from './Presenter'

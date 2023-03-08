@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import useSound from 'use-sound'
 import RestFinish from '../../../assets/sounds/RestFinish.mp3'
 import { useDispatch } from 'react-redux'
-import { volumeSelector } from '../../../feature/selectors'
+import { volumeSelector } from '../../../feature/selectors/soundConfig'
 import {
   updateVolume as reduxUpdateVolume,
   muteVolume as reduxMuteVolume,

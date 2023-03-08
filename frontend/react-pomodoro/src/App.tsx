@@ -10,7 +10,7 @@ import { ModalProvider } from './lib/functions/ModalContext'
 import { useSelector } from './feature/store'
 import { setNotices } from './feature/slices/notices'
 import { setToken } from './feature/slices/token'
-import { tokenGetSelector } from './feature/selectors'
+import { tokenGetSelector } from './feature/selectors/token'
 import { setCustumConfigs } from './feature/slices/custumConfig'
 import { setCurrentTask, setTasks } from './feature/slices/tasks'
 

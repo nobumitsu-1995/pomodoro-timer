@@ -1,17 +1,19 @@
 import React from 'react'
 import {
-  currentTaskSelector,
   cycleSelector,
   cycleToLongRestTimeSelector,
-  leftTimeSelector,
   longRestTimeSelector,
   restTimeSelector,
-  endTimeSelector,
-  statusSelector,
-  tokenGetSelector,
-  volumeSelector,
   workTimeSelector,
-} from '../../../feature/selectors'
+} from '../../../feature/selectors/timerConfig'
+import { volumeSelector } from 'src/feature/selectors/soundConfig'
+import {
+  endTimeSelector,
+  leftTimeSelector,
+  statusSelector,
+} from 'src/feature/selectors/timerStatus'
+import { currentTaskSelector } from 'src/feature/selectors/task'
+import { tokenGetSelector } from 'src/feature/selectors/token'
 import { useSelector } from '../../../feature/store'
 import Presenter from './Presenter'
 import { useDispatch } from 'react-redux'

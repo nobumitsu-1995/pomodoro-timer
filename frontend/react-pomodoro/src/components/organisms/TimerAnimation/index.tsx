@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import {
-  statusSelector,
-  leftTimeSelector,
   longRestTimeSelector,
   restTimeSelector,
   workTimeSelector,
-} from 'src/feature/selectors'
+} from 'src/feature/selectors/timerConfig'
+import {
+  leftTimeSelector,
+  statusSelector,
+} from 'src/feature/selectors/timerStatus'
+
 import { useSelector } from 'src/feature/store'
 import Presenter from './Presenter'
 
