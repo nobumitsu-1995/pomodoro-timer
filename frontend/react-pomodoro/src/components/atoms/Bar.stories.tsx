@@ -19,5 +19,4 @@ export default {
 const Template: ComponentStory<typeof Bar> = (args) => <Bar {...args} />
 
 export const Default = Template.bind({})
-
 Default.args = { backgroundColor: '#666' }

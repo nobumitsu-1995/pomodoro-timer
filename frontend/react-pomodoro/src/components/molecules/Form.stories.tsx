@@ -44,4 +44,5 @@ Default.args = {
   onClick: () => {
     console.log('onClick')
   },
+  buttonText: 'button',
 }

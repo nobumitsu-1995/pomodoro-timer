@@ -21,12 +21,22 @@ const Template: ComponentStory<typeof InputArea> = (args) => (
 )
 
 export const Default = Template.bind({})
-
 Default.args = {
   id: 'id',
   label: 'input area',
   value: '',
-  error: 'error',
+  error: '',
+  onChange: () => {
+    console.log('onChange')
+  },
+}
+
+export const Error = Template.bind({})
+Error.args = {
+  id: 'id',
+  label: 'input area',
+  value: '',
+  error: 'error text',
   onChange: () => {
     console.log('onChange')
   },

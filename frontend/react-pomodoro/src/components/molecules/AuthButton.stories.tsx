@@ -13,8 +13,12 @@ const Template: ComponentStory<typeof AuthButton> = (args) => (
   <AuthButton {...args} />
 )
 
-export const Default = Template.bind({})
-
-Default.args = {
+export const LogInButton = Template.bind({})
+LogInButton.args = {
   isLoggedIn: false,
+}
+
+export const LogOutButton = Template.bind({})
+LogInButton.args = {
+  isLoggedIn: true,
 }
