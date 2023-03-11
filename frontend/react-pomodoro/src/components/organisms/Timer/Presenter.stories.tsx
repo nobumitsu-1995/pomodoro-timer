@@ -1,15 +1,15 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import Timer from './Presenter'
+import Timer, { Props } from './Presenter'
 
 export default {
   title: 'organisms/Timer',
   component: Timer,
   argTypes: {},
-} as ComponentMeta<typeof Timer>
+} as Meta
 
-const Template: ComponentStory<typeof Timer> = (args) => <Timer {...args} />
+const Template: Story<Props> = (args) => <Timer {...args} />
 
 export const Default = Template.bind({})
 

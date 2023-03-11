@@ -6,7 +6,7 @@ import Icosahedron from './objects/Icosahedron'
 import Plane from './objects/Plane'
 import Capsules from './objects/Capsules'
 
-type Props = {
+export type Props = {
   progress: number
 }
 

@@ -13,7 +13,7 @@ export type TimerStatusType = {
 }
 
 /** timerStatusのfeatureの初期値 */
-const initialState: TimerStatusType = {
+export const initialState: TimerStatusType = {
   status: 'stop',
   endTime: new Date().getTime(),
   leftTime: 60 * 25,
@@ -30,12 +30,34 @@ export const timerStatusSlice = createSlice({
     setLeftTime: (state, action: PayloadAction<number>) => {
       state.leftTime = action.payload
     },
-    setEndTime: (state) => {
-      state.endTime = new Date().getTime() + state.leftTime * 1000
+    setEndTime: (state, action: PayloadAction<number>) => {
+      state.endTime = new Date().getTime() + action.payload * 1000
+    },
+    statusRunning: (state, action: PayloadAction<number>) => {
+      state.status = 'running'
+      state.endTime = new Date().getTime() + action.payload * 1000
+      state.leftTime = action.payload
+    },
+    statusRest: (state, action: PayloadAction<number>) => {
+      state.endTime = new Date().getTime() + action.payload * 1000
+      state.status = 'rest'
+      state.leftTime = action.payload
+    },
+    statusLongRest: (state, action: PayloadAction<number>) => {
+      state.endTime = new Date().getTime() + action.payload * 1000
+      state.status = 'longRest'
+      state.leftTime = action.payload
     },
   },
 })
 
 const { actions, reducer } = timerStatusSlice
-export const { updateStatus, setLeftTime, setEndTime } = actions
+export const {
+  updateStatus,
+  setLeftTime,
+  setEndTime,
+  statusRunning,
+  statusRest,
+  statusLongRest,
+} = actions
 export const timerStatusReducer = reducer

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot isLoggedIn should render correctly 1`] = `
+<DocumentFragment>
+  <nav>
+    <ul
+      class="sc-hKMtZM jbhSMZ"
+    >
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            notifications
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            logout
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`snapshot isLoggedOut should render correctly 1`] = `
+<DocumentFragment>
+  <nav>
+    <ul
+      class="sc-hKMtZM jbhSMZ"
+    >
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            notifications
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            login
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

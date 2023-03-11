@@ -9,10 +9,11 @@ export const createAchievement = (
     taskId: taskId,
     time: time,
   }
-  api(token)
+  return api(token)
     .post('/v1/achievement/create', params)
     .then((res) => {
       console.log(res)
+      return res.data
     })
     .catch((e) => {
       console.error(e)

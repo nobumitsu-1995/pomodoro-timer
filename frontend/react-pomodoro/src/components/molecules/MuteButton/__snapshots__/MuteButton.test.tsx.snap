@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot isMute should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR cnxmFY"
+    type="button"
+  >
+    <span
+      class="material-icons md-18"
+    >
+      volume_off
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`snapshot isNotMute should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR cnxmFY"
+    type="button"
+  >
+    <span
+      class="material-icons md-18"
+    >
+      volume_up
+    </span>
+  </button>
+</DocumentFragment>
+`;

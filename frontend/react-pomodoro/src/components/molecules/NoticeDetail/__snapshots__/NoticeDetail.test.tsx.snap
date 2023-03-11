@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hKMtZM eEQrrh"
+  >
+    <p
+      class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  kUpkgq"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  TnbxP"
+        datetime="2022-01-01"
+      >
+        2022/01/01
+      </time>
+       (更新日: 
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  TnbxP"
+        datetime="2022-01-01"
+      >
+        2022/01/01
+      </time>
+      )
+    </p>
+    <h3
+      class="sc-jSMfEi ffrHA"
+    >
+      タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+    </h3>
+    <p
+      class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bBrAGV"
+    >
+      内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+    </p>
+    <div
+      class="sc-eCYdqJ eRPMNv"
+    >
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR nfxBk"
+        type="button"
+      >
+        Back
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

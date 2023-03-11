@@ -16,7 +16,7 @@ export type TimerConfigType = {
 }
 
 /** timerConfigのfeatureの初期値 */
-const initialState: TimerConfigType = {
+export const initialState: TimerConfigType = {
   cycle: 3,
   workTime: 60 * 25,
   restTime: 60 * 5,

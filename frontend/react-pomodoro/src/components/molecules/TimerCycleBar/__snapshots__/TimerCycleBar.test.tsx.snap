@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="max-width: 320px; margin: auto;"
+  >
+    <ul
+      class="TimerCycleBar__StyledUl-sc-pqmx46-0 hViJbA"
+    >
+      <li
+        class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+      >
+        <span
+          class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp jRyftZ"
+        />
+      </li>
+      <li
+        class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+      >
+        <span
+          class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp jRyftZ"
+        />
+      </li>
+      <li
+        class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+      >
+        <span
+          class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp cynkds"
+        />
+      </li>
+      <li
+        class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+      >
+        <span
+          class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp ZitvP"
+        />
+      </li>
+      <li
+        class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+      >
+        <span
+          class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp cynkds"
+        />
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

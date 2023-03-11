@@ -9,10 +9,10 @@ export type TasksType = {
 }
 
 /** タスクに関するfeatureの初期値 */
-const initialState: TasksType = {
+export const initialState: TasksType = {
   tasks: [
     {
-      _id: '',
+      _id: '0',
       uid: '',
       title: '',
     },
@@ -22,7 +22,7 @@ const initialState: TasksType = {
     uid: '',
     title: '',
   },
-  length: 0,
+  length: 1,
 }
 
 /** タスクのfeatureの初期値 */
@@ -49,6 +49,7 @@ export const taskSlice = createSlice({
         return task._id === action.payload
       })
       state.tasks.splice(taskIndex, 1)
+      state.length--
     },
     setCurrentTask: (state, action: PayloadAction<TaskType>) => {
       state.currentTask = action.payload

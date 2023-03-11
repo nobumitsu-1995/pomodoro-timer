@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="max-width: 320px; margin: auto;"
+  >
+    <p
+      class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dmaCVq sc-hKMtZM liTKaS"
+    >
+      25:00
+    </p>
+  </div>
+</DocumentFragment>
+`;

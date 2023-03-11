@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button, Input, Paper, Text } from 'src/components/atoms'
-import { SelectList } from 'src/components/molecules'
 import { TaskType } from 'src/lib/types/modelType'
+import SelectList from 'src/components/molecules/SelectList/SelectList'
 
-type Props = {
+export type Props = {
   task: {
     title: string
     id: string

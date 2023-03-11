@@ -1,9 +1,9 @@
 import React from 'react'
-import { AuthButton } from 'src/components/molecules'
+import AuthButton from 'src/components/molecules/AuthButton/AuthButton'
 import styled from 'styled-components'
 import ModalButton from '../Modal/ModalButton'
 
-type Props = {
+export type Props = {
   listButtons: {
     modalContent: React.ReactNode
     icon: string

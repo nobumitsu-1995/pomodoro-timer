@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 350px;"
+  >
+    <div
+      class="sc-bczRLJ ehiAyy"
+    >
+      <span
+        class="sc-gsnTZi clrkUc"
+      />
+      <select
+        class="sc-dkzDqf bgaUQm"
+      >
+        <option
+          value="0"
+        >
+          option1
+        </option>
+        <option
+          value="1"
+        >
+          option2
+        </option>
+        <option
+          value="2"
+        >
+          option3
+        </option>
+        <option
+          value="3"
+        >
+          option4
+        </option>
+        <option
+          value="4"
+        >
+          option5
+        </option>
+      </select>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Detail should render correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <h2
+      class="Presenter__StyledH2-sc-urqluj-0 bUTIHt"
+    >
+      Notices
+    </h2>
+    <div
+      class="sc-hKMtZM eEQrrh"
+    >
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  kUpkgq"
+      >
+        <time
+          class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  TnbxP"
+          datetime="2023-01-01"
+        >
+          2023/01/01
+        </time>
+         (更新日: 
+        <time
+          class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  TnbxP"
+          datetime="2023-01-01"
+        >
+          2023/01/01
+        </time>
+        )
+      </p>
+      <h3
+        class="sc-jSMfEi ffrHA"
+      >
+        title
+      </h3>
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bBrAGV"
+      >
+        content
+      </p>
+      <div
+        class="sc-eCYdqJ eRPMNv"
+      >
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR nfxBk"
+          type="button"
+        >
+          Back
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot List should render correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <h2
+      class="Presenter__StyledH2-sc-urqluj-0 bUTIHt"
+    >
+      Notices
+    </h2>
+    <ul
+      class="Presenter___StyledNoticesList-sc-urqluj-1 hqoVls"
+    >
+      <li
+        class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+      >
+        <time
+          class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+          datetime="2023-01-01"
+        >
+          2023/01/01
+        </time>
+        <a
+          class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+        >
+          title
+        </a>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
