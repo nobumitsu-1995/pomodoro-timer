@@ -1,5 +1,6 @@
 import chai, { expect } from 'chai'
 import chaiHTTP from 'chai-http'
+import { getToken } from '../../../../src/lib/functions/getToken'
 import app from '../../../../src/main'
 import Task from '../../../../src/models/task'
 
@@ -17,15 +18,22 @@ beforeEach((done) => {
 })
 
 describe('TaskController', () => {
+  let token = ''
+
+  beforeEach(async () => {
+    token = await getToken()
+  })
+
   describe('GET api/v1/task', () => {
     it('it should GET all task json', (done) => {
       Task.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: 'test title',
       }).then(() => {
         chai
           .request(app)
           .get('/api/v1/task/')
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(200)
             expect(res.body.length).to.eq(1)
@@ -39,13 +47,14 @@ describe('TaskController', () => {
   describe('GET api/v1/task/:id/show', () => {
     it('it should GET task json with correct id', (done) => {
       Task.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: 'test title',
       }).then((task) => {
         const taskId = task._id
         chai
           .request(app)
           .get(`/api/v1/task/${taskId}/show`)
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(200)
             expect(res.body.title).to.eq('test title')
@@ -57,13 +66,14 @@ describe('TaskController', () => {
 
     it('it should not GET task json with wrong id', (done) => {
       Task.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: 'test title',
       }).then(() => {
         const taskId = 'xxx'
         chai
           .request(app)
           .get(`/api/v1/task/${taskId}/show`)
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(500)
             done()
@@ -75,13 +85,14 @@ describe('TaskController', () => {
   describe('POST api/v1/task/create', () => {
     it('it should POST task json', (done) => {
       const taskParams = {
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: 'a'.repeat(25),
       }
 
       chai
         .request(app)
         .post(`/api/v1/task/create`)
+        .set('Authorization', token)
         .send(taskParams)
         .end((errors, res) => {
           expect(res).to.be.status(201)
@@ -93,13 +104,14 @@ describe('TaskController', () => {
 
     it('it should not CREATE task with 26 latters title', (done) => {
       const taskParams = {
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: 'a'.repeat(26),
       }
 
       chai
         .request(app)
         .post(`/api/v1/task/create`)
+        .set('Authorization', token)
         .send(taskParams)
         .end((errors, res) => {
           expect(res).to.be.status(500)
@@ -109,13 +121,14 @@ describe('TaskController', () => {
 
     it('it should not CREATE task with 0 latters title', (done) => {
       const taskParams = {
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: '',
       }
 
       chai
         .request(app)
         .post(`/api/v1/task/create`)
+        .set('Authorization', token)
         .send(taskParams)
         .end((errors, res) => {
           expect(res).to.be.status(404)
@@ -127,13 +140,14 @@ describe('TaskController', () => {
   describe('PATCH api/v1/task/:id/update', () => {
     it('it should PATCH task json with correct id', (done) => {
       Task.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: 'test title',
       }).then((task) => {
         const taskId = task._id
         chai
           .request(app)
           .patch(`/api/v1/task/${taskId}/update`)
+          .set('Authorization', token)
           .send({
             title: 'updated title',
           })
@@ -148,13 +162,14 @@ describe('TaskController', () => {
 
     it('it should not PATCH task json with wrong id', (done) => {
       Task.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: 'test title',
       }).then(() => {
         const taskId = 'xxx'
         chai
           .request(app)
           .patch(`/api/v1/task/${taskId}/update`)
+          .set('Authorization', token)
           .send({
             title: 'updated title',
           })
@@ -169,13 +184,14 @@ describe('TaskController', () => {
   describe('DELETE api/v1/task/:id/delete', () => {
     it('it should DELETE task json with correct id', (done) => {
       Task.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: 'test title',
       }).then((task) => {
         const taskId = task._id
         chai
           .request(app)
           .delete(`/api/v1/task/${taskId}/delete`)
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(204)
             done()
@@ -185,13 +201,14 @@ describe('TaskController', () => {
 
     it('it should not DELETE task json with wrong id', (done) => {
       Task.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         title: 'test title',
       }).then(() => {
         const taskId = 'xxx'
         chai
           .request(app)
           .delete(`/api/v1/task/${taskId}/delete`)
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(500)
             done()

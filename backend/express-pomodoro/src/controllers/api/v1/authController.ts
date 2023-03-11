@@ -37,10 +37,7 @@ export const authenticateJWT = async (
   next: NextFunction
 ) => {
   try {
-    const token =
-      process.env.NODE_ENV === 'test'
-        ? process.env.TOKEN_TEST
-        : req.headers.authorization
+    const token = req.headers.authorization || ''
     const kid = await getKid(token)
     const publicKey = await getPublicKey(kid as string)
     const verifiedToken = await verifyToken(publicKey as string, token)
