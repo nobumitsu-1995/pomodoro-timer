@@ -85,6 +85,7 @@
     "eslint": "^8.24.0",
     "eslint-plugin-react": "^7.31.8",
     "prop-types": "^15.8.1",
+    "react-test-renderer": "^18.2.0",
     "ts-jest": "^29.0.5",
     "webpack": "^5.74.0"
   }
