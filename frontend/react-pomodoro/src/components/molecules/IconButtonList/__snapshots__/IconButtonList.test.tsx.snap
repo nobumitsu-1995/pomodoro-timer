@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="max-width: 320px; margin: auto;"
+  >
+    <ul
+      class="sc-hKMtZM iMTbzD"
+    >
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR jjUqFR"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            play_arrow
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR jjUqFR"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            pause
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR jjUqFR"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            stop
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

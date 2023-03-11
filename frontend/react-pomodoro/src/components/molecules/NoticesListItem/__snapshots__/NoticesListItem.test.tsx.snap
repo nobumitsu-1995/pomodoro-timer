@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <li
+    class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+  >
+    <time
+      class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+      datetime="2022-01-01"
+    >
+      2022/01/01
+    </time>
+    <a
+      class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+    >
+      タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル
+    </a>
+  </li>
+</DocumentFragment>
+`;
