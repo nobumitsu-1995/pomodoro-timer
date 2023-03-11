@@ -13,7 +13,7 @@ import { api } from '../../../lib/functions/axios'
 import Presenter from './Presenter'
 import { tokenGetSelector } from 'src/feature/selectors/token'
 
-const index: React.FC = () => {
+const Container: React.FC = () => {
   const dispatch = useDispatch()
   const currentTask = useSelector(currentTaskSelector)
   const token = useSelector(tokenGetSelector)
@@ -106,4 +106,4 @@ const index: React.FC = () => {
   )
 }
 
-export default index
+export default Container

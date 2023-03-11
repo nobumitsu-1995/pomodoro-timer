@@ -12,7 +12,7 @@ import {
 import { useSelector } from 'src/feature/store'
 import Presenter from './Presenter'
 
-const index: React.FC = () => {
+const Container: React.FC = () => {
   const [progress, setProgress] = useState(0)
   const leftTime = useSelector(leftTimeSelector)
   const workTime = useSelector(workTimeSelector)
@@ -45,4 +45,4 @@ const index: React.FC = () => {
   return <Presenter progress={progress} />
 }
 
-export default index
+export default Container

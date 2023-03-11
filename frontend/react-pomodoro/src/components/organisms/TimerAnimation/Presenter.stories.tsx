@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import TimerAnimation from './index'
+import TimerAnimation from './Presenter'
 
 export default {
   title: 'organisms/TimerAnimation',
@@ -15,4 +15,6 @@ const Template: ComponentStory<typeof TimerAnimation> = (args) => (
 
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  progress: 100,
+}

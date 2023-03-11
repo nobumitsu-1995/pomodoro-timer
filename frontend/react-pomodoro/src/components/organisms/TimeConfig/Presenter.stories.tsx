@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import TimeConfig from './index'
+import TimeConfig from './Presenter'
 
 export default {
   title: 'organisms/TimeConfig',
@@ -22,4 +22,23 @@ const Template: ComponentStory<typeof TimeConfig> = (args) => (
 
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  consoleItems: [
+    {
+      icon: 'work',
+      title: 'work\ntime',
+      value: 1,
+      error: 'error1',
+      onClickUp: () => console.log('up'),
+      onClickDown: () => console.log('down'),
+    },
+    {
+      icon: 'local_cafe',
+      title: 'rest\ntime',
+      value: 2,
+      error: 'error2',
+      onClickUp: () => console.log('up'),
+      onClickDown: () => console.log('down'),
+    },
+  ],
+}

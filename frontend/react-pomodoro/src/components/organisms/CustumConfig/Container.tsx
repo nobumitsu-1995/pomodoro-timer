@@ -12,7 +12,7 @@ import {
 } from 'src/lib/functions/validation'
 import Presenter from './Presenter'
 
-const index: React.FC = () => {
+const Container: React.FC = () => {
   const dispatch = useDispatch()
   const token = useSelector(tokenGetSelector)
   const custumConfigs = useSelector(custumConfigsSelector)
@@ -134,4 +134,4 @@ const index: React.FC = () => {
   )
 }
 
-export default index
+export default Container

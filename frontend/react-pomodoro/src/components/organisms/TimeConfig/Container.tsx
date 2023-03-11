@@ -13,7 +13,7 @@ import {
 } from '../../../feature/selectors/timerConfig'
 import Presenter from './Presenter'
 
-const index: React.FC = () => {
+const Container: React.FC = () => {
   const [error, setError] = useState({ work: '', rest: '' })
   const dispatch = useDispatch()
 
@@ -74,4 +74,4 @@ const index: React.FC = () => {
   return <Presenter consoleItems={consoleItems} />
 }
 
-export default index
+export default Container

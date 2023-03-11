@@ -4,7 +4,7 @@ import { useSelector } from '../../../feature/store'
 import { NoticeType } from '../../../lib/types/modelType'
 import Presenter from './Presenter'
 
-const index: React.FC = () => {
+const Container: React.FC = () => {
   const notices = useSelector(noticesSelector)
   const [currentNotice, setCurrentNotice] = useState<NoticeType | undefined>()
 
@@ -17,4 +17,4 @@ const index: React.FC = () => {
   )
 }
 
-export default index
+export default Container

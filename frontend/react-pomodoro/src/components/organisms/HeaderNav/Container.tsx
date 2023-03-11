@@ -1,9 +1,9 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import Presenter from './Presenter'
-import Notice from '../Notice'
+import Notice from '../Notice/Container'
 
-const index: React.FC = () => {
+const Container: React.FC = () => {
   const { isAuthenticated } = useAuth0()
 
   const listButtons = [
@@ -25,4 +25,4 @@ const index: React.FC = () => {
   return <Presenter listButtons={listButtons} isLoggedIn={isAuthenticated} />
 }
 
-export default index
+export default Container

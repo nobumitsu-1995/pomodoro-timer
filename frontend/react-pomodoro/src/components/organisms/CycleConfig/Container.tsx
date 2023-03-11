@@ -6,7 +6,7 @@ import { updateCycle as reduxUpdateCycle } from '../../../feature/slices/timerCo
 import Presenter from './Presenter'
 import { validateCycle } from 'src/lib/functions/validation'
 
-const index: React.FC = () => {
+const Container: React.FC = () => {
   const dispatch = useDispatch()
   const updateCycle = useCallback(
     (cycle: number) => {
@@ -43,4 +43,4 @@ const index: React.FC = () => {
   )
 }
 
-export default index
+export default Container

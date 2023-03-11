@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import CustumConfig from './index'
+import CustumConfig from './Presenter'
 
 export default {
   title: 'organisms/CustumConfig',
@@ -22,4 +22,16 @@ const Template: ComponentStory<typeof CustumConfig> = (args) => (
 
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  formItems: [
+    {
+      id: 'test',
+      label: 'test',
+      value: 1,
+    },
+  ],
+  configLength: 1,
+  changeEdit: () => console.log('edit'),
+  clickUpdate: () => console.log('update'),
+  onChangeSelect: () => console.log('changeSelect'),
+}

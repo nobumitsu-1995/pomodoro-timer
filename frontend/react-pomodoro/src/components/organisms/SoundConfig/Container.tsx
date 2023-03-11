@@ -11,7 +11,7 @@ import {
 import { useSelector } from '../../../feature/store'
 import Presenter from './Presenter'
 
-const index: React.FC = () => {
+const Container: React.FC = () => {
   const volume = useSelector(volumeSelector)
   const globalVolume = useSelector(volumeSelector)
   const [playRestFinish] = useSound(RestFinish, { volume: volume / 100 })
@@ -53,4 +53,4 @@ const index: React.FC = () => {
   )
 }
 
-export default index
+export default Container

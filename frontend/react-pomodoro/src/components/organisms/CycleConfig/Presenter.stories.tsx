@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import CycleConfig from './index'
+import CycleConfig from './Presenter'
 
 export default {
   title: 'organisms/CycleConfig',
@@ -15,4 +15,9 @@ const Template: ComponentStory<typeof CycleConfig> = (args) => (
 
 export const Default = Template.bind({})
 
-Default.args = {}
+Default.args = {
+  value: 25,
+  error: 'error',
+  onChange: () => console.log('change'),
+  onClick: () => console.log('click'),
+}

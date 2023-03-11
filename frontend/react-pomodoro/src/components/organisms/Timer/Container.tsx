@@ -21,7 +21,7 @@ import useSoundConfig from 'src/lib/hooks/useSoundConfig'
 import useTimer from 'src/lib/hooks/useTimer'
 import { setEndTime, updateStatus } from 'src/feature/slices/timerStatus'
 
-const index: React.FC = () => {
+const Container: React.FC = () => {
   const dispatch = useDispatch()
   const volume = useSelector(volumeSelector)
 
@@ -96,4 +96,4 @@ const index: React.FC = () => {
   )
 }
 
-export default index
+export default Container
