@@ -1,7 +1,7 @@
 import React from 'react'
-import styled, { css } from 'styled-components/macro'
+import styled from 'styled-components/macro'
 
-type Props = {
+export type Props = {
   /** 描画する日付 */
   time: string
   /** display要素 */

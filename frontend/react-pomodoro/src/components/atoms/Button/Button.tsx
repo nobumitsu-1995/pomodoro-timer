@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 
 type ButtonProps = Omit<JSX.IntrinsicElements['button'], 'ref'>
 
-type Props = ButtonProps & {
+export type Props = ButtonProps & {
   /** 描画する要素 */
   children: React.ReactNode | string
   /** font-sizeの値 */

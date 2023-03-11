@@ -1,7 +1,7 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import Bar from './Bar'
+import Bar, { Props } from './Bar'
 
 export default {
   title: 'atoms/Bar',
@@ -14,9 +14,9 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Bar>
+} as Meta
 
-const Template: ComponentStory<typeof Bar> = (args) => <Bar {...args} />
+const Template: Story<Props> = (args) => <Bar {...args} />
 
 export const Default = Template.bind({})
 Default.args = { backgroundColor: '#666' }

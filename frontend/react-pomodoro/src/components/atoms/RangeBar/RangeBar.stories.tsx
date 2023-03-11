@@ -1,17 +1,15 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import RangeBar from './RangeBar'
+import RangeBar, { Props } from './RangeBar'
 
 export default {
   title: 'atoms/RangeBar',
   component: RangeBar,
   argTypes: {},
-} as ComponentMeta<typeof RangeBar>
+} as Meta
 
-const Template: ComponentStory<typeof RangeBar> = (args) => (
-  <RangeBar {...args} />
-)
+const Template: Story<Props> = (args) => <RangeBar {...args} />
 
 export const Default = Template.bind({})
 

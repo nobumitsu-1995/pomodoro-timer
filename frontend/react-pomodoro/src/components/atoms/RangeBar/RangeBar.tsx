@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-type Props = {
+export type Props = {
   width: number
   value: number
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void

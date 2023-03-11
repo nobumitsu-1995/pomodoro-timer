@@ -1,7 +1,7 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import Text from './Text'
+import Text, { Props } from './Text'
 
 export default {
   title: 'atoms/Text',
@@ -10,9 +10,9 @@ export default {
     color: { control: 'color' },
     textalign: { options: ['center', 'right', 'left'] },
   },
-} as ComponentMeta<typeof Text>
+} as Meta
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
+const Template: Story<Props> = (args) => <Text {...args} />
 
 export const Default = Template.bind({})
 

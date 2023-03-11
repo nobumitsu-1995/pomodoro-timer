@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-type Props = {
+export type Props = {
   /** 描画する要素 */
   children: React.ReactNode | string
   /** display要素 */

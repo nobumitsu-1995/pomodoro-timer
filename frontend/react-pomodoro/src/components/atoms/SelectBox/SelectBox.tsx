@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-type Props = {
+export type Props = {
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void
   configLength: number
 }

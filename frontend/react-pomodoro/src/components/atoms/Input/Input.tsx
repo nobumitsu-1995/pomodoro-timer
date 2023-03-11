@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 
 type InputProps = Omit<JSX.IntrinsicElements['input'], 'ref'>
 
-type Props = InputProps & {
+export type Props = InputProps & {
   /** border-radiusの値 */
   borderradius?: string
   /** font-sizeの値 */

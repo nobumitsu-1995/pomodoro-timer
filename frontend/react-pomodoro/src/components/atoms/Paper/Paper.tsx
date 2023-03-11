@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 
 type DivProps = Omit<JSX.IntrinsicElements['div'], 'ref'>
 
-type Props = DivProps & {
+export type Props = DivProps & {
   /** 描画する子要素 */
   children: React.ReactNode | string
   /** max-widthの値 */

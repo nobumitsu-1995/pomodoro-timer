@@ -1,15 +1,15 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import TimeTag from './TimeTag'
+import TimeTag, { Props } from './TimeTag'
 
 export default {
   title: 'atoms/TimeTag',
   component: TimeTag,
   argTypes: {},
-} as ComponentMeta<typeof TimeTag>
+} as Meta
 
-const Template: ComponentStory<typeof TimeTag> = (args) => <TimeTag {...args} />
+const Template: Story<Props> = (args) => <TimeTag {...args} />
 
 export const Default = Template.bind({})
 

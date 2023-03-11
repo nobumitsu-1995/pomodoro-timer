@@ -1,7 +1,7 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import SelectBox from './SelectBox'
+import SelectBox, { Props } from './SelectBox'
 
 export default {
   title: 'atoms/SelectBox',
@@ -14,11 +14,9 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof SelectBox>
+} as Meta
 
-const Template: ComponentStory<typeof SelectBox> = (args) => (
-  <SelectBox {...args} />
-)
+const Template: Story<Props> = (args) => <SelectBox {...args} />
 
 export const Default = Template.bind({})
 

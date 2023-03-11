@@ -1,15 +1,15 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import Paper from './Paper'
+import Paper, { Props } from './Paper'
 
 export default {
   title: 'atoms/Paper',
   component: Paper,
   argTypes: {},
-} as ComponentMeta<typeof Paper>
+} as Meta
 
-const Template: ComponentStory<typeof Paper> = (args) => <Paper {...args} />
+const Template: Story<Props> = (args) => <Paper {...args} />
 
 export const Default = Template.bind({})
 
