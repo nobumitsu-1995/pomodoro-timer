@@ -11,7 +11,10 @@ const outputPath = path.resolve(__dirname, isProd ? 'prod' : 'build')
 
 module.exports = {
   mode: env,
-  entry: './src/main.ts',
+  entry: {
+    app: './src/main.ts',
+    styles: './src/assets/styles/index.scss',
+  },
   output: {
     filename: '[name].js',
     path: outputPath,

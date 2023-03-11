@@ -1,5 +1,6 @@
 import chai, { expect } from 'chai'
 import chaiHTTP from 'chai-http'
+import { getToken } from '../../../../src/lib/functions/getToken'
 import app from '../../../../src/main'
 import CustumConfig from '../../../../src/models/custumConfig'
 
@@ -17,10 +18,16 @@ beforeEach((done) => {
 })
 
 describe('custumConfigController', () => {
+  let token = ''
+
+  beforeEach(async () => {
+    token = await getToken()
+  })
+
   describe('GET api/v1/custum_config', () => {
     it('it should GET all custum_config json', (done) => {
       CustumConfig.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         workTime: 100,
         restTime: 100,
         cycle: 3,
@@ -30,6 +37,7 @@ describe('custumConfigController', () => {
         chai
           .request(app)
           .get('/api/v1/custum_config/')
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(200)
             expect(res.body.length).to.eq(1)
@@ -43,7 +51,7 @@ describe('custumConfigController', () => {
   describe('GET api/v1/custum_config/:id/show', () => {
     it('it should GET custum_config json with correct id', (done) => {
       CustumConfig.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         workTime: 100,
         restTime: 100,
         cycle: 3,
@@ -54,6 +62,7 @@ describe('custumConfigController', () => {
         chai
           .request(app)
           .get(`/api/v1/custum_config/${configId}/show`)
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(200)
             expect(res.body.workTime).to.eq(100)
@@ -69,7 +78,7 @@ describe('custumConfigController', () => {
 
     it('it should not GET custum_config json with wrong id', (done) => {
       CustumConfig.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         workTime: 100,
         restTime: 100,
         cycle: 3,
@@ -80,6 +89,7 @@ describe('custumConfigController', () => {
         chai
           .request(app)
           .get(`/api/v1/custum_config/${configId}/show`)
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(500)
             done()
@@ -91,7 +101,7 @@ describe('custumConfigController', () => {
   describe('POST api/v1/custum_config/create', () => {
     it('it should POST custum_config json', (done) => {
       const configParams = {
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         workTime: 100,
         restTime: 100,
         cycle: 3,
@@ -102,6 +112,7 @@ describe('custumConfigController', () => {
       chai
         .request(app)
         .post(`/api/v1/custum_config/create`)
+        .set('Authorization', token)
         .send(configParams)
         .end((errors, res) => {
           expect(res).to.be.status(201)
@@ -119,7 +130,7 @@ describe('custumConfigController', () => {
   describe('PATCH api/v1/custum_config/:id/update', () => {
     it('it should PATCH custum_config json with correct id', (done) => {
       CustumConfig.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         workTime: 100,
         restTime: 100,
         cycle: 3,
@@ -130,6 +141,7 @@ describe('custumConfigController', () => {
         chai
           .request(app)
           .patch(`/api/v1/custum_config/${configId}/update`)
+          .set('Authorization', token)
           .send({
             workTime: 200,
             restTime: 200,
@@ -152,7 +164,7 @@ describe('custumConfigController', () => {
 
     it('it should not PATCH custum_config json with wrong id', (done) => {
       CustumConfig.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         workTime: 100,
         restTime: 100,
         cycle: 3,
@@ -163,6 +175,7 @@ describe('custumConfigController', () => {
         chai
           .request(app)
           .patch(`/api/v1/custum_config/${configId}/update`)
+          .set('Authorization', token)
           .send({
             workTime: 200,
             restTime: 200,
@@ -181,7 +194,7 @@ describe('custumConfigController', () => {
   describe('DELETE api/v1/custum_config/:id/delete', () => {
     it('it should DELETE custum_config json with correct id', (done) => {
       CustumConfig.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         workTime: 100,
         restTime: 100,
         cycle: 3,
@@ -192,6 +205,7 @@ describe('custumConfigController', () => {
         chai
           .request(app)
           .delete(`/api/v1/custum_config/${configId}/delete`)
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(204)
             done()
@@ -201,7 +215,7 @@ describe('custumConfigController', () => {
 
     it('it should not DELETE custum_config json with wrong id', (done) => {
       CustumConfig.create({
-        uid: process.env.SUB_TEST,
+        uid: `${process.env.CLIENT_ID}@clients`,
         workTime: 100,
         restTime: 100,
         cycle: 3,
@@ -212,6 +226,7 @@ describe('custumConfigController', () => {
         chai
           .request(app)
           .delete(`/api/v1/custum_config/${configId}/delete`)
+          .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(500)
             done()
@@ -225,6 +240,7 @@ describe('custumConfigController', () => {
       chai
         .request(app)
         .post(`/api/v1/custum_config/initialize`)
+        .set('Authorization', token)
         .end((errors, res) => {
           expect(res).to.be.status(200)
           console.log(res.body)
