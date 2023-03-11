@@ -2,7 +2,7 @@ import React from 'react'
 import { useModalContext } from '../../../lib/functions/ModalContext'
 import { Button } from '../../atoms'
 
-type Props = {
+export type Props = {
   children: React.ReactNode | string
   modalContent: React.ReactNode | string
   borderradius?: string

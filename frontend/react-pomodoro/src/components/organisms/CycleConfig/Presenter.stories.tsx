@@ -1,17 +1,15 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import CycleConfig from './Presenter'
+import CycleConfig, { Props } from './Presenter'
 
 export default {
   title: 'organisms/CycleConfig',
   component: CycleConfig,
   argTypes: {},
-} as ComponentMeta<typeof CycleConfig>
+} as Meta
 
-const Template: ComponentStory<typeof CycleConfig> = (args) => (
-  <CycleConfig {...args} />
-)
+const Template: Story<Props> = (args) => <CycleConfig {...args} />
 
 export const Default = Template.bind({})
 

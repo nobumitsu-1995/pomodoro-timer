@@ -1,7 +1,7 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import CustumConfig from './Presenter'
+import CustumConfig, { Props } from './Presenter'
 
 export default {
   title: 'organisms/CustumConfig',
@@ -14,11 +14,9 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof CustumConfig>
+} as Meta
 
-const Template: ComponentStory<typeof CustumConfig> = (args) => (
-  <CustumConfig {...args} />
-)
+const Template: Story<Props> = (args) => <CustumConfig {...args} />
 
 export const Default = Template.bind({})
 

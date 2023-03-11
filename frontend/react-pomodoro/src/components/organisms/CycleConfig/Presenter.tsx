@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Button, Input, Paper, Text } from '../../atoms'
 
-type Props = {
+export type Props = {
   value: number
   error?: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void

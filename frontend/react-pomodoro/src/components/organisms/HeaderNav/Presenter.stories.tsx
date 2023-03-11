@@ -1,18 +1,16 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import HeaderNav from './Presenter'
+import HeaderNav, { Props } from './Presenter'
 
 export default {
   title: 'organisms/HeaderNav',
   component: HeaderNav,
   argTypes: {},
   parameters: { layout: 'fullscreen' },
-} as ComponentMeta<typeof HeaderNav>
+} as Meta
 
-const Template: ComponentStory<typeof HeaderNav> = (args) => (
-  <HeaderNav {...args} />
-)
+const Template: Story<Props> = (args) => <HeaderNav {...args} />
 
 export const isLoggedIn = Template.bind({})
 isLoggedIn.args = {

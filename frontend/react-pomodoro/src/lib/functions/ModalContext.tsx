@@ -17,7 +17,7 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [open, setOpen] = useState(false)
-  const [contents, setContents] = useState('a' as React.ReactNode)
+  const [contents, setContents] = useState('' as React.ReactNode)
 
   const value = useMemo(() => {
     return { open, setOpen, contents, setContents }

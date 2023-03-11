@@ -1,17 +1,15 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import SoundConfig from './Presenter'
+import SoundConfig, { Props } from './Presenter'
 
 export default {
   title: 'organisms/SoundConfig',
   component: SoundConfig,
   argTypes: {},
-} as ComponentMeta<typeof SoundConfig>
+} as Meta
 
-const Template: ComponentStory<typeof SoundConfig> = (args) => (
-  <SoundConfig {...args} />
-)
+const Template: Story<Props> = (args) => <SoundConfig {...args} />
 
 export const IsNotMute = Template.bind({})
 IsNotMute.args = {

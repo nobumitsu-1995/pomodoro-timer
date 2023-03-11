@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE hdRcTg Presenter___StyledPaper-sc-aqlps0-1 fJnbtJ"
+  >
+    &lt;TimerAnimation/&gt;
+    <div
+      class="Presenter__StyledDiv-sc-aqlps0-0 sBfEA"
+    >
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dmaCVq sc-eCYdqJ iRDRhf"
+      >
+        20:30
+      </p>
+      <ul
+        class="TimerCycleBar__StyledUl-sc-pqmx46-0 hViJbA Presenter___StyledTimerCycleBar-sc-aqlps0-2 hnzBbe"
+      >
+        <li
+          class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+        >
+          <span
+            class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp jRyftZ"
+          />
+        </li>
+        <li
+          class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+        >
+          <span
+            class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp jRyftZ"
+          />
+        </li>
+        <li
+          class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+        >
+          <span
+            class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp ZitvP"
+          />
+        </li>
+        <li
+          class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+        >
+          <span
+            class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp cynkds"
+          />
+        </li>
+        <li
+          class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
+        >
+          <span
+            class="Bar__StyledSpan-sc-19rwhxr-0 Bar___StyledStyledSpan-sc-19rwhxr-1 gDRmUp cynkds"
+          />
+        </li>
+      </ul>
+    </div>
+    <ul
+      class="sc-hKMtZM iMTbzD Presenter___StyledIconButtonList-sc-aqlps0-3 cgQghI"
+    >
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR jjUqFR"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            play_arrow
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR jjUqFR"
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            pause
+          </span>
+        </button>
+      </li>
+      <li>
+        <button
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR jjUqFR"
+          disabled=""
+          type="button"
+        >
+          <span
+            class="material-icons"
+          >
+            stop
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

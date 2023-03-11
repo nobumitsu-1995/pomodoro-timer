@@ -1,9 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Paper, SelectBox, Text } from 'src/components/atoms'
-import { Form } from 'src/components/molecules'
+import Form from 'src/components/molecules/Form/Form'
+import styled from 'styled-components'
 
-type Props = {
+export type Props = {
   formItems: {
     id: string
     label: string | React.ReactNode

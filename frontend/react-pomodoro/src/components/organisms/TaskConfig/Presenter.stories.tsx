@@ -1,7 +1,7 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 
-import TaskConfig from './Presenter'
+import TaskConfig, { Props } from './Presenter'
 
 export default {
   title: 'organisms/TaskConfig',
@@ -30,11 +30,9 @@ export default {
       uid: '',
     },
   },
-} as ComponentMeta<typeof TaskConfig>
+} as Meta
 
-const Template: ComponentStory<typeof TaskConfig> = (args) => (
-  <TaskConfig {...args} />
-)
+const Template: Story<Props> = (args) => <TaskConfig {...args} />
 
 export const ShowMode = Template.bind({})
 ShowMode.args = {

@@ -1,12 +1,12 @@
 import React from 'react'
+import MuteButton from 'src/components/molecules/MuteButton/MuteButton'
 import styled from 'styled-components'
 import { PlayFunction } from 'use-sound/dist/types'
 import { Button, Paper, RangeBar, Text } from '../../atoms'
-import { MuteButton } from '../../molecules'
 
 type InputProps = Omit<JSX.IntrinsicElements['input'], 'size'>
 
-type Props = InputProps & {
+export type Props = InputProps & {
   isMuted: boolean
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
   value: number

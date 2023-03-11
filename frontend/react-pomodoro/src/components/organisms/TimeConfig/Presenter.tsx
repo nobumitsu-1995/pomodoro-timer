@@ -1,8 +1,8 @@
 import React from 'react'
+import UpDownConsole from 'src/components/molecules/UpDownConsole/UpDownConsole'
 import styled from 'styled-components/macro'
-import { UpDownConsole } from 'src/components/molecules/'
 
-type Props = {
+export type Props = {
   consoleItems: {
     /** コンソールのアイコン(material-icon) */
     icon: string
