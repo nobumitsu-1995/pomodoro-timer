@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button } from '../../atoms/'
-import { InputArea } from 'src/components/molecules/'
+import InputArea from 'src/components/molecules/InputArea/InputArea'
 
 export type Props = {
   formItems: {

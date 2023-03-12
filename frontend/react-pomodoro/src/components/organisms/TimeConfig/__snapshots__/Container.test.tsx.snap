@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeConfig snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Presenter__StyledDiv-sc-wu5hjj-0 jFCZVy"
+  >
+    <div
+      class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE bmTVqN Presenter___StyledUpDownConsole-sc-wu5hjj-1 eTDciG"
+    >
+      <span
+        class="material-icons md-18 md-dark"
+      >
+        work
+      </span>
+      <div
+        class="sc-eCYdqJ cAgjmv"
+      >
+        <div
+          class="sc-jSMfEi hssCBj"
+        >
+          <p
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+          >
+            work
+time
+          </p>
+          <p
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dWklBv"
+          >
+            25
+            <span
+              class="sc-iBkjds kBmmsz"
+            >
+              min
+            </span>
+          </p>
+        </div>
+        <div
+          class="sc-hKMtZM QPW"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR Nbszd"
+            type="button"
+          >
+            <span
+              class="material-icons"
+            >
+              arrow_drop_up
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR Nbszd"
+            type="button"
+          >
+            <span
+              class="material-icons"
+            >
+              arrow_drop_down
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE bmTVqN Presenter___StyledUpDownConsole-sc-wu5hjj-1 eTDciG"
+    >
+      <span
+        class="material-icons md-18 md-dark"
+      >
+        local_cafe
+      </span>
+      <div
+        class="sc-eCYdqJ cAgjmv"
+      >
+        <div
+          class="sc-jSMfEi hssCBj"
+        >
+          <p
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+          >
+            rest
+time
+          </p>
+          <p
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dWklBv"
+          >
+            5
+            <span
+              class="sc-iBkjds kBmmsz"
+            >
+              min
+            </span>
+          </p>
+        </div>
+        <div
+          class="sc-hKMtZM QPW"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR Nbszd"
+            type="button"
+          >
+            <span
+              class="material-icons"
+            >
+              arrow_drop_up
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR Nbszd"
+            type="button"
+          >
+            <span
+              class="material-icons"
+            >
+              arrow_drop_down
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

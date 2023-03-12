@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SoundConfig snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE gInPrw"
+  >
+    <p
+      class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  ejWLSz"
+    >
+      Sound Config
+    </p>
+    <div
+      class="sc-hKMtZM eOlEBc"
+    >
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR dvlShs"
+        type="button"
+      >
+        <span
+          class="material-icons md-18"
+        >
+          volume_up
+        </span>
+      </button>
+      <input
+        class="RangeBar__StyledInput-sc-xofmb-0 idOAAH"
+        max="100"
+        min="0"
+        type="range"
+        value="50"
+        width="140"
+      />
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR ffEJkF"
+        type="button"
+      >
+        <span
+          class="material-icons md-10"
+        >
+          audiotrack
+        </span>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
