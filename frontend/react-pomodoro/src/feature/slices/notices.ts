@@ -12,11 +12,11 @@ export const initialState: NoticesType = {
   notices: [
     {
       _id: '',
-      title: '',
-      content: '',
-      publishedAt: '',
-      updatedAt: '',
-      createdAt: '',
+      title: 'title',
+      content: 'content',
+      publishedAt: '2023/01/01',
+      updatedAt: '2023/01/01',
+      createdAt: '2023/01/01',
     },
   ],
   length: 1,

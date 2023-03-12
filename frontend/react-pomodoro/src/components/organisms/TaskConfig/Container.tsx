@@ -30,6 +30,7 @@ const Container: React.FC = () => {
   }
 
   const onClickDeleteTask = (id: string) => {
+    console.log(task.title.length)
     if (!confirm('削除してよろしいですか？')) return
     api(token)
       .delete(`/v1/task/${id}/delete`)

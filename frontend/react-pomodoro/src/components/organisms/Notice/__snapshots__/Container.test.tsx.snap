@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notice snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h2
+      class="Presenter__StyledH2-sc-urqluj-0 bUTIHt"
+    >
+      Notices
+    </h2>
+    <ul
+      class="Presenter___StyledNoticesList-sc-urqluj-1 hqoVls"
+    >
+      <li
+        class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+      >
+        <time
+          class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+          datetime="2023-01-01"
+        >
+          2023/01/01
+        </time>
+        <a
+          class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+        >
+          title
+        </a>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
