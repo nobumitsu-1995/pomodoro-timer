@@ -15,7 +15,7 @@ export const getTasks = (req: Request, res: Response, next: NextFunction) => {
     uid: uid,
   })
     .then((tasks) => {
-      res.status(200).json(tasks)
+      return res.status(200).json(tasks)
     })
     .catch((e) => {
       next(e)
@@ -30,7 +30,7 @@ export const getTask = (req: Request, res: Response, next: NextFunction) => {
     _id: taskId,
   })
     .then((task) => {
-      res.status(200).json(task)
+      return res.status(200).json(task)
     })
     .catch((e) => {
       next(e)
@@ -44,7 +44,7 @@ export const createTask = (req: Request, res: Response, next: NextFunction) => {
   const taskParams = getTaskParams(req.body, uid)
   Task.create(taskParams)
     .then((task) => {
-      res.status(201).json(task)
+      return res.status(201).json(task)
     })
     .catch((e) => {
       next(e)
@@ -60,7 +60,7 @@ export const updateTask = (req: Request, res: Response, next: NextFunction) => {
   Task.findByIdAndUpdate(taskId, { $set: taskParams }, { new: true })
     .then((task) => {
       if (task) {
-        res.status(200).json(task)
+        return res.status(200).json(task)
       }
       next({ message: "Task's data is not find!" })
     })
@@ -73,7 +73,7 @@ export const deleteTask = (req: Request, res: Response, next: NextFunction) => {
   const taskId = req.params.id
   Task.findByIdAndDelete(taskId)
     .then(() => {
-      res.status(204).json('Success delete task')
+      return res.status(204).json('Success delete task')
     })
     .catch((e) => {
       next(e)

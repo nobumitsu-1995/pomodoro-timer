@@ -20,7 +20,7 @@ export const getWorkTimes = (
     uid: uid,
   })
     .then((workTimes) => {
-      res.status(200).json(workTimes)
+      return res.status(200).json(workTimes)
     })
     .catch((e) => {
       next(e)
@@ -39,7 +39,7 @@ export const getWorkTime = (
     _id: workTimeId,
   })
     .then((workTime) => {
-      res.status(200).json(workTime)
+      return res.status(200).json(workTime)
     })
     .catch((e) => {
       next(e)
@@ -57,7 +57,7 @@ export const createWorkTime = (
   const workTimeParams = getWorkTimeParams(req.body, uid)
   WorkTime.create(workTimeParams)
     .then((workTime) => {
-      res.status(201).json(workTime)
+      return res.status(201).json(workTime)
     })
     .catch((e) => {
       next(e)
@@ -77,7 +77,7 @@ export const updateWorkTime = (
   WorkTime.findByIdAndUpdate(workTimeId, { $set: taskParams }, { new: true })
     .then((workTime) => {
       if (workTime) {
-        res.status(200).json(workTime)
+        return res.status(200).json(workTime)
       }
       next({ message: "WorkTime's data is not find!" })
     })
@@ -94,7 +94,7 @@ export const deleteWorkTime = (
   const workTimeId = req.params.id
   WorkTime.findByIdAndDelete(workTimeId)
     .then(() => {
-      res.status(204).json('Success delete workTime')
+      return res.status(204).json('Success delete workTime')
     })
     .catch((e) => {
       next(e)

@@ -30,7 +30,7 @@ export const initializeCustumConfig = (
 
   CustumConfig.insertMany(array)
     .then((configs) => {
-      res.status(200).json(configs)
+      return res.status(200).json(configs)
     })
     .catch((e) => {
       next(e)
@@ -47,7 +47,7 @@ export const getCustumConfigs = (
     uid: uid,
   })
     .then((configs) => {
-      res.status(200).json(configs)
+      return res.status(200).json(configs)
     })
     .catch((e) => {
       next(e)
@@ -66,7 +66,7 @@ export const getCustumConfig = (
     _id: configId,
   })
     .then((config) => {
-      res.status(200).json(config)
+      return res.status(200).json(config)
     })
     .catch((e) => {
       next(e)
@@ -84,7 +84,7 @@ export const createCustumConfig = (
   const configParams = getConfigParams(req.body, uid)
   CustumConfig.create(configParams)
     .then((config) => {
-      res.status(201).json(config)
+      return res.status(201).json(config)
     })
     .catch((e) => {
       next(e)
@@ -108,7 +108,7 @@ export const updateCustumConfig = (
   )
     .then((config) => {
       if (config) {
-        res.status(200).json(config)
+        return res.status(200).json(config)
       }
       next({ message: "CustumConfig's data is not find!" })
     })
@@ -125,7 +125,7 @@ export const deleteCustumConfig = (
   const configId = req.params.id
   CustumConfig.findByIdAndDelete(configId)
     .then(() => {
-      res.status(204).json('Success delete custum config')
+      return res.status(204).json('Success delete custum config')
     })
     .catch((e) => {
       next(e)

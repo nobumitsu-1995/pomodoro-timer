@@ -18,7 +18,7 @@ export const getNoticeParams = (body: {
 export const getNotices = (req: Request, res: Response, next: NextFunction) => {
   Notice.find({})
     .then((notices) => {
-      res.status(200).render('notices/index', { notices })
+      return res.status(200).render('notices/index', { notices })
     })
     .catch((e) => {
       next(e)
@@ -30,12 +30,12 @@ export const getNotice = (req: Request, res: Response, next: NextFunction) => {
   Notice.findById(noticeId)
     .then((notice) => {
       if (notice) {
-        res.status(200).render('notices/show', { notice })
+        return res.status(200).render('notices/show', { notice })
       }
-      res.status(404).send("Notice's data is not find!")
+      return res.status(404).send("Notice's data is not find!")
     })
     .catch((e) => {
-      res.status(404).send("Notice's data is not find!")
+      return res.status(404).send("Notice's data is not find!")
     })
 }
 
@@ -44,7 +44,7 @@ export const renderNewPage = (
   res: Response,
   next: NextFunction
 ) => {
-  res.status(200).render('notices/new')
+  return res.status(200).render('notices/new')
 }
 
 export const createNotice = (
@@ -56,7 +56,7 @@ export const createNotice = (
   const noticeParams = getNoticeParams(req.body)
   Notice.create(noticeParams)
     .then((notice) => {
-      res.status(201).render('notices/show', { notice })
+      return res.status(201).render('notices/show', { notice })
     })
     .catch((e) => {
       next(e)
@@ -72,9 +72,9 @@ export const renderEditPage = (
   Notice.findById(noticeId)
     .then((notice) => {
       if (notice) {
-        res.status(200).render('notices/edit', { notice })
+        return res.status(200).render('notices/edit', { notice })
       }
-      res.status(404).send("Notice's data is not find!")
+      return res.status(404).send("Notice's data is not find!")
     })
     .catch((e) => {
       res.status(404).send("Notice's data is not find!")
@@ -92,12 +92,12 @@ export const updateNotice = (
   Notice.findByIdAndUpdate(noticeId, { $set: noticeParams }, { new: true })
     .then((notice) => {
       if (notice) {
-        res.status(200).render('notices/show', { notice })
+        return res.status(200).render('notices/show', { notice })
       }
-      res.status(404).send("Notice's data is not find!")
+      return res.status(404).send("Notice's data is not find!")
     })
     .catch((e) => {
-      res.status(404).send("Notice's data is not find!")
+      return res.status(404).send("Notice's data is not find!")
     })
 }
 
@@ -109,10 +109,10 @@ export const deleteNotice = (
   const noticeId = req.params.id
   Notice.findByIdAndDelete(noticeId)
     .then(() => {
-      res.status(200).redirect('/notices')
+      return res.status(200).redirect('/notices')
     })
     .catch((e) => {
-      res.status(404).send("Notice's data is not find!")
+      return res.status(404).send("Notice's data is not find!")
     })
 }
 
