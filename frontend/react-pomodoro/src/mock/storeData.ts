@@ -59,6 +59,17 @@ export const storeData = {
     },
     length: 1,
   },
+  achievements: {
+    achievements: [
+      {
+        _id: 'testId',
+        uid: 'testUid',
+        time: 10,
+        taskId: 'testTaskId',
+      },
+    ],
+    length: 1,
+  },
   token: {
     token: 'testToken',
   },

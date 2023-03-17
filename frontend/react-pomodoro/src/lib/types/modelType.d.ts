@@ -36,3 +36,14 @@ export type TaskType = {
   /** タスクの内容 */
   title: string
 }
+
+export type AchievementType = {
+  /** id */
+  _id: string
+  /** 実績の作成ユーザー */
+  uid: string
+  /** 実績の時間 */
+  time: number
+  /** 実績に紐づくタスクID */
+  taskId: string
+}
