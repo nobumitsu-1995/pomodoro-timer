@@ -114,7 +114,7 @@ const useTimer = ({
       //作業時間終了の処理
       case 'running':
         playWorkFinish()
-        taskId && token && createAchievement(token, taskId, workTime * cycle)
+        taskId && token && createAchievement(token, taskId, workTime)
         dispatch(updateStatus('rest'))
         isLongRest()
           ? // 長い休憩時間の場合
