@@ -79,7 +79,7 @@ describe('useTimer', () => {
       rerender({ ...request, status: 'running', leftTime: 0 })
 
       expect(mockedPlayWorkFinish).toBeCalled()
-      expect(mockedCreateAchievement).toBeCalledWith('token', 'taskId', 75)
+      expect(mockedCreateAchievement).toBeCalledWith('token', 'taskId', 25)
       expect(mockedUpdateStatus).toBeCalledWith('rest')
       expect(mockedStatusRest).toBeCalledWith(5)
       expect(result.current.leftCycle).toEqual(3)
@@ -115,7 +115,7 @@ describe('useTimer', () => {
       })
 
       expect(mockedPlayWorkFinish).toBeCalled()
-      expect(mockedCreateAchievement).toBeCalledWith('token', 'taskId', 75)
+      expect(mockedCreateAchievement).toBeCalledWith('token', 'taskId', 25)
       expect(mockedUpdateStatus).toBeCalledWith('rest')
       expect(mockedStatusLongRest).toBeCalledWith(10)
       expect(result.current.leftCycle).toEqual(3)

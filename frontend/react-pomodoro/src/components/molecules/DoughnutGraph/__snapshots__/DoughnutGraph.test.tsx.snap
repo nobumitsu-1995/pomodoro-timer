@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 350px;"
+  >
+    <div
+      class="sc-bczRLJ fvfzlI"
+    >
+      <canvas
+        height="150"
+        role="img"
+        width="300"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
