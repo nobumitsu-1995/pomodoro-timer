@@ -65,7 +65,11 @@ export const storeData = {
         _id: 'testId',
         uid: 'testUid',
         time: 10,
-        taskId: 'testTaskId',
+        taskId: {
+          _id: 'testId',
+          uid: 'testUid',
+          title: 'test title',
+        },
       },
     ],
     length: 1,

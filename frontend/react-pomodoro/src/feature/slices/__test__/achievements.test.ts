@@ -20,7 +20,11 @@ describe('Reducer custumConfig', () => {
         _id: 'testId',
         uid: 'testUid',
         time: 100,
-        taskId: 'testTaskId',
+        taskId: {
+          _id: 'testId',
+          uid: 'testUid',
+          title: 'test title',
+        },
       },
     ]
     expect(achievementsReducer(initialState, setAchievements(data))).toEqual({
@@ -34,7 +38,11 @@ describe('Reducer custumConfig', () => {
       _id: 'testId',
       uid: 'testUid',
       time: 100,
-      taskId: 'testTaskId',
+      taskId: {
+        _id: 'testId',
+        uid: 'testUid',
+        title: 'test title',
+      },
     }
 
     expect(achievementsReducer(initialState, addAchievement(data))).toEqual({
@@ -48,7 +56,11 @@ describe('Reducer custumConfig', () => {
       _id: '',
       uid: 'testUid',
       time: 200,
-      taskId: 'updatedAchievement',
+      taskId: {
+        _id: 'testId',
+        uid: 'testUid',
+        title: 'test title',
+      },
     }
 
     expect(achievementsReducer(initialState, updateAchievement(data))).toEqual({

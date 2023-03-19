@@ -14,7 +14,11 @@ export const initialState: AchievementsType = {
       _id: '',
       uid: '',
       time: 0,
-      taskId: '',
+      taskId: {
+        _id: 'testId',
+        uid: 'testUid',
+        title: 'test title',
+      },
     },
   ],
   length: 1,

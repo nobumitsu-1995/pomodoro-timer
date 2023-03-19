@@ -45,5 +45,5 @@ export type AchievementType = {
   /** 実績の時間 */
   time: number
   /** 実績に紐づくタスクID */
-  taskId: string
+  taskId: TaskType
 }
