@@ -12,6 +12,7 @@ export type Props = {
   tasks: TaskType[]
   currentTask: TaskType
   isEditMode: boolean
+  error: string
   onClickTask: (task: TaskType) => void
   onClickDeleteTask: (id: string) => void
   onClickEditTask: (task: TaskType) => void
@@ -25,6 +26,7 @@ const Presenter: React.FC<Props> = ({
   tasks,
   currentTask,
   isEditMode,
+  error,
   onClickTask,
   onClickDeleteTask,
   onClickEditTask,
@@ -48,6 +50,12 @@ const Presenter: React.FC<Props> = ({
       </StyledDiv1>
 
       <StyledDiv3>
+        {error && (
+          <StyledP>
+            <span className='material-icons md-10'>cancel</span>
+            {error}
+          </StyledP>
+        )}
         <Input
           onChange={onChangeInput}
           value={task.title}
@@ -102,6 +110,18 @@ const StyledDiv3 = styled.div`
   margin: 15px 0;
   display: grid;
   grid-template-columns: 1fr 50px;
+`
+
+const StyledP = styled.p`
+  position: absolute;
+  top: -16px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #cf4f4f;
+  border-radius: 6px;
+  background: #e6e6e6;
+  box-shadow: 7px 7px 14px #cacaca, -7px -7px 14px #ffffff;
 `
 
 const StyledText = styled(Text)`

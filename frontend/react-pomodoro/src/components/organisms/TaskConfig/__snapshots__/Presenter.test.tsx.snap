@@ -17,7 +17,7 @@ exports[`snapshot EditMode should render correctly 1`] = `
         class="sc-ftvSup kubrMX"
       >
         <p
-          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-jqUVSM gHJHUk"
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-kDDrLX daffIH"
         >
           title1
         </p>
@@ -26,6 +26,135 @@ exports[`snapshot EditMode should render correctly 1`] = `
     <div
       class="sc-papXJ dBPOiQ"
     >
+      <input
+        class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK hquitd"
+        id="task"
+        name="task"
+        placeholder="New Task's Title"
+        type="text"
+        value="title"
+      />
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR kQFxcF"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          keyboard_arrow_right
+        </span>
+      </button>
+    </div>
+    <ul
+      class="sc-hKMtZM fpRUCO"
+    >
+      <li
+        class="sc-eCYdqJ cFmtgd"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  eCkNBf sc-jSMfEi hXOZLi"
+        >
+          title1
+        </p>
+        <div
+          class="sc-gKXOVf leZrje"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              edit
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              delete
+            </span>
+          </button>
+        </div>
+      </li>
+      <li
+        class="sc-eCYdqJ cFmtgd"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  hdfbys sc-jSMfEi hXOZLi"
+        >
+          title2
+        </p>
+        <div
+          class="sc-gKXOVf leZrje"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              edit
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              delete
+            </span>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot Error should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE jtvgsP"
+  >
+    <div
+      class="sc-iBkjds iXAPix"
+    >
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  fJrVjR"
+      >
+        Current Task:
+      </p>
+      <div
+        class="sc-ftvSup kubrMX"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-kDDrLX daffIH"
+        >
+          title1
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-papXJ dBPOiQ"
+    >
+      <p
+        class="sc-jqUVSM eMLXlC"
+      >
+        <span
+          class="material-icons md-10"
+        >
+          cancel
+        </span>
+        error
+      </p>
       <input
         class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK hquitd"
         id="task"
@@ -136,7 +265,7 @@ exports[`snapshot ShowMode should render correctly 1`] = `
         class="sc-ftvSup kubrMX"
       >
         <p
-          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-jqUVSM gHJHUk"
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-kDDrLX daffIH"
         >
           title1
         </p>
