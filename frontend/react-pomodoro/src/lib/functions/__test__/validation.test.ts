@@ -1,4 +1,8 @@
-import { validateCycle, validateTimerConfig } from '../validation'
+import {
+  validateCycle,
+  validateTaskTitle,
+  validateTimerConfig,
+} from '../validation'
 
 describe('validation', () => {
   describe('validateCycle', () => {
@@ -42,6 +46,23 @@ describe('validation', () => {
     test('61の時', () => {
       const result = validateTimerConfig(61)
       expect(result).toBe('5-60 are allowed.')
+    })
+  })
+
+  describe('validateTaskTitle', () => {
+    test('正常系 1文字の時', () => {
+      const result = validateTaskTitle('a')
+      expect(result).toBe('')
+    })
+
+    test('正常系 25文字の時', () => {
+      const result = validateTaskTitle('a'.repeat(25))
+      expect(result).toBe('')
+    })
+
+    test('異常系 26文字の時', () => {
+      const result = validateTaskTitle('a'.repeat(26))
+      expect(result).toBe('1-25 are allowed.')
     })
   })
 })
