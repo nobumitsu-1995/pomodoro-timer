@@ -66,16 +66,6 @@ export const returnSample: AchievementType[] = [
     },
   },
   {
-    _id: 'id4',
-    uid: 'uid',
-    time: 100,
-    taskId: {
-      _id: 'taskId2',
-      uid: 'uid',
-      title: 'title2',
-    },
-  },
-  {
     _id: 'id5',
     uid: 'uid',
     time: 200,
@@ -83,6 +73,16 @@ export const returnSample: AchievementType[] = [
       _id: 'taskId3',
       uid: 'uid',
       title: 'title3',
+    },
+  },
+  {
+    _id: 'id4',
+    uid: 'uid',
+    time: 100,
+    taskId: {
+      _id: 'taskId2',
+      uid: 'uid',
+      title: 'title2',
     },
   },
 ]
