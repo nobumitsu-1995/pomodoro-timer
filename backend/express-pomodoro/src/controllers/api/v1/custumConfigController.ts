@@ -21,10 +21,10 @@ export const initializeCustumConfig = (
   const uid = res.locals.user.sub
   const array = new Array(5).fill({
     uid: uid,
-    workTime: 25,
-    restTime: 5,
+    workTime: 1500,
+    restTime: 300,
     cycle: 8,
-    longRestTime: 10,
+    longRestTime: 600,
     cycleToLongRestTime: 4,
   })
 
@@ -137,16 +137,38 @@ export const validator = async (
   res: Response,
   next: NextFunction
 ) => {
-  await check('workTime', 'workTimeを入力してください').notEmpty().run(req)
-  await check('restTime', 'restTimeを入力してください').notEmpty().run(req)
-  await check('cycle', 'cycleを入力してください').notEmpty().run(req)
+  await check('workTime')
+    .notEmpty()
+    .withMessage('workTimeを入力してください')
+    .run(req)
+  await check('workTime')
+    .isInt({ min: 300, max: 3600 })
+    .withMessage('workTime should be between 5 and 60.')
+    .run(req)
+  await check('restTime')
+    .notEmpty()
+    .withMessage('restTimeを入力してください')
+    .run(req)
+  await check('restTime')
+    .isInt({ min: 300, max: 3600 })
+    .withMessage('restTime should be between 5 and 60.')
+    .run(req)
+  await check('cycle')
+    .notEmpty()
+    .withMessage('cycleを入力してください')
+    .run(req)
+  await check('cycle')
+    .isInt({ min: 1, max: 10 })
+    .withMessage('cycle should be between 1 and 10.')
+    .run(req)
+
   const error = validationResult(req)
   if (error.isEmpty()) {
     next()
   } else {
     const messages = error.array().map((e) => ({ msg: e.msg, params: e.param }))
     res.locals.error = messages
-    res.status(404)
+    res.status(400)
     next()
   }
 }

@@ -86,13 +86,17 @@ export const validator = async (
   next: NextFunction
 ) => {
   await check('title', 'titleを入力してください').notEmpty().run(req)
+  await check('title')
+    .isLength({ min: 1, max: 25 })
+    .withMessage('Name should be between 1 and 25 characters.')
+    .run(req)
   const error = validationResult(req)
   if (error.isEmpty()) {
     next()
   } else {
     const messages = error.array().map((e) => ({ msg: e.msg, params: e.param }))
     res.locals.error = messages
-    res.status(404)
+    res.status(400)
     next()
   }
 }

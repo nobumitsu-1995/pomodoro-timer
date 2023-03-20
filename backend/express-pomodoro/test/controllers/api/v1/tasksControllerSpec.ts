@@ -114,7 +114,7 @@ describe('TaskController', () => {
         .set('Authorization', token)
         .send(taskParams)
         .end((errors, res) => {
-          expect(res).to.be.status(500)
+          expect(res).to.be.status(400)
           done()
         })
     })
@@ -131,7 +131,7 @@ describe('TaskController', () => {
         .set('Authorization', token)
         .send(taskParams)
         .end((errors, res) => {
-          expect(res).to.be.status(404)
+          expect(res).to.be.status(400)
           done()
         })
     })
