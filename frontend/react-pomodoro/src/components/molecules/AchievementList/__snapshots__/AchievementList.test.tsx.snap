@@ -9,7 +9,7 @@ exports[`snapshot Default should render correctly 1`] = `
       class="sc-gsnTZi"
     >
       <thead
-        class="sc-dkzDqf euxQOw"
+        class="sc-dkzDqf fSpYph"
       >
         <tr
           class="sc-eCYdqJ lgRJAi"
@@ -18,7 +18,7 @@ exports[`snapshot Default should render correctly 1`] = `
             class="sc-iBkjds"
           />
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             Title
           </td>
@@ -41,7 +41,7 @@ exports[`snapshot Default should render correctly 1`] = `
             01
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title1
           </td>
@@ -60,7 +60,7 @@ exports[`snapshot Default should render correctly 1`] = `
             02
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title2title2title2title2title2title2title2title2title2title2title2
           </td>
@@ -79,7 +79,7 @@ exports[`snapshot Default should render correctly 1`] = `
             03
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title3
           </td>
@@ -98,7 +98,7 @@ exports[`snapshot Default should render correctly 1`] = `
             04
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title4
           </td>
@@ -117,7 +117,7 @@ exports[`snapshot Default should render correctly 1`] = `
             05
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title4
           </td>
@@ -136,7 +136,7 @@ exports[`snapshot Default should render correctly 1`] = `
             06
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title4
           </td>
@@ -155,7 +155,7 @@ exports[`snapshot Default should render correctly 1`] = `
             07
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title4
           </td>
@@ -174,7 +174,7 @@ exports[`snapshot Default should render correctly 1`] = `
             08
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title4
           </td>
@@ -193,7 +193,7 @@ exports[`snapshot Default should render correctly 1`] = `
             09
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title4
           </td>
@@ -212,7 +212,7 @@ exports[`snapshot Default should render correctly 1`] = `
             10
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title4
           </td>
@@ -231,7 +231,7 @@ exports[`snapshot Default should render correctly 1`] = `
             11
           </th>
           <td
-            class="sc-jSMfEi iYNJED"
+            class="sc-jSMfEi eDTjGy"
           >
             title4
           </td>

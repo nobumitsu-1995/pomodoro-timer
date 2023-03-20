@@ -2,7 +2,7 @@
 
 exports[`snapshot Detail should render correctly 1`] = `
 <DocumentFragment>
-  <div>
+  <section>
     <h2
       class="Presenter__StyledH2-sc-urqluj-0 bUTIHt"
     >
@@ -50,13 +50,13 @@ exports[`snapshot Detail should render correctly 1`] = `
         </button>
       </div>
     </div>
-  </div>
+  </section>
 </DocumentFragment>
 `;
 
 exports[`snapshot List should render correctly 1`] = `
 <DocumentFragment>
-  <div>
+  <section>
     <h2
       class="Presenter__StyledH2-sc-urqluj-0 bUTIHt"
     >
@@ -81,6 +81,6 @@ exports[`snapshot List should render correctly 1`] = `
         </a>
       </li>
     </ul>
-  </div>
+  </section>
 </DocumentFragment>
 `;
