@@ -12,7 +12,7 @@ export type Props = {
 
 const Presenter: React.FC<Props> = ({ notices, setCurrentNotice, notice }) => {
   return (
-    <div>
+    <section>
       <StyledH2>Notices</StyledH2>
       {notice ? (
         <NoticeDetail {...notice} onClick={() => setCurrentNotice(undefined)} />
@@ -23,7 +23,7 @@ const Presenter: React.FC<Props> = ({ notices, setCurrentNotice, notice }) => {
           setCurrentNotice={setCurrentNotice}
         />
       )}
-    </div>
+    </section>
   )
 }
 

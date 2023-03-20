@@ -2,13 +2,14 @@ import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import Presenter from './Presenter'
 import Notice from '../Notice/Container'
+import UserAchievement from '../UserAchievement/Container'
 
 const Container: React.FC = () => {
   const { isAuthenticated } = useAuth0()
 
   const listButtons = [
     {
-      modalContent: <Notice />,
+      modalContent: <UserAchievement />,
       icon: 'person',
       isHide: !isAuthenticated,
     },

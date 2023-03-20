@@ -43,3 +43,8 @@ export const EditMode = Template.bind({})
 EditMode.args = {
   isEditMode: true,
 }
+
+export const Error = Template.bind({})
+Error.args = {
+  error: 'error',
+}

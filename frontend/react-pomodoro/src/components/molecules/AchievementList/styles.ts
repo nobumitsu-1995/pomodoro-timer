@@ -16,8 +16,8 @@ export const StyledThead = styled.thead`
   color: #555;
   font-size: 1.2rem;
   font-weight: bold;
-  background-color: #ededed;
-  box-shadow: 5px 5px 10px #cfcfcf, -5px -5px 10px #ffffff;
+  background: #e6e6e6;
+  box-shadow: 7px 7px 14px #cacaca, -7px -7px 14px #ffffff;
 `
 
 export const StyledTbody = styled.tbody`
@@ -40,6 +40,7 @@ export const StyledTr = styled.tr`
 export const StyledTd1 = styled.td`
   padding: 0 4px;
   overflow: hidden;
+  text-align: left;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;

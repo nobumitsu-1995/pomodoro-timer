@@ -23,5 +23,9 @@ export const totalingAchievement = (
     }
   }
 
-  return Array.from(achievementsMap.values())
+  const totalingAchievement = Array.from(achievementsMap.values())
+
+  return totalingAchievement.sort((a, b) => {
+    return b.time - a.time
+  })
 }
