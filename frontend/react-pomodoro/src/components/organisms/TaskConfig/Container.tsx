@@ -12,6 +12,7 @@ import {
 import { api } from '../../../lib/functions/axios'
 import Presenter from './Presenter'
 import { tokenGetSelector } from 'src/feature/selectors/token'
+import { validateTaskTitle } from 'src/lib/functions/validation'
 
 const Container: React.FC = () => {
   const dispatch = useDispatch()
@@ -24,12 +25,14 @@ const Container: React.FC = () => {
     id: '',
   })
   const [isEditMode, setIsEditMode] = useState(false)
+  const [error, setError] = useState('')
 
   const onClickTask = (task: TaskType) => {
     dispatch(setCurrentTask(task))
   }
 
   const onClickDeleteTask = (id: string) => {
+    console.log(task.title.length)
     if (!confirm('削除してよろしいですか？')) return
     api(token)
       .delete(`/v1/task/${id}/delete`)
@@ -49,6 +52,7 @@ const Container: React.FC = () => {
 
   const onClickUpdateTask = () => {
     if (task.title.length === 0) return
+    if (error) return
 
     api(token)
       .patch(`/v1/task/${task.id}/update`, {
@@ -67,6 +71,7 @@ const Container: React.FC = () => {
 
   const onClickCreateTask = () => {
     if (task.title.length === 0) return
+    if (error) return
 
     api(token)
       .post('/v1/task/create', {
@@ -84,6 +89,7 @@ const Container: React.FC = () => {
 
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target
+    setError(validateTaskTitle(value))
     setTask({
       ...task,
       title: value,
@@ -96,6 +102,7 @@ const Container: React.FC = () => {
       tasks={tasks}
       currentTask={currentTask}
       isEditMode={isEditMode}
+      error={error}
       onClickTask={onClickTask}
       onClickDeleteTask={onClickDeleteTask}
       onClickEditTask={onClickEditTask}

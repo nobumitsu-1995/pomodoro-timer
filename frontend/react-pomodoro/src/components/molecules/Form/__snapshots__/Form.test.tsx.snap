@@ -7,7 +7,7 @@ exports[`snapshot Default should render correctly 1`] = `
   >
     <form>
       <div
-        class="sc-eCYdqJ fzrjjp sc-bjUoiL hqfLfI"
+        class="sc-hKMtZM eOlEBc sc-gKXOVf hIWLdE"
       >
         <label
           for="id1"
@@ -19,7 +19,7 @@ exports[`snapshot Default should render correctly 1`] = `
           </p>
         </label>
         <div
-          class="sc-jSMfEi mQLUn"
+          class="sc-eCYdqJ kVYsYd"
         >
           <input
             class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
@@ -32,7 +32,7 @@ exports[`snapshot Default should render correctly 1`] = `
         </div>
       </div>
       <div
-        class="sc-eCYdqJ fzrjjp sc-bjUoiL hqfLfI"
+        class="sc-hKMtZM eOlEBc sc-gKXOVf hIWLdE"
       >
         <label
           for="id2"
@@ -44,7 +44,7 @@ exports[`snapshot Default should render correctly 1`] = `
           </p>
         </label>
         <div
-          class="sc-jSMfEi mQLUn"
+          class="sc-eCYdqJ kVYsYd"
         >
           <input
             class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
@@ -57,7 +57,7 @@ exports[`snapshot Default should render correctly 1`] = `
         </div>
       </div>
       <div
-        class="sc-eCYdqJ fzrjjp sc-bjUoiL hqfLfI"
+        class="sc-hKMtZM eOlEBc sc-gKXOVf hIWLdE"
       >
         <label
           for="id3"
@@ -69,7 +69,7 @@ exports[`snapshot Default should render correctly 1`] = `
           </p>
         </label>
         <div
-          class="sc-jSMfEi mQLUn"
+          class="sc-eCYdqJ kVYsYd"
         >
           <input
             class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
@@ -82,7 +82,7 @@ exports[`snapshot Default should render correctly 1`] = `
         </div>
       </div>
       <button
-        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR cFTvDQ sc-idiyUo hFijbx"
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR cFTvDQ sc-iBkjds bbiPIP"
         type="button"
       >
         button

@@ -9,7 +9,7 @@ exports[`snapshot Default should render correctly 1`] = `
       class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE jtvgsP"
     >
       <div
-        class="sc-dIouRR jYhJmc"
+        class="sc-ftvSup NVXIp"
       >
         <p
           class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  hdfbys"
@@ -34,10 +34,10 @@ exports[`snapshot Default should render correctly 1`] = `
         </div>
       </div>
       <form
-        class="sc-hHLeRK encrpH"
+        class="sc-papXJ bdgcHk"
       >
         <div
-          class="sc-eCYdqJ fzrjjp sc-bjUoiL hqfLfI"
+          class="sc-hKMtZM eOlEBc sc-gKXOVf hIWLdE"
         >
           <label
             for="test"
@@ -49,7 +49,7 @@ exports[`snapshot Default should render correctly 1`] = `
             </p>
           </label>
           <div
-            class="sc-jSMfEi mQLUn"
+            class="sc-eCYdqJ kVYsYd"
           >
             <input
               class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
@@ -62,7 +62,7 @@ exports[`snapshot Default should render correctly 1`] = `
           </div>
         </div>
         <button
-          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR cFTvDQ sc-idiyUo hFijbx"
+          class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR cFTvDQ sc-iBkjds bbiPIP"
           type="button"
         >
           UPDATE
