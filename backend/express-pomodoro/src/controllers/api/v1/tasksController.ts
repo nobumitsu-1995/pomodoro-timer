@@ -15,7 +15,7 @@ export const getTasks = (req: Request, res: Response, next: NextFunction) => {
     uid: uid,
   })
     .then((tasks) => {
-      res.status(200).json(tasks)
+      return res.status(200).json(tasks)
     })
     .catch((e) => {
       next(e)
@@ -30,7 +30,7 @@ export const getTask = (req: Request, res: Response, next: NextFunction) => {
     _id: taskId,
   })
     .then((task) => {
-      res.status(200).json(task)
+      return res.status(200).json(task)
     })
     .catch((e) => {
       next(e)
@@ -41,10 +41,23 @@ export const createTask = (req: Request, res: Response, next: NextFunction) => {
   if (res.locals.error) next()
 
   const uid = res.locals.user.sub
-  const taskParams = getTaskParams(req.body, uid)
-  Task.create(taskParams)
-    .then((task) => {
-      res.status(201).json(task)
+
+  Task.find({
+    uid: uid,
+  })
+    .then((tasks) => {
+      if (tasks.length > 9) {
+        return res.status(403).json()
+      }
+
+      const taskParams = getTaskParams(req.body, uid)
+      Task.create(taskParams)
+        .then((task) => {
+          return res.status(201).json(task)
+        })
+        .catch((e) => {
+          next(e)
+        })
     })
     .catch((e) => {
       next(e)
@@ -60,7 +73,7 @@ export const updateTask = (req: Request, res: Response, next: NextFunction) => {
   Task.findByIdAndUpdate(taskId, { $set: taskParams }, { new: true })
     .then((task) => {
       if (task) {
-        res.status(200).json(task)
+        return res.status(200).json(task)
       }
       next({ message: "Task's data is not find!" })
     })
@@ -73,7 +86,7 @@ export const deleteTask = (req: Request, res: Response, next: NextFunction) => {
   const taskId = req.params.id
   Task.findByIdAndDelete(taskId)
     .then(() => {
-      res.status(204).json('Success delete task')
+      return res.status(204).json('Success delete task')
     })
     .catch((e) => {
       next(e)
@@ -86,13 +99,17 @@ export const validator = async (
   next: NextFunction
 ) => {
   await check('title', 'titleを入力してください').notEmpty().run(req)
+  await check('title')
+    .isLength({ min: 1, max: 25 })
+    .withMessage('Name should be between 1 and 25 characters.')
+    .run(req)
   const error = validationResult(req)
   if (error.isEmpty()) {
     next()
   } else {
     const messages = error.array().map((e) => ({ msg: e.msg, params: e.param }))
     res.locals.error = messages
-    res.status(404)
+    res.status(400)
     next()
   }
 }

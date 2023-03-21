@@ -21,6 +21,7 @@ export const getAchievement = (
     uid: uid,
     _id: achivementId,
   })
+    .populate('taskId')
     .then((achivement) => {
       return res.status(200).json(achivement)
     })
@@ -38,6 +39,7 @@ export const getAchievements = (
   Achievement.find({
     uid: uid,
   })
+    .populate('taskId')
     .then((achievements) => {
       return res.status(200).json(achievements)
     })
