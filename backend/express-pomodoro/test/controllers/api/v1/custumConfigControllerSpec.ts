@@ -28,10 +28,10 @@ describe('custumConfigController', () => {
     it('it should GET all custum_config json', (done) => {
       CustumConfig.create({
         uid: `${process.env.CLIENT_ID}@clients`,
-        workTime: 300,
-        restTime: 300,
+        workTime: 30,
+        restTime: 30,
         cycle: 3,
-        longRestTime: 300,
+        longRestTime: 30,
         cycleToLongRestTime: 2,
       }).then(() => {
         chai
@@ -52,10 +52,10 @@ describe('custumConfigController', () => {
     it('it should GET custum_config json with correct id', (done) => {
       CustumConfig.create({
         uid: `${process.env.CLIENT_ID}@clients`,
-        workTime: 300,
-        restTime: 300,
+        workTime: 30,
+        restTime: 30,
         cycle: 3,
-        longRestTime: 300,
+        longRestTime: 30,
         cycleToLongRestTime: 2,
       }).then((config) => {
         const configId = config._id
@@ -65,10 +65,10 @@ describe('custumConfigController', () => {
           .set('Authorization', token)
           .end((errors, res) => {
             expect(res).to.be.status(200)
-            expect(res.body.workTime).to.eq(300)
-            expect(res.body.restTime).to.eq(300)
+            expect(res.body.workTime).to.eq(30)
+            expect(res.body.restTime).to.eq(30)
             expect(res.body.cycle).to.eq(3)
-            expect(res.body.longRestTime).to.eq(300)
+            expect(res.body.longRestTime).to.eq(30)
             expect(res.body.cycleToLongRestTime).to.eq(2)
             expect(errors).to.be.null
             done()
@@ -79,10 +79,10 @@ describe('custumConfigController', () => {
     it('it should not GET custum_config json with wrong id', (done) => {
       CustumConfig.create({
         uid: `${process.env.CLIENT_ID}@clients`,
-        workTime: 300,
-        restTime: 300,
+        workTime: 30,
+        restTime: 30,
         cycle: 3,
-        longRestTime: 300,
+        longRestTime: 30,
         cycleToLongRestTime: 2,
       }).then(() => {
         const configId = 'xxx'
@@ -102,10 +102,10 @@ describe('custumConfigController', () => {
     it('it should POST custum_config json', (done) => {
       const configParams = {
         uid: `${process.env.CLIENT_ID}@clients`,
-        workTime: 300,
-        restTime: 300,
+        workTime: 30,
+        restTime: 30,
         cycle: 3,
-        longRestTime: 300,
+        longRestTime: 30,
         cycleToLongRestTime: 2,
       }
 
@@ -116,10 +116,10 @@ describe('custumConfigController', () => {
         .send(configParams)
         .end((errors, res) => {
           expect(res).to.be.status(201)
-          expect(res.body.workTime).to.eq(300)
-          expect(res.body.restTime).to.eq(300)
+          expect(res.body.workTime).to.eq(30)
+          expect(res.body.restTime).to.eq(30)
           expect(res.body.cycle).to.eq(3)
-          expect(res.body.longRestTime).to.eq(300)
+          expect(res.body.longRestTime).to.eq(30)
           expect(res.body.cycleToLongRestTime).to.eq(2)
           expect(errors).to.be.null
           done()
@@ -131,10 +131,10 @@ describe('custumConfigController', () => {
     it('it should PATCH custum_config json with correct id', (done) => {
       CustumConfig.create({
         uid: `${process.env.CLIENT_ID}@clients`,
-        workTime: 300,
-        restTime: 300,
+        workTime: 30,
+        restTime: 30,
         cycle: 3,
-        longRestTime: 300,
+        longRestTime: 30,
         cycleToLongRestTime: 2,
       }).then((config) => {
         const configId = config._id
@@ -165,10 +165,10 @@ describe('custumConfigController', () => {
     it('it should not PATCH custum_config json with wrong id', (done) => {
       CustumConfig.create({
         uid: `${process.env.CLIENT_ID}@clients`,
-        workTime: 300,
-        restTime: 300,
+        workTime: 30,
+        restTime: 30,
         cycle: 3,
-        longRestTime: 300,
+        longRestTime: 30,
         cycleToLongRestTime: 2,
       }).then(() => {
         const configId = 'xxx'
@@ -195,10 +195,10 @@ describe('custumConfigController', () => {
     it('it should DELETE custum_config json with correct id', (done) => {
       CustumConfig.create({
         uid: `${process.env.CLIENT_ID}@clients`,
-        workTime: 300,
-        restTime: 300,
+        workTime: 30,
+        restTime: 30,
         cycle: 3,
-        longRestTime: 300,
+        longRestTime: 30,
         cycleToLongRestTime: 2,
       }).then((config) => {
         const configId = config._id
@@ -216,10 +216,10 @@ describe('custumConfigController', () => {
     it('it should not DELETE custum_config json with wrong id', (done) => {
       CustumConfig.create({
         uid: `${process.env.CLIENT_ID}@clients`,
-        workTime: 300,
-        restTime: 300,
+        workTime: 30,
+        restTime: 30,
         cycle: 3,
-        longRestTime: 300,
+        longRestTime: 30,
         cycleToLongRestTime: 2,
       }).then(() => {
         const configId = 'xxx'
@@ -246,7 +246,7 @@ describe('custumConfigController', () => {
           console.log(res.body)
           expect(res.body.length).to.eq(5)
           expect(res.body[0].workTime).to.eq(1500)
-          expect(res.body[0].restTime).to.eq(300)
+          expect(res.body[0].restTime).to.eq(30)
           expect(res.body[0].cycle).to.eq(8)
           expect(res.body[0].longRestTime).to.eq(600)
           expect(res.body[0].cycleToLongRestTime).to.eq(4)
