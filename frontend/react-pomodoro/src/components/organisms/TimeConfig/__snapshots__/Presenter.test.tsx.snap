@@ -12,7 +12,7 @@ exports[`snapshot Default should render correctly 1`] = `
         class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE bmTVqN Presenter___StyledUpDownConsole-sc-wu5hjj-1 eTDciG"
       >
         <span
-          class="material-icons md-18 md-dark"
+          class="sc-ftvSup kMSMsc material-icons md-18 md-dark"
         >
           work
         </span>
@@ -23,13 +23,13 @@ exports[`snapshot Default should render correctly 1`] = `
             class="sc-jSMfEi hssCBj"
           >
             <p
-              class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+              class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw sc-gKXOVf"
             >
               work
 time
             </p>
             <p
-              class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  jisIAs sc-gKXOVf"
+              class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  jisIAs"
             >
               <span
                 class="material-icons md-10"
@@ -79,7 +79,7 @@ time
         class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE bmTVqN Presenter___StyledUpDownConsole-sc-wu5hjj-1 eTDciG"
       >
         <span
-          class="material-icons md-18 md-dark"
+          class="sc-ftvSup kMSMsc material-icons md-18 md-dark"
         >
           local_cafe
         </span>
@@ -90,13 +90,13 @@ time
             class="sc-jSMfEi hssCBj"
           >
             <p
-              class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+              class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw sc-gKXOVf"
             >
               rest
 time
             </p>
             <p
-              class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  jisIAs sc-gKXOVf"
+              class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  jisIAs"
             >
               <span
                 class="material-icons md-10"

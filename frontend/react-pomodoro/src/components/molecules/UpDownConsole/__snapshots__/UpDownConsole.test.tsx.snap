@@ -9,7 +9,7 @@ exports[`snapshot Default should render correctly 1`] = `
       class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE bmTVqN"
     >
       <span
-        class="material-icons md-18 md-dark"
+        class="sc-ftvSup kMSMsc material-icons md-18 md-dark"
       >
         work
       </span>
@@ -20,7 +20,7 @@ exports[`snapshot Default should render correctly 1`] = `
           class="sc-jSMfEi hssCBj"
         >
           <p
-            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw sc-gKXOVf"
           >
             sample
           </p>

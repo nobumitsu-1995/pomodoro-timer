@@ -12,6 +12,7 @@ import {
   workTimeSelector,
 } from '../../../feature/selectors/timerConfig'
 import Presenter from './Presenter'
+import { statusSelector } from 'src/feature/selectors/timerStatus'
 
 const Container: React.FC = () => {
   const [error, setError] = useState({ work: '', rest: '' })
@@ -19,6 +20,7 @@ const Container: React.FC = () => {
 
   const globalWorkTime = useSelector(workTimeSelector) / 60
   const globalRestTime = useSelector(restTimeSelector) / 60
+  const status = useSelector(statusSelector)
 
   const incrementWorkTime = useCallback(() => {
     if (globalWorkTime === 60) {
@@ -60,6 +62,7 @@ const Container: React.FC = () => {
       error: error.work,
       onClickUp: incrementWorkTime,
       onClickDown: decrementWorkTime,
+      isActive: status === 'running',
     },
     {
       icon: 'local_cafe',
@@ -68,6 +71,7 @@ const Container: React.FC = () => {
       error: error.rest,
       onClickUp: incrementRestTime,
       onClickDown: decrementRestTime,
+      isActive: status === 'rest' || status === 'longRest',
     },
   ]
 
