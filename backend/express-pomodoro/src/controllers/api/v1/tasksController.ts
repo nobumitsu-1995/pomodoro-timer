@@ -41,10 +41,23 @@ export const createTask = (req: Request, res: Response, next: NextFunction) => {
   if (res.locals.error) next()
 
   const uid = res.locals.user.sub
-  const taskParams = getTaskParams(req.body, uid)
-  Task.create(taskParams)
-    .then((task) => {
-      return res.status(201).json(task)
+
+  Task.find({
+    uid: uid,
+  })
+    .then((tasks) => {
+      if (tasks.length > 9) {
+        return res.status(403).json()
+      }
+
+      const taskParams = getTaskParams(req.body, uid)
+      Task.create(taskParams)
+        .then((task) => {
+          return res.status(201).json(task)
+        })
+        .catch((e) => {
+          next(e)
+        })
     })
     .catch((e) => {
       next(e)

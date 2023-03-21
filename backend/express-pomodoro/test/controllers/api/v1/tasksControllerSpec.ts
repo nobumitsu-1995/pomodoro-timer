@@ -1,5 +1,3 @@
-import chai, { expect } from 'chai'
-import chaiHTTP from 'chai-http'
 import { getToken } from '../../../../src/lib/functions/getToken'
 import app from '../../../../src/main'
 import Task from '../../../../src/models/task'
@@ -134,6 +132,36 @@ describe('TaskController', () => {
           expect(res).to.be.status(400)
           done()
         })
+    })
+
+    it('it should not CREATE 11 tasks', (done) => {
+      const taskParams = {
+        uid: `${process.env.CLIENT_ID}@clients`,
+        title: 'a'.repeat(25),
+      }
+
+      const createTask = async () => {
+        for (let i = 0; i < 10; i++) {
+          await chai
+            .request(app)
+            .post(`/api/v1/task/create`)
+            .set('Authorization', token)
+            .send(taskParams)
+        }
+      }
+
+      createTask().then(() => {
+        chai
+          .request(app)
+          .get('/api/v1/task/')
+          .set('Authorization', token)
+          .end((errors, res) => {
+            expect(res).to.be.status(200)
+            expect(res.body.length).to.eq(1)
+            expect(errors).to.be.null
+            done()
+          })
+      })
     })
   })
 
