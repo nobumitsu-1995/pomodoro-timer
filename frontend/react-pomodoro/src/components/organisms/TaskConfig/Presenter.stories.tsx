@@ -48,3 +48,8 @@ export const Error = Template.bind({})
 Error.args = {
   error: 'error',
 }
+
+export const NoData = Template.bind({})
+NoData.args = {
+  tasks: [],
+}
