@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   cycleSelector,
   cycleToLongRestTimeSelector,
@@ -19,11 +19,16 @@ import Presenter from './Presenter'
 import { useDispatch } from 'react-redux'
 import useSoundConfig from 'src/lib/hooks/useSoundConfig'
 import useTimer from 'src/lib/hooks/useTimer'
-import { setEndTime, updateStatus } from 'src/feature/slices/timerStatus'
+import {
+  setEndTime,
+  TimerStatus,
+  updateStatus,
+} from 'src/feature/slices/timerStatus'
 
 const Container: React.FC = () => {
   const dispatch = useDispatch()
   const volume = useSelector(volumeSelector)
+  const [prevStatus, setPrevStatus] = useState<TimerStatus | null>(null)
 
   const { playWorkFinish, playRestFinish } = useSoundConfig(volume)
 
@@ -61,14 +66,16 @@ const Container: React.FC = () => {
           ? true
           : false,
       onClick: () => {
-        dispatch(updateStatus('running'))
+        dispatch(updateStatus(prevStatus || 'running'))
         dispatch(setEndTime(leftTime))
+        setPrevStatus(null)
       },
     },
     {
       name: 'pause',
       disable: status === 'pause' || status === 'stop' ? true : false,
       onClick: () => {
+        setPrevStatus(status)
         dispatch(updateStatus('pause'))
       },
     },
@@ -78,6 +85,7 @@ const Container: React.FC = () => {
       onClick: () => {
         if (confirm('タイマーを中断してよろしいですか？')) {
           resetTimer()
+          setPrevStatus(null)
         }
       },
     },
