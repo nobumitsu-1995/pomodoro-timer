@@ -1,5 +1,3 @@
-import chai, { expect } from 'chai'
-import chaiHTTP from 'chai-http'
 import { getToken } from '../../../../src/lib/functions/getToken'
 import app from '../../../../src/main'
 import CustumConfig from '../../../../src/models/custumConfig'

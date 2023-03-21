@@ -1,6 +1,4 @@
 import CustumConfig from '../../src/models/custumConfig'
-import { describe, it, beforeEach } from 'mocha'
-import { expect } from 'chai'
 import '../../src/main'
 
 beforeEach((done) => {
