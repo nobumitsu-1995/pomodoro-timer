@@ -8,14 +8,14 @@ const custumConfigSchema = new Schema(
     },
     workTime: {
       type: Number,
-      min: 300,
-      max: 3600,
+      min: 5,
+      max: 60,
       required: true,
     },
     restTime: {
       type: Number,
-      min: 300,
-      max: 3600,
+      min: 5,
+      max: 60,
       required: true,
     },
     cycle: {
@@ -25,8 +25,8 @@ const custumConfigSchema = new Schema(
       required: true,
     },
     longRestTime: {
-      min: 300,
-      max: 3600,
+      min: 5,
+      max: 60,
       default: 0,
       type: Number,
     },
