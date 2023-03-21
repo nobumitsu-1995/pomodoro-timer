@@ -6,6 +6,7 @@ import { store } from 'src/feature/store'
 import Theme from 'src/assets/styles/Theme'
 import {
   validateCycle,
+  validateCycleToLongRestTime,
   validateTimerConfig,
 } from 'src/lib/functions/validation'
 import axios from 'axios'
@@ -16,16 +17,21 @@ jest.mock('axios')
 jest.mock('src/lib/functions/validation', () => ({
   validateCycle: jest.fn(),
   validateTimerConfig: jest.fn(),
+  validateCycleToLongRestTime: jest.fn(),
 }))
 
 const mockedAxios = axios as jest.Mocked<typeof axios>
 const mockedValidateCycle = jest.mocked(validateCycle)
+const mockedValidateCycleToLongRestTime = jest.mocked(
+  validateCycleToLongRestTime
+)
 const mockedValidateTimerConfig = jest.mocked(validateTimerConfig)
 
 describe('CustumConfig', () => {
   afterEach(() => {
     mockedValidateCycle.mockReset()
     mockedValidateTimerConfig.mockReset()
+    mockedValidateCycleToLongRestTime.mockReset()
     mockedAxios.patch.mockReset()
   })
 
@@ -47,6 +53,7 @@ describe('CustumConfig', () => {
     })
     mockedValidateCycle.mockReturnValue('')
     mockedValidateTimerConfig.mockReturnValue('')
+    mockedValidateCycleToLongRestTime.mockReturnValue('')
 
     const { getByText, getByLabelText, getByRole } = render(
       <Provider store={store}>
@@ -84,7 +91,8 @@ describe('CustumConfig', () => {
     // 入力情報の送信
     const btn = getByText('UPDATE')
     fireEvent.click(btn)
-    expect(mockedValidateCycle).toBeCalledTimes(6)
+    expect(mockedValidateCycle).toBeCalledTimes(3)
+    expect(mockedValidateCycleToLongRestTime).toBeCalledTimes(3)
     expect(mockedValidateTimerConfig).toBeCalledTimes(12)
     expect(mockedAxios.patch).toBeCalledWith('/v1/custum_config/0/update', {
       _id: '0',

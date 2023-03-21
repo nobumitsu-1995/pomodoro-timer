@@ -6,10 +6,10 @@ exports[`snapshot Default should render correctly 1`] = `
     class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE kIsLsw"
   >
     <div
-      class="sc-ezWOiH cPuHdH"
+      class="sc-ikZpkk gMSDfp"
     >
       <div
-        class="sc-bZkfAO eDFrXu"
+        class="sc-jIZahH pTkoJ"
       >
         <p
           class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  gsnPvW"
@@ -22,10 +22,10 @@ exports[`snapshot Default should render correctly 1`] = `
            Number of Cycle
         </p>
         <div
-          class="sc-iIPllB fBikQd"
+          class="sc-bZkfAO esXWCs"
         >
           <p
-            class="sc-gicCDI gNMIsL"
+            class="sc-kLLXSd lbvRHg"
           >
             <span
               class="material-icons md-10"
@@ -52,7 +52,7 @@ exports[`snapshot Default should render correctly 1`] = `
         </div>
       </div>
       <div
-        class="sc-kgflAQ bebQVZ"
+        class="sc-ivTmOn cpTQnk"
       >
         <button
           class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR Nbszd"
