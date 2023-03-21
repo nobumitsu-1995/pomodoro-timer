@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export type Props = {
   error?: string
   value: string | number
-  placeholder: string
+  placeholder?: string
   type: 'text' | 'number'
   onClickButton: (event: React.MouseEvent<HTMLButtonElement>) => void
   onChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void
