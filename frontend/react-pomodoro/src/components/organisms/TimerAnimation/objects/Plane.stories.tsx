@@ -30,3 +30,8 @@ export const Default = Template.bind({})
 Default.args = {
   reverse: false,
 }
+
+export const IsRest = Template.bind({})
+IsRest.args = {
+  isRest: true,
+}

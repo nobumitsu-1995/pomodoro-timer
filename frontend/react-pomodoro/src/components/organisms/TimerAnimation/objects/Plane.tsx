@@ -6,9 +6,10 @@ import Texture from '../../../../assets/images/ring.png'
 
 type Props = {
   reverse?: boolean
+  isRest?: boolean
 }
 
-const Plane: React.FC<Props> = ({ reverse = false }) => {
+const Plane: React.FC<Props> = ({ reverse = false, isRest = false }) => {
   const planeRef = useRef<Mesh>(null)
   const { clock } = useThree()
   const colorMap = useLoader(TextureLoader, Texture)
@@ -17,7 +18,11 @@ const Plane: React.FC<Props> = ({ reverse = false }) => {
     const time = clock.getElapsedTime()
     const object = planeRef.current
     if (!object) return
-    object.rotation.z = reverse ? -time / 2 : time / 8
+    const rotation = reverse ? -time / 2 : time / 8
+    object.rotation.z = rotation
+    if (isRest) {
+      object.rotation.z = rotation / 2
+    }
   })
 
   return (
@@ -25,7 +30,7 @@ const Plane: React.FC<Props> = ({ reverse = false }) => {
       <planeGeometry args={[30, 30, 2, 100]} />
       <meshBasicMaterial
         map={colorMap}
-        color='#007eff'
+        color={isRest ? '#46C35B' : '#007eff'}
         transparent
         depthWrite={false}
         blending={AdditiveBlending}

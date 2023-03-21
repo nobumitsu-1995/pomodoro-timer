@@ -28,5 +28,9 @@ const Template: ComponentStory<typeof Capsules> = (args) => (
 )
 
 export const Default = Template.bind({})
-
 Default.args = {}
+
+export const IsRest = Template.bind({})
+IsRest.args = {
+  isRest: true,
+}
