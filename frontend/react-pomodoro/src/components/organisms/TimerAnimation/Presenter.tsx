@@ -8,9 +8,10 @@ import Capsules from './objects/Capsules'
 
 export type Props = {
   progress: number
+  isRest: boolean
 }
 
-const Presenter: React.FC<Props> = ({ progress }) => {
+const Presenter: React.FC<Props> = ({ progress, isRest }) => {
   return (
     <StyledDiv>
       <Canvas
@@ -24,9 +25,9 @@ const Presenter: React.FC<Props> = ({ progress }) => {
       >
         <color attach='background' args={['black']} />
         <Icosahedron />
-        <Plane />
-        <Plane reverse />
-        <Capsules progress={progress} />
+        <Plane isRest={isRest} />
+        <Plane reverse isRest={isRest} />
+        <Capsules progress={progress} isRest={isRest} />
         <directionalLight position={[3, 3, 5]} />
       </Canvas>
     </StyledDiv>

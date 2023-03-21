@@ -19,6 +19,7 @@ const Container: React.FC = () => {
   const restTime = useSelector(restTimeSelector)
   const longRestTime = useSelector(longRestTimeSelector)
   const status = useSelector(statusSelector)
+  const isRest = status === 'longRest' || status === 'rest'
 
   useEffect(() => {
     let _progress: number
@@ -42,7 +43,7 @@ const Container: React.FC = () => {
     setProgress(_progress)
   }, [leftTime])
 
-  return <Presenter progress={progress} />
+  return <Presenter progress={progress} isRest={isRest} />
 }
 
 export default Container

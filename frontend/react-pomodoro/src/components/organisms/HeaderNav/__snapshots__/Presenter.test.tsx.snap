@@ -6,7 +6,10 @@ exports[`snapshot isLoggedIn should render correctly 1`] = `
     <ul
       class="sc-hKMtZM jbhSMZ"
     >
-      <li>
+      <li
+        class="sc-eCYdqJ hfOnuS"
+        content="Notifications"
+      >
         <button
           class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
           type="button"
@@ -18,7 +21,10 @@ exports[`snapshot isLoggedIn should render correctly 1`] = `
           </span>
         </button>
       </li>
-      <li>
+      <li
+        class="sc-eCYdqJ cVSqxm"
+        content="Logout"
+      >
         <button
           class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
           type="button"
@@ -41,7 +47,10 @@ exports[`snapshot isLoggedOut should render correctly 1`] = `
     <ul
       class="sc-hKMtZM jbhSMZ"
     >
-      <li>
+      <li
+        class="sc-eCYdqJ hfOnuS"
+        content="Notifications"
+      >
         <button
           class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
           type="button"
@@ -53,7 +62,10 @@ exports[`snapshot isLoggedOut should render correctly 1`] = `
           </span>
         </button>
       </li>
-      <li>
+      <li
+        class="sc-eCYdqJ ljOPqH"
+        content="Login"
+      >
         <button
           class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
           type="button"

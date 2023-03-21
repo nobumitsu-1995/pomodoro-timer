@@ -17,5 +17,4 @@ Default.args = {
   value: 25,
   error: 'error',
   onChange: () => console.log('change'),
-  onClick: () => console.log('click'),
 }

@@ -8,6 +8,7 @@ import { useSelector } from 'src/feature/store'
 import { api } from 'src/lib/functions/axios'
 import {
   validateCycle,
+  validateCycleToLongRestTime,
   validateTimerConfig,
 } from 'src/lib/functions/validation'
 import Presenter from './Presenter'
@@ -78,17 +79,29 @@ const Container: React.FC = () => {
   }
 
   const validateForm = (name: string, value: number) => {
-    if (name === 'cycle' || name === 'cycleToLongRestTime') {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: validateCycle(value),
-      }))
-    }
-    if (name === 'workTime' || name === 'restTime' || name === 'longRestTime') {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: validateTimerConfig(value),
-      }))
+    switch (name) {
+      case 'cycle':
+        setErrors((prev) => ({
+          ...prev,
+          [name]: validateCycle(value),
+        }))
+        break
+      case 'cycleToLongRestTime':
+        setErrors((prev) => ({
+          ...prev,
+          [name]: validateCycleToLongRestTime(value),
+        }))
+        break
+      case 'workTime':
+      case 'restTime':
+      case 'longRestTime':
+        setErrors((prev) => ({
+          ...prev,
+          [name]: validateTimerConfig(value),
+        }))
+        break
+      default:
+        break
     }
   }
 

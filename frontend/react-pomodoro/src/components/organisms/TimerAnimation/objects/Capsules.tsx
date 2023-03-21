@@ -4,9 +4,10 @@ import { Vector3 } from 'three'
 
 type Props = {
   progress: number
+  isRest?: boolean
 }
 
-const Capsules: React.FC<Props> = ({ progress }) => {
+const Capsules: React.FC<Props> = ({ progress, isRest = false }) => {
   return (
     <>
       {new Array(360).fill(0).map((_, i) => {
@@ -17,7 +18,14 @@ const Capsules: React.FC<Props> = ({ progress }) => {
         const position = new Vector3(x, y, 0)
         const visible = i >= 360 * progress
 
-        return <Capsule key={i} position={position} visible={visible} />
+        return (
+          <Capsule
+            key={i}
+            position={position}
+            visible={visible}
+            isRest={isRest}
+          />
+        )
       })}
     </>
   )

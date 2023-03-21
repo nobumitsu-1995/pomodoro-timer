@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { cycleSelector } from '../../../feature/selectors/timerConfig'
 import { useSelector } from '../../../feature/store'
@@ -18,11 +18,13 @@ const Container: React.FC = () => {
   const [cycle, setCycle] = useState(globalCycle)
   const [error, setError] = useState('')
 
+  useEffect(() => {
+    setCycle(globalCycle)
+  }, [globalCycle])
+
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const _cycle = Number(e.target.value)
-    const _error = validateCycle(_cycle)
-    setError(_error)
-    if (_error) return
+    setError(validateCycle(_cycle))
     setCycle(Number(_cycle))
   }
 
@@ -33,12 +35,34 @@ const Container: React.FC = () => {
     updateCycle(cycle)
   }
 
+  const handleOnClickUp = () => {
+    const _cycle = cycle + 1
+    const _error = validateCycle(_cycle)
+    setError(_error)
+
+    if (_error) return
+    setCycle(_cycle)
+    updateCycle(_cycle)
+  }
+
+  const handleOnClickDown = () => {
+    const _cycle = cycle - 1
+    const _error = validateCycle(_cycle)
+    setError(_error)
+
+    if (_error) return
+    setCycle(_cycle)
+    updateCycle(_cycle)
+  }
+
   return (
     <Presenter
       value={cycle}
       error={error}
       onChange={handleChangeInput}
       onClick={handleClickButton}
+      onClickUp={handleOnClickUp}
+      onClickDown={handleOnClickDown}
     />
   )
 }

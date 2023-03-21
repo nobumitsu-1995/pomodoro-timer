@@ -18,6 +18,8 @@ export type Props = {
   onClickDown: (event: React.MouseEvent<HTMLButtonElement>) => void
   /** styleの継承 */
   className?: string
+  /** trueの時、アイコンが光る */
+  isActive?: boolean
 }
 
 const UpDownConsole: React.FC<Props> = ({
@@ -28,20 +30,23 @@ const UpDownConsole: React.FC<Props> = ({
   onClickUp,
   onClickDown,
   className,
+  isActive = false,
 }) => {
   return (
     <Paper padding='15px' className={className}>
-      <span className='material-icons md-18 md-dark'>{icon}</span>
+      <StyledSpan2 className='material-icons md-18 md-dark' isActive={isActive}>
+        {icon}
+      </StyledSpan2>
       <StyledDiv1>
         <StyledDiv2>
-          <Text size='1rem' bold='bold'>
+          <StyledText size='1rem' bold='bold'>
             {title}
-          </Text>
+          </StyledText>
           {error && (
-            <StyledText bold='bold' color='#CF4F4F' size='0.8rem'>
+            <Text bold='bold' color='#CF4F4F' size='0.8rem'>
               <span className='material-icons md-10'>cancel</span>
               {error}
-            </StyledText>
+            </Text>
           )}
           <Text bold='bold' size='2.2rem'>
             {value}
@@ -73,4 +78,15 @@ const StyledText = styled(Text)``
 const StyledSpan = styled.span`
   font-size: 0.8rem;
   font-weight: 400;
+`
+
+const StyledSpan2 = styled.span<{ isActive: boolean }>`
+  ${({ isActive }) =>
+    isActive &&
+    `
+    text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+    #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px,
+    0px -19px 6px rgba(70, 195, 91, 0);
+  `}
 `

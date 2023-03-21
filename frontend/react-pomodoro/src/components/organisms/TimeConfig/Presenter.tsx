@@ -16,6 +16,8 @@ export type Props = {
     onClickUp: (event: React.MouseEvent<HTMLButtonElement>) => void
     /** downボタンクリック時のアクション */
     onClickDown: (event: React.MouseEvent<HTMLButtonElement>) => void
+    /** trueの時、アイコンが光る */
+    isActive?: boolean
   }[]
 }
 
