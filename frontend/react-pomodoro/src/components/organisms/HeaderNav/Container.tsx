@@ -12,14 +12,17 @@ const Container: React.FC = () => {
       modalContent: <UserAchievement />,
       icon: 'person',
       isHide: !isAuthenticated,
+      desc: 'UserInfo',
     },
     {
       modalContent: <Notice />,
       icon: 'notifications',
+      desc: 'Notifications',
     },
     {
       modalContent: <p>Help Page</p>,
       icon: 'help',
+      desc: 'Help',
     },
   ]
 
