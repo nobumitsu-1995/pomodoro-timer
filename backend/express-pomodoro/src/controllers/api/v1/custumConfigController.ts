@@ -21,10 +21,10 @@ export const initializeCustumConfig = (
   const uid = res.locals.user.sub
   const array = new Array(5).fill({
     uid: uid,
-    workTime: 1500,
-    restTime: 300,
+    workTime: 25,
+    restTime: 5,
     cycle: 8,
-    longRestTime: 600,
+    longRestTime: 10,
     cycleToLongRestTime: 4,
   })
 
