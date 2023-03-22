@@ -1,7 +1,7 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-
-import ModalButton from './ModalButton'
+import { Meta, Story } from '@storybook/react'
+import { within, userEvent } from '@storybook/testing-library'
+import ModalButton, { Props } from './ModalButton'
 import { ModalProvider } from '../../../lib/functions/ModalContext'
 import ModalBody from './ModalBody'
 
@@ -19,14 +19,11 @@ export default {
       </ModalProvider>
     ),
   ],
-} as ComponentMeta<typeof ModalButton>
+} as Meta
 
-const Template: ComponentStory<typeof ModalButton> = (args) => (
-  <ModalButton {...args} />
-)
+const Template: Story<Props> = (args) => <ModalButton {...args} />
 
 export const Default = Template.bind({})
-
 Default.args = {
   children: 'Button',
   modalContent: (
@@ -41,4 +38,13 @@ Default.args = {
     </>
   ),
   borderradius: '20px',
+}
+
+export const isOpen = Template.bind({})
+isOpen.args = {
+  ...Default.args,
+}
+isOpen.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  await userEvent.click(canvas.getByText('Button'))
 }

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot LogInButton should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
+    type="button"
+  >
+    <span
+      class="material-icons"
+    >
+      logout
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`snapshot LogOutButton should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR giwsdR"
+    type="button"
+  >
+    <span
+      class="material-icons"
+    >
+      login
+    </span>
+  </button>
+</DocumentFragment>
+`;

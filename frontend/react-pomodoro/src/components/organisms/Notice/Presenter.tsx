@@ -1,9 +1,10 @@
 import React from 'react'
+import NoticeDetail from 'src/components/molecules/NoticeDetail/NoticeDetail'
+import NoticesList from 'src/components/molecules/NoticesList/NoticesList'
 import styled from 'styled-components/macro'
 import { NoticeType } from '../../../lib/types/modelType'
-import { NoticeDetail, NoticesList } from '../../molecules'
 
-type Props = {
+export type Props = {
   notices: NoticeType[]
   setCurrentNotice: React.Dispatch<React.SetStateAction<NoticeType | undefined>>
   notice?: NoticeType
@@ -11,7 +12,7 @@ type Props = {
 
 const Presenter: React.FC<Props> = ({ notices, setCurrentNotice, notice }) => {
   return (
-    <div>
+    <section>
       <StyledH2>Notices</StyledH2>
       {notice ? (
         <NoticeDetail {...notice} onClick={() => setCurrentNotice(undefined)} />
@@ -22,7 +23,7 @@ const Presenter: React.FC<Props> = ({ notices, setCurrentNotice, notice }) => {
           setCurrentNotice={setCurrentNotice}
         />
       )}
-    </div>
+    </section>
   )
 }
 

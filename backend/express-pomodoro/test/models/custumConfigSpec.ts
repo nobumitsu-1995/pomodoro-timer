@@ -18,10 +18,10 @@ describe('Save Data of CustumConfig Model', () => {
   it('it should save one CustumConfig with correct params', (done) => {
     const CustumConfigParams = {
       uid: 'uid',
-      workTime: 100,
-      restTime: 100,
+      workTime: 30,
+      restTime: 30,
       cycle: 3,
-      longRestTime: 300,
+      longRestTime: 30,
       cycleToLongRestTime: 2,
     }
 
@@ -38,10 +38,10 @@ describe('Save Data of CustumConfig Model', () => {
             expect(result[0]).to.have.property('longRestTime')
             expect(result[0]).to.have.property('cycleToLongRestTime')
             expect(result[0].uid).to.eq('uid')
-            expect(result[0].workTime).to.eq(100)
-            expect(result[0].restTime).to.eq(100)
+            expect(result[0].workTime).to.eq(30)
+            expect(result[0].restTime).to.eq(30)
             expect(result[0].cycle).to.eq(3)
-            expect(result[0].longRestTime).to.eq(300)
+            expect(result[0].longRestTime).to.eq(30)
             expect(result[0].cycleToLongRestTime).to.eq(2)
             done()
           })
@@ -57,8 +57,8 @@ describe('Save Data of CustumConfig Model', () => {
   it('it should save one CustumConfig without longRestTime', (done) => {
     const CustumConfigParams = {
       uid: 'uid',
-      workTime: 100,
-      restTime: 100,
+      workTime: 30,
+      restTime: 30,
       cycle: 3,
       longRestTime: null,
       cycleToLongRestTime: 2,
@@ -76,8 +76,8 @@ describe('Save Data of CustumConfig Model', () => {
             expect(result[0]).to.have.property('cycle')
             expect(result[0]).to.have.property('cycleToLongRestTime')
             expect(result[0].uid).to.eq('uid')
-            expect(result[0].workTime).to.eq(100)
-            expect(result[0].restTime).to.eq(100)
+            expect(result[0].workTime).to.eq(30)
+            expect(result[0].restTime).to.eq(30)
             expect(result[0].cycle).to.eq(3)
             expect(result[0].cycleToLongRestTime).to.eq(2)
             done()
@@ -94,10 +94,10 @@ describe('Save Data of CustumConfig Model', () => {
   it('it should save one CustumConfig without cycleToLongRestTime', (done) => {
     const CustumConfigParams = {
       uid: 'uid',
-      workTime: 100,
-      restTime: 100,
+      workTime: 30,
+      restTime: 30,
       cycle: 3,
-      longRestTime: 100,
+      longRestTime: 30,
       cycleToLongRestTime: null,
     }
 
@@ -113,10 +113,10 @@ describe('Save Data of CustumConfig Model', () => {
             expect(result[0]).to.have.property('cycle')
             expect(result[0]).to.have.property('longRestTime')
             expect(result[0].uid).to.eq('uid')
-            expect(result[0].workTime).to.eq(100)
-            expect(result[0].restTime).to.eq(100)
+            expect(result[0].workTime).to.eq(30)
+            expect(result[0].restTime).to.eq(30)
             expect(result[0].cycle).to.eq(3)
-            expect(result[0].longRestTime).to.eq(100)
+            expect(result[0].longRestTime).to.eq(30)
             done()
           })
           .catch((e) => {
@@ -131,10 +131,10 @@ describe('Save Data of CustumConfig Model', () => {
   it('it should not save one CustumConfig without uid', (done) => {
     const CustumConfigParams = {
       uid: '',
-      workTime: 100,
-      restTime: 100,
+      workTime: 30,
+      restTime: 30,
       cycle: 3,
-      longRestTime: 300,
+      longRestTime: 30,
       cycleToLongRestTime: 2,
     }
 
@@ -152,9 +152,9 @@ describe('Save Data of CustumConfig Model', () => {
     const CustumConfigParams = {
       uid: '',
       workTime: null,
-      restTime: 100,
+      restTime: 30,
       cycle: 3,
-      longRestTime: 300,
+      longRestTime: 30,
       cycleToLongRestTime: 2,
     }
 
@@ -171,10 +171,10 @@ describe('Save Data of CustumConfig Model', () => {
   it('it should not save one CustumConfig without restTime', (done) => {
     const CustumConfigParams = {
       uid: '',
-      workTime: 100,
+      workTime: 30,
       restTime: null,
       cycle: 3,
-      longRestTime: 300,
+      longRestTime: 30,
       cycleToLongRestTime: 2,
     }
 
@@ -191,10 +191,10 @@ describe('Save Data of CustumConfig Model', () => {
   it('it should not save one CustumConfig without cycle', (done) => {
     const CustumConfigParams = {
       uid: '',
-      workTime: 100,
-      restTime: 100,
+      workTime: 30,
+      restTime: 30,
       cycle: null,
-      longRestTime: 300,
+      longRestTime: 30,
       cycleToLongRestTime: 2,
     }
 

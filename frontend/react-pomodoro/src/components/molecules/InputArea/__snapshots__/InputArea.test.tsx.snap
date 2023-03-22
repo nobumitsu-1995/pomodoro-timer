@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 350px;"
+  >
+    <div
+      class="sc-hKMtZM eOlEBc"
+    >
+      <label
+        for="id"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+        >
+          input area
+        </p>
+      </label>
+      <div
+        class="sc-eCYdqJ kVYsYd"
+      >
+        <input
+          class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
+          id="id"
+          name="id"
+          placeholder="Number"
+          type="number"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot Error should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 350px;"
+  >
+    <div
+      class="sc-hKMtZM eOlEBc"
+    >
+      <label
+        for="id"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+        >
+          input area
+        </p>
+      </label>
+      <div
+        class="sc-eCYdqJ kVYsYd"
+      >
+        <input
+          class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
+          id="id"
+          name="id"
+          placeholder="Number"
+          type="number"
+          value=""
+        />
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  jisIAs sc-jSMfEi gGTBGM"
+        >
+          <span
+            class="material-icons md-10"
+          >
+            cancel
+          </span>
+          error text
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

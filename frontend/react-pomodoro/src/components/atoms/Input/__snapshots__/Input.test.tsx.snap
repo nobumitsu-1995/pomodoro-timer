@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <input
+    class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK bBxmdK"
+    placeholder="placeholder"
+  />
+</DocumentFragment>
+`;

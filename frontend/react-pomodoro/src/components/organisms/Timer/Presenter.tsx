@@ -1,10 +1,12 @@
 import React from 'react'
+import IconButtonList from 'src/components/molecules/IconButtonList/IconButtonList'
+import TimerCycleBar from 'src/components/molecules/TimerCycleBar/TimerCycleBar'
+import TimerView from 'src/components/molecules/TimerView/TimerView'
 import styled from 'styled-components/macro'
 import { Paper } from '../../atoms'
-import { IconButtonList, TimerCycleBar, TimerView } from '../../molecules'
-import { TimerAnimation } from '../index'
+import TimerAnimation from '../TimerAnimation/Container'
 
-type Props = {
+export type Props = {
   time: {
     minutes: string
     seconds: string

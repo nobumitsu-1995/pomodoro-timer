@@ -1,0 +1,274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 500px;"
+  >
+    <section
+      class="sc-papXJ OidlZ"
+    >
+      <h2
+        class="sc-kDDrLX hKytcL"
+      >
+        User Achievements
+      </h2>
+      <div
+        class="sc-jqUVSM dKznWL"
+      >
+        <div
+          class="sc-bczRLJ fvfzlI"
+        >
+          <canvas
+            height="150"
+            role="img"
+            width="300"
+          />
+        </div>
+        <div
+          class="sc-gsnTZi kNUKNt"
+        >
+          <table
+            class="sc-dkzDqf"
+          >
+            <thead
+              class="sc-hKMtZM XMoSi"
+            >
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                />
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  Title
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  Time
+                </td>
+              </tr>
+            </thead>
+            <tbody
+              class="sc-eCYdqJ hBlcgz"
+            >
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  01
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title1
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  333:22:00
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  02
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title2title2title2title2title2title2title2title2title2title2title2
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  3:20:01
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  03
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title3
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  0:20:00
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  04
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title4
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  0:02:00
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  05
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title4
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  0:02:00
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  06
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title4
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  0:02:00
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  07
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title4
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  0:02:00
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  08
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title4
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  0:02:00
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  09
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title4
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  0:02:00
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  10
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title4
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  0:02:00
+                </td>
+              </tr>
+              <tr
+                class="sc-jSMfEi etzJdY"
+              >
+                <th
+                  class="sc-ftvSup"
+                >
+                  11
+                </th>
+                <td
+                  class="sc-gKXOVf bJlXpH"
+                >
+                  title4
+                </td>
+                <td
+                  class="sc-iBkjds lgdtHw"
+                >
+                  0:02:00
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+</DocumentFragment>
+`;

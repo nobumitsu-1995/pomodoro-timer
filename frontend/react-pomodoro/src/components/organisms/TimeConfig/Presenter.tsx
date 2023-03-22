@@ -1,8 +1,8 @@
 import React from 'react'
+import UpDownConsole from 'src/components/molecules/UpDownConsole/UpDownConsole'
 import styled from 'styled-components/macro'
-import UpDownConsole from '../../molecules/UpDownConsole'
 
-type Props = {
+export type Props = {
   consoleItems: {
     /** コンソールのアイコン(material-icon) */
     icon: string
@@ -16,6 +16,8 @@ type Props = {
     onClickUp: (event: React.MouseEvent<HTMLButtonElement>) => void
     /** downボタンクリック時のアクション */
     onClickDown: (event: React.MouseEvent<HTMLButtonElement>) => void
+    /** trueの時、アイコンが光る */
+    isActive?: boolean
   }[]
 }
 

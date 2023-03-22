@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <ul>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-01"
+      >
+        2022/01/01
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル1 タイトル1 タイトル1 タイトル1 タイトル1 タイトル1 タイトル1 タイトル1 タイトル1 タイトル1 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-02"
+      >
+        2022/01/02
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル2 タイトル2 タイトル2 タイトル2 タイトル2 タイトル2 タイトル2 タイトル2 タイトル2 タイトル2 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-03"
+      >
+        2022/01/03
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル3 タイトル3 タイトル3 タイトル3 タイトル3 タイトル3 タイトル3 タイトル3 タイトル3 タイトル3 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-04"
+      >
+        2022/01/04
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル4 タイトル4 タイトル4 タイトル4 タイトル4 タイトル4 タイトル4 タイトル4 タイトル4 タイトル4 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-05"
+      >
+        2022/01/05
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル5 タイトル5 タイトル5 タイトル5 タイトル5 タイトル5 タイトル5 タイトル5 タイトル5 タイトル5 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-06"
+      >
+        2022/01/06
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル6 タイトル6 タイトル6 タイトル6 タイトル6 タイトル6 タイトル6 タイトル6 タイトル6 タイトル6 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-07"
+      >
+        2022/01/07
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル7 タイトル7 タイトル7 タイトル7 タイトル7 タイトル7 タイトル7 タイトル7 タイトル7 タイトル7 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-08"
+      >
+        2022/01/08
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル8 タイトル8 タイトル8 タイトル8 タイトル8 タイトル8 タイトル8 タイトル8 タイトル8 タイトル8 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-09"
+      >
+        2022/01/09
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル9 タイトル9 タイトル9 タイトル9 タイトル9 タイトル9 タイトル9 タイトル9 タイトル9 タイトル9 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-10"
+      >
+        2022/01/10
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル10 タイトル10 タイトル10 タイトル10 タイトル10 タイトル10 タイトル10 タイトル10 タイトル10 タイトル10 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-11"
+      >
+        2022/01/11
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル11 タイトル11 タイトル11 タイトル11 タイトル11 タイトル11 タイトル11 タイトル11 タイトル11 タイトル11 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-12"
+      >
+        2022/01/12
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル12 タイトル12 タイトル12 タイトル12 タイトル12 タイトル12 タイトル12 タイトル12 タイトル12 タイトル12 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-13"
+      >
+        2022/01/13
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル13 タイトル13 タイトル13 タイトル13 タイトル13 タイトル13 タイトル13 タイトル13 タイトル13 タイトル13 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-14"
+      >
+        2022/01/14
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル14 タイトル14 タイトル14 タイトル14 タイトル14 タイトル14 タイトル14 タイトル14 タイトル14 タイトル14 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-15"
+      >
+        2022/01/15
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル15 タイトル15 タイトル15 タイトル15 タイトル15 タイトル15 タイトル15 タイトル15 タイトル15 タイトル15 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-16"
+      >
+        2022/01/16
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル16 タイトル16 タイトル16 タイトル16 タイトル16 タイトル16 タイトル16 タイトル16 タイトル16 タイトル16 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-17"
+      >
+        2022/01/17
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル17 タイトル17 タイトル17 タイトル17 タイトル17 タイトル17 タイトル17 タイトル17 タイトル17 タイトル17 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-18"
+      >
+        2022/01/18
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル18 タイトル18 タイトル18 タイトル18 タイトル18 タイトル18 タイトル18 タイトル18 タイトル18 タイトル18 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-19"
+      >
+        2022/01/19
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル19 タイトル19 タイトル19 タイトル19 タイトル19 タイトル19 タイトル19 タイトル19 タイトル19 タイトル19 
+      </a>
+    </li>
+    <li
+      class="NoticesListItem__StyledLi-sc-1s813br-0 cFokYU"
+    >
+      <time
+        class="TimeTag__StyledTime-sc-13xj9oj-0 TimeTag___StyledStyledTime-sc-13xj9oj-1  eVIvDE"
+        datetime="2022-01-20"
+      >
+        2022/01/20
+      </time>
+      <a
+        class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
+      >
+        タイトル20 タイトル20 タイトル20 タイトル20 タイトル20 タイトル20 タイトル20 タイトル20 タイトル20 タイトル20 
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`snapshot NoData should render correctly 1`] = `
+<DocumentFragment>
+  <ul>
+    <li>
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  kxjQDp"
+      >
+        お知らせはありません
+      </p>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

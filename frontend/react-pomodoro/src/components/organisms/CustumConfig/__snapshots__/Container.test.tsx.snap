@@ -1,0 +1,192 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustumConfig snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE jtvgsP"
+  >
+    <div
+      class="sc-ftvSup NVXIp"
+    >
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  hdfbys"
+      >
+        Custum Timer Edit
+      </p>
+      <div
+        class="sc-bczRLJ ehiAyy"
+      >
+        <span
+          class="sc-gsnTZi clrkUc"
+        />
+        <select
+          class="sc-dkzDqf bgaUQm"
+        >
+          <option
+            value="0"
+          >
+            option1
+          </option>
+          <option
+            value="1"
+          >
+            option2
+          </option>
+          <option
+            value="2"
+          >
+            option3
+          </option>
+          <option
+            value="3"
+          >
+            option4
+          </option>
+          <option
+            value="4"
+          >
+            option5
+          </option>
+        </select>
+      </div>
+    </div>
+    <form
+      class="sc-papXJ bdgcHk"
+    >
+      <div
+        class="sc-hKMtZM eOlEBc sc-gKXOVf hIWLdE"
+      >
+        <label
+          for="workTime"
+        >
+          <p
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+          >
+            work time
+          </p>
+        </label>
+        <div
+          class="sc-eCYdqJ kVYsYd"
+        >
+          <input
+            class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
+            id="workTime"
+            name="workTime"
+            placeholder="Number"
+            type="number"
+            value="5"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-hKMtZM eOlEBc sc-gKXOVf hIWLdE"
+      >
+        <label
+          for="restTime"
+        >
+          <p
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+          >
+            rest time
+          </p>
+        </label>
+        <div
+          class="sc-eCYdqJ kVYsYd"
+        >
+          <input
+            class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
+            id="restTime"
+            name="restTime"
+            placeholder="Number"
+            type="number"
+            value="5"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-hKMtZM eOlEBc sc-gKXOVf hIWLdE"
+      >
+        <label
+          for="cycle"
+        >
+          <p
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+          >
+            cycle
+          </p>
+        </label>
+        <div
+          class="sc-eCYdqJ kVYsYd"
+        >
+          <input
+            class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
+            id="cycle"
+            name="cycle"
+            placeholder="Number"
+            type="number"
+            value="1"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-hKMtZM eOlEBc sc-gKXOVf hIWLdE"
+      >
+        <label
+          for="longRestTime"
+        >
+          <p
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+          >
+            long rest time
+          </p>
+        </label>
+        <div
+          class="sc-eCYdqJ kVYsYd"
+        >
+          <input
+            class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
+            id="longRestTime"
+            name="longRestTime"
+            placeholder="Number"
+            type="number"
+            value="5"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-hKMtZM eOlEBc sc-gKXOVf hIWLdE"
+      >
+        <label
+          for="cycleToLongRestTime"
+        >
+          <p
+            class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  dUAuAw"
+          >
+            Cycles to 
+            <br />
+             long rest periods
+          </p>
+        </label>
+        <div
+          class="sc-eCYdqJ kVYsYd"
+        >
+          <input
+            class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK ihOHkk"
+            id="cycleToLongRestTime"
+            name="cycleToLongRestTime"
+            placeholder="Number"
+            type="number"
+            value="1"
+          />
+        </div>
+      </div>
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR cFTvDQ sc-iBkjds bbiPIP"
+        type="button"
+      >
+        UPDATE
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

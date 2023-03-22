@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CustumConfig } from '../organisms'
+import { CustumConfig, TaskConfig } from '../organisms'
 
 const UserBlock = () => {
   return (
     <StyledDiv>
       <CustumConfig />
+      <TaskConfig />
     </StyledDiv>
   )
 }

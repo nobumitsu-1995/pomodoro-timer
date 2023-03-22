@@ -6,7 +6,7 @@ export type TokenType = {
 }
 
 /** tokenの初期値 */
-const initialState: TokenType = {
+export const initialState: TokenType = {
   token: '',
 }
 

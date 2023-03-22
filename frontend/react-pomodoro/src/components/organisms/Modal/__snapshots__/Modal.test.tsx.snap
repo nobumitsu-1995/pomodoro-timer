@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hKMtZM iHZNaF"
+  >
+    <div
+      class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE bFEtGg sc-eCYdqJ girqUe"
+    />
+  </div>
+  <div
+    style="max-width: 320px; margin: auto;"
+  >
+    <button
+      class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR hvHmUL"
+      type="button"
+    >
+      Button
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot Modal Body 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hKMtZM iHZNaF"
+  >
+    <div
+      class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE bFEtGg sc-eCYdqJ girqUe"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot isOpen should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-hKMtZM iHZNaF"
+  >
+    <div
+      class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE bFEtGg sc-eCYdqJ girqUe"
+    />
+  </div>
+  <div
+    style="max-width: 320px; margin: auto;"
+  >
+    <button
+      class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR hvHmUL"
+      type="button"
+    >
+      Button
+    </button>
+  </div>
+</DocumentFragment>
+`;

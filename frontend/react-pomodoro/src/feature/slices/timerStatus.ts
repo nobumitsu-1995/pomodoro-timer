@@ -1,25 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+export type TimerStatus = 'stop' | 'running' | 'pause' | 'rest' | 'longRest'
+
 /** timerStatusのfeatureの型 */
 export type TimerStatusType = {
-  /** タイマーは稼働中 */
-  isRunning: boolean
-  /** タイマーは一時停止中 */
-  isPause: boolean
-  /** タイマーは稼働中で休憩時間 */
-  isRest: boolean
-  /** タイマーは長い休憩時間のサイクルである */
-  isLongRestCycle: boolean
-  /** タイマーの残り時間 */
+  /** 残り時間 */
   leftTime: number
+  /** タイマーの終了時間 */
+  endTime: number
+  /** タイマーの状況 */
+  status: TimerStatus
 }
 
 /** timerStatusのfeatureの初期値 */
-const initialState: TimerStatusType = {
-  isRunning: false,
-  isPause: false,
-  isRest: false,
-  isLongRestCycle: false,
+export const initialState: TimerStatusType = {
+  status: 'stop',
+  endTime: new Date().getTime(),
   leftTime: 60 * 25,
 }
 
@@ -28,61 +24,40 @@ export const timerStatusSlice = createSlice({
   name: 'timerStatus',
   initialState,
   reducers: {
-    updateIsRunning: (state) => {
-      state.isRunning = !state.isRunning
-    },
-    updateIsPause: (state) => {
-      state.isPause = !state.isPause
-    },
-    updateIsRest: (state) => {
-      state.isRest = !state.isRest
-    },
-    initTimerStatus: (state) => {
-      state.isRunning = false
-      state.isPause = false
-      state.isRest = false
-    },
-    workFinish: (state) => {
-      state.isRunning = true
-      state.isPause = false
-      state.isRest = true
-    },
-    restFinish: (state) => {
-      state.isRunning = true
-      state.isPause = false
-      state.isRest = false
-    },
-    updatePlay: (state) => {
-      state.isRunning = true
-      state.isPause = false
-    },
-    updatePause: (state) => {
-      state.isPause = true
-    },
-    updateIsLongRestCycle: (state, action: PayloadAction<boolean>) => {
-      state.isLongRestCycle = action.payload
+    updateStatus: (state, action: PayloadAction<TimerStatus>) => {
+      state.status = action.payload
     },
     setLeftTime: (state, action: PayloadAction<number>) => {
       state.leftTime = action.payload
     },
-    passLeftTime: (state) => {
-      state.leftTime -= 1
+    setEndTime: (state, action: PayloadAction<number>) => {
+      state.endTime = new Date().getTime() + action.payload * 1000
+    },
+    statusRunning: (state, action: PayloadAction<number>) => {
+      state.status = 'running'
+      state.endTime = new Date().getTime() + action.payload * 1000
+      state.leftTime = action.payload
+    },
+    statusRest: (state, action: PayloadAction<number>) => {
+      state.endTime = new Date().getTime() + action.payload * 1000
+      state.status = 'rest'
+      state.leftTime = action.payload
+    },
+    statusLongRest: (state, action: PayloadAction<number>) => {
+      state.endTime = new Date().getTime() + action.payload * 1000
+      state.status = 'longRest'
+      state.leftTime = action.payload
     },
   },
 })
 
 const { actions, reducer } = timerStatusSlice
 export const {
-  updateIsRunning,
-  updateIsPause,
-  updateIsRest,
-  initTimerStatus,
-  workFinish,
-  restFinish,
-  updatePlay,
-  updatePause,
-  updateIsLongRestCycle,
+  updateStatus,
   setLeftTime,
-  passLeftTime,
+  setEndTime,
+  statusRunning,
+  statusRest,
+  statusLongRest,
 } = actions
 export const timerStatusReducer = reducer

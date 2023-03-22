@@ -9,6 +9,8 @@ import { noticesReducer, NoticesType } from './slices/notices'
 import { timerStatusReducer, TimerStatusType } from './slices/timerStatus'
 import { tokenReducer, TokenType } from './slices/token'
 import { custumConfigReducer, CustumConfigsType } from './slices/custumConfig'
+import { tasksReducer, TasksType } from './slices/tasks'
+import { achievementsReducer, AchievementsType } from './slices/achievements'
 
 export type StoreType = {
   timerConfig: TimerConfigType
@@ -16,6 +18,8 @@ export type StoreType = {
   soundConfig: SoundConfigType
   notices: NoticesType
   custumConfig: CustumConfigsType
+  tasks: TasksType
+  achievements: AchievementsType
   token: TokenType
 }
 
@@ -26,6 +30,8 @@ export const store = configureStore({
     soundConfig: soundConfigReducer,
     notices: noticesReducer,
     custumConfig: custumConfigReducer,
+    tasks: tasksReducer,
+    achievements: achievementsReducer,
     token: tokenReducer,
   },
 })

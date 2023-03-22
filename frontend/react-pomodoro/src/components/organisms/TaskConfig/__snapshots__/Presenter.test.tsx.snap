@@ -1,0 +1,414 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot EditMode should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE jtvgsP"
+  >
+    <div
+      class="sc-iqcoie fsEkEQ"
+    >
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  fJrVjR"
+      >
+        Current Task:
+      </p>
+      <div
+        class="sc-crXcEl dCLyxC"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-evZas hUqDwN"
+        >
+          title1
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-jqUVSM fFnBQh"
+    >
+      <input
+        class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK hquitd"
+        placeholder="New Task's Title"
+        type="text"
+        value="title"
+      />
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR kQFxcF"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          keyboard_arrow_right
+        </span>
+      </button>
+    </div>
+    <ul
+      class="sc-hKMtZM fpRUCO"
+    >
+      <li
+        class="sc-eCYdqJ cFmtgd"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  eCkNBf sc-jSMfEi hXOZLi"
+        >
+          title1
+        </p>
+        <div
+          class="sc-gKXOVf leZrje"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-ftvSup ktRQxh gaaHkb"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              edit
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-papXJ ktRQxh kyaaa-D"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              delete
+            </span>
+          </button>
+        </div>
+      </li>
+      <li
+        class="sc-eCYdqJ cFmtgd"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  hdfbys sc-jSMfEi hXOZLi"
+        >
+          title2
+        </p>
+        <div
+          class="sc-gKXOVf leZrje"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-ftvSup ktRQxh gaaHkb"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              edit
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-papXJ ktRQxh kyaaa-D"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              delete
+            </span>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot Error should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE jtvgsP"
+  >
+    <div
+      class="sc-iqcoie fsEkEQ"
+    >
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  fJrVjR"
+      >
+        Current Task:
+      </p>
+      <div
+        class="sc-crXcEl dCLyxC"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-evZas hUqDwN"
+        >
+          title1
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-jqUVSM fFnBQh"
+    >
+      <p
+        class="sc-kDDrLX jKisCt"
+      >
+        <span
+          class="material-icons md-10"
+        >
+          cancel
+        </span>
+        error
+      </p>
+      <input
+        class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK hquitd"
+        placeholder="New Task's Title"
+        type="text"
+        value="title"
+      />
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR kQFxcF"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          keyboard_arrow_right
+        </span>
+      </button>
+    </div>
+    <ul
+      class="sc-hKMtZM fpRUCO"
+    >
+      <li
+        class="sc-eCYdqJ cFmtgd"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  eCkNBf sc-jSMfEi hXOZLi"
+        >
+          title1
+        </p>
+        <div
+          class="sc-gKXOVf leZrje"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-ftvSup ktRQxh gaaHkb"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              edit
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-papXJ ktRQxh kyaaa-D"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              delete
+            </span>
+          </button>
+        </div>
+      </li>
+      <li
+        class="sc-eCYdqJ cFmtgd"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  hdfbys sc-jSMfEi hXOZLi"
+        >
+          title2
+        </p>
+        <div
+          class="sc-gKXOVf leZrje"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-ftvSup ktRQxh gaaHkb"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              edit
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-papXJ ktRQxh kyaaa-D"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              delete
+            </span>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot NoData should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE jtvgsP"
+  >
+    <div
+      class="sc-iqcoie fsEkEQ"
+    >
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  fJrVjR"
+      >
+        Current Task:
+      </p>
+      <div
+        class="sc-crXcEl dCLyxC"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-evZas hUqDwN"
+        >
+          title1
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-jqUVSM fFnBQh"
+    >
+      <input
+        class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK hquitd"
+        placeholder="New Task's Title"
+        type="text"
+        value="title"
+      />
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR kQFxcF"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          keyboard_arrow_right
+        </span>
+      </button>
+    </div>
+    <p
+      class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs"
+    >
+      Task is not exist yet.
+    </p>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot ShowMode should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE jtvgsP"
+  >
+    <div
+      class="sc-iqcoie fsEkEQ"
+    >
+      <p
+        class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  fJrVjR"
+      >
+        Current Task:
+      </p>
+      <div
+        class="sc-crXcEl dCLyxC"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-evZas hUqDwN"
+        >
+          title1
+        </p>
+      </div>
+    </div>
+    <div
+      class="sc-jqUVSM fFnBQh"
+    >
+      <input
+        class="Input__StyledInput-sc-1uzn9jx-0 Input___StyledStyledInput-sc-1uzn9jx-1 iioXxK hquitd"
+        placeholder="New Task's Title"
+        type="text"
+        value="title"
+      />
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR kQFxcF"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          keyboard_arrow_right
+        </span>
+      </button>
+    </div>
+    <ul
+      class="sc-hKMtZM fpRUCO"
+    >
+      <li
+        class="sc-eCYdqJ cFmtgd"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  eCkNBf sc-jSMfEi hXOZLi"
+        >
+          title1
+        </p>
+        <div
+          class="sc-gKXOVf leZrje"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-ftvSup ktRQxh gaaHkb"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              edit
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-papXJ ktRQxh kyaaa-D"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              delete
+            </span>
+          </button>
+        </div>
+      </li>
+      <li
+        class="sc-eCYdqJ cFmtgd"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  hdfbys sc-jSMfEi hXOZLi"
+        >
+          title2
+        </p>
+        <div
+          class="sc-gKXOVf leZrje"
+        >
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-ftvSup ktRQxh gaaHkb"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              edit
+            </span>
+          </button>
+          <button
+            class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR gDeoTZ sc-iBkjds sc-papXJ ktRQxh kyaaa-D"
+            type="button"
+          >
+            <span
+              class="material-icons md-18"
+            >
+              delete
+            </span>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

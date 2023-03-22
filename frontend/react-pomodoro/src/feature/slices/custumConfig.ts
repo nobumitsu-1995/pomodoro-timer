@@ -8,10 +8,42 @@ export type CustumConfigsType = {
 }
 
 /** カスタムタイマー設定に関するfeatureの初期値 */
-const initialState: CustumConfigsType = {
+export const initialState: CustumConfigsType = {
   custumConfig: [
     {
-      _id: '',
+      _id: '0',
+      workTime: 5,
+      restTime: 5,
+      cycle: 1,
+      longRestTime: 5,
+      cycleToLongRestTime: 1,
+    },
+    {
+      _id: '1',
+      workTime: 5,
+      restTime: 5,
+      cycle: 1,
+      longRestTime: 5,
+      cycleToLongRestTime: 1,
+    },
+    {
+      _id: '2',
+      workTime: 5,
+      restTime: 5,
+      cycle: 1,
+      longRestTime: 5,
+      cycleToLongRestTime: 1,
+    },
+    {
+      _id: '3',
+      workTime: 5,
+      restTime: 5,
+      cycle: 1,
+      longRestTime: 5,
+      cycleToLongRestTime: 1,
+    },
+    {
+      _id: '4',
       workTime: 5,
       restTime: 5,
       cycle: 1,
@@ -19,7 +51,7 @@ const initialState: CustumConfigsType = {
       cycleToLongRestTime: 1,
     },
   ],
-  length: 0,
+  length: 5,
 }
 
 /** カスタムタイマー設定のfeatureのSlice */

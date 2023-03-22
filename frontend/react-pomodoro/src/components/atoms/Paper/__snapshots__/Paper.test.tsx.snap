@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE cMEhHS"
+  >
+    paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper paper 
+  </div>
+</DocumentFragment>
+`;
