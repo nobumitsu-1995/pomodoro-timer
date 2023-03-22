@@ -6,7 +6,7 @@ COPY express-pomodoro/package-lock.json .
 COPY express-pomodoro/webpack.config.js .
 COPY express-pomodoro/tsconfig.json .
 COPY express-pomodoro/.env .
-RUN npm install
+RUN npm ci
 
 COPY express-pomodoro/src/ ./src
 RUN npm run build
