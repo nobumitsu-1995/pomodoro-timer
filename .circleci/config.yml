@@ -1,17 +1,47 @@
 version: 2.1
-
 jobs:
-  hello-job:
+  test-frontend:
     docker:
-      - image: cimg/node:17.2.0
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD
+      - image: circleci/node:14
     steps:
       - checkout
-      - run: echo "hello world"
-
+      - run: cd frontend/react-pomodoro && npm install
+      - run:
+          name: Run frontend tests
+          command: cd frontend/react-pomodoro && npm run test
+  test-backend:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - run: cd backend/express-pomodoro && npm install
+      - run:
+          name: Run backend tests
+          command: cd backend/express-pomodoro && npm run test
+  deploy:
+    docker:
+      - image: circleci/python:3.8
+    steps:
+      - checkout
+      - run:
+          name: Install backend dependencies
+          command: cd ./backend/express-pomodoro && npm install
+      - run:
+          name: Run backend tests
+          command: cd ./backend/express-pomodoro && npm run test
 workflows:
-  my-workflow:
+  version: 2.1
+  test:
     jobs:
-      - hello-job
+      - test_frontend:
+          filters:
+            branches:
+              only:
+                - master
+                - /^pull\/.*$/
+      - test_backend:
+          filters:
+            branches:
+              only:
+                - master
+                - /^pull\/.*$/
