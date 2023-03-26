@@ -47,7 +47,7 @@ jobs:
 
   tag:
     docker:
-      - image: cimg/base:stable
+      - image: node:lts-alpine
     steps:
       - checkout
       - run:
