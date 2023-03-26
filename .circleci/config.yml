@@ -54,12 +54,12 @@ jobs:
           latest_tag=$(git describe --tags --abbrev=0)
           tag_parts=($(echo $latest_tag | tr "v" " "))
           patch=$(expr ${tag_parts[2]} + 1)
-          version="v${tag_parts[0]}.${tag_parts[1]}.$patch"
+          version="v${tag_parts[0]}.${tag_parts[1]}.${patch}"
           echo "Creating tag ${version}"
           git config --global user.email "${CIRCLE_PROJECT_USERNAME}@users.noreply.github.com"
           git config --global user.name "${CIRCLE_PROJECT_USERNAME}"
-          git tag -a ${version} -m "Version ${version}"
-          git push origin ${version}
+          git tag -a "${version}" -m "Version ${version}"
+          git push origin "${version}"
 
 workflows:
   version: 2
