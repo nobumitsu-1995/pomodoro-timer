@@ -74,7 +74,7 @@ exports[`CustumConfig snapshot 1`] = `
             name="workTime"
             placeholder="Number"
             type="number"
-            value="5"
+            value="30"
           />
         </div>
       </div>
@@ -99,7 +99,7 @@ exports[`CustumConfig snapshot 1`] = `
             name="restTime"
             placeholder="Number"
             type="number"
-            value="5"
+            value="10"
           />
         </div>
       </div>
@@ -124,7 +124,7 @@ exports[`CustumConfig snapshot 1`] = `
             name="cycle"
             placeholder="Number"
             type="number"
-            value="1"
+            value="5"
           />
         </div>
       </div>
@@ -149,7 +149,7 @@ exports[`CustumConfig snapshot 1`] = `
             name="longRestTime"
             placeholder="Number"
             type="number"
-            value="5"
+            value="30"
           />
         </div>
       </div>
@@ -176,7 +176,7 @@ exports[`CustumConfig snapshot 1`] = `
             name="cycleToLongRestTime"
             placeholder="Number"
             type="number"
-            value="1"
+            value="3"
           />
         </div>
       </div>

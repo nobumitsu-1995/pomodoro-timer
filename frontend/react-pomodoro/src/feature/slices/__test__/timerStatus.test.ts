@@ -12,7 +12,7 @@ import {
 describe('Reducer timerStatus', () => {
   beforeAll(() =>
     // 現在時刻をモック化
-    jest.useFakeTimers().setSystemTime(new Date('2023-01-01 12:00:00'))
+    jest.useFakeTimers().setSystemTime(new Date(1672574403000))
   )
 
   afterAll(() => {
@@ -43,7 +43,7 @@ describe('Reducer timerStatus', () => {
   test('setEndTime', () => {
     expect(timerStatusReducer(initialState, setEndTime(3))).toEqual({
       ...initialState,
-      endTime: 1672542003000,
+      endTime: 1672574406000,
     })
   })
 
@@ -52,7 +52,7 @@ describe('Reducer timerStatus', () => {
       ...initialState,
       leftTime: 3,
       status: 'running',
-      endTime: 1672542003000,
+      endTime: 1672574406000,
     })
   })
 
@@ -61,7 +61,7 @@ describe('Reducer timerStatus', () => {
       ...initialState,
       leftTime: 3,
       status: 'rest',
-      endTime: 1672542003000,
+      endTime: 1672574406000,
     })
   })
 
@@ -70,7 +70,7 @@ describe('Reducer timerStatus', () => {
       ...initialState,
       leftTime: 3,
       status: 'longRest',
-      endTime: 1672542003000,
+      endTime: 1672574406000,
     })
   })
 })

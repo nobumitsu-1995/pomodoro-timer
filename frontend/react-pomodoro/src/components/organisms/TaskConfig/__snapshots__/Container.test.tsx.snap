@@ -18,7 +18,9 @@ exports[`TaskConfig snapshot 1`] = `
       >
         <p
           class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs sc-evZas hUqDwN"
-        />
+        >
+          test title
+        </p>
       </div>
     </div>
     <div
@@ -48,8 +50,10 @@ exports[`TaskConfig snapshot 1`] = `
         class="sc-eCYdqJ cFmtgd"
       >
         <p
-          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  hdfbys sc-jSMfEi hXOZLi"
-        />
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  eCkNBf sc-jSMfEi hXOZLi"
+        >
+          test title
+        </p>
         <div
           class="sc-gKXOVf leZrje"
         >

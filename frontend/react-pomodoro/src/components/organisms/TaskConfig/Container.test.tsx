@@ -4,8 +4,11 @@ import { act, fireEvent, render } from '@testing-library/react'
 import axios from 'axios'
 import { Provider } from 'react-redux'
 import Theme from 'src/assets/styles/Theme'
-import { store } from 'src/feature/store'
 import Container from './Container'
+import configureMockStore from 'redux-mock-store'
+import { storeData } from 'src/mock/storeData'
+import { Store, AnyAction } from '@reduxjs/toolkit'
+import { StoreType } from 'src/feature/store'
 
 jest.mock('axios')
 const mockedAxios = axios as jest.Mocked<typeof axios>
@@ -15,6 +18,14 @@ const data = {
 }
 
 describe('TaskConfig', () => {
+  const mockStore = configureMockStore()
+  const initialState = storeData
+  let store: Store<StoreType, AnyAction>
+
+  beforeEach(() => {
+    store = mockStore(initialState) as Store<StoreType, AnyAction>
+  })
+
   afterEach(() => {
     mockedAxios.create.mockReset()
     mockedAxios.post.mockReset()
@@ -45,14 +56,16 @@ describe('TaskConfig', () => {
       </Provider>
     )
 
+    const input = getByRole('textbox')
+    const button = getByText('keyboard_arrow_right')
+
     act(() => {
-      const input = getByRole('textbox')
       userEvent.type(input, 'testData')
-      const button = getByText('keyboard_arrow_right')
       fireEvent.click(button)
-      expect(mockedAxios.post).toBeCalledWith('/v1/task/create', {
-        title: 'testData',
-      })
+    })
+
+    expect(mockedAxios.post).toBeCalledWith('/v1/task/create', {
+      title: 'testData',
     })
   })
 
@@ -68,16 +81,18 @@ describe('TaskConfig', () => {
       </Provider>
     )
 
+    const editBtn = getAllByText('edit')
+    const input = getByRole('textbox')
+    const button = getByText('keyboard_arrow_right')
+
     act(() => {
-      const editBtn = getAllByText('edit')
       fireEvent.click(editBtn[0])
-      const input = getByRole('textbox')
       userEvent.type(input, 'updateData')
-      const button = getByText('keyboard_arrow_right')
       fireEvent.click(button)
-      expect(mockedAxios.patch).toBeCalledWith('/v1/task//update', {
-        title: 'updateData',
-      })
+    })
+
+    expect(mockedAxios.patch).toBeCalledWith('/v1/task//update', {
+      title: 'updateData',
     })
   })
 
@@ -94,11 +109,13 @@ describe('TaskConfig', () => {
       </Provider>
     )
 
+    const deleteBtn = getAllByText('delete')
+
     act(() => {
-      const deleteBtn = getAllByText('delete')
       fireEvent.click(deleteBtn[0])
-      expect(mockedAxios.delete).toBeCalledWith('/v1/task/0/delete')
     })
+
+    expect(mockedAxios.delete).toBeCalledWith('/v1/task/testId/delete')
   })
 
   test('異常系 26文字でタスクが作成できない', () => {
@@ -113,13 +130,15 @@ describe('TaskConfig', () => {
       </Provider>
     )
 
+    const input = getByRole('textbox')
+    const button = getByText('keyboard_arrow_right')
+
     act(() => {
-      const input = getByRole('textbox')
       userEvent.type(input, 'あ'.repeat(26))
-      const button = getByText('keyboard_arrow_right')
       fireEvent.click(button)
-      expect(mockedAxios.post).not.toBeCalled()
     })
+
+    expect(mockedAxios.post).not.toBeCalled()
   })
 
   test('異常系 26文字でタスクが更新できない', () => {
@@ -134,14 +153,16 @@ describe('TaskConfig', () => {
       </Provider>
     )
 
+    const editBtn = getAllByText('edit')
+    const input = getByRole('textbox')
+    const button = getByText('keyboard_arrow_right')
+
     act(() => {
-      const editBtn = getAllByText('edit')
       fireEvent.click(editBtn[0])
-      const input = getByRole('textbox')
       userEvent.type(input, 'あ'.repeat(26))
-      const button = getByText('keyboard_arrow_right')
       fireEvent.click(button)
-      expect(mockedAxios.patch).not.toBeCalled()
     })
+
+    expect(mockedAxios.patch).not.toBeCalled()
   })
 })

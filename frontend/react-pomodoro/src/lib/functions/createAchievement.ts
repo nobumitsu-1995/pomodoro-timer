@@ -12,7 +12,6 @@ export const createAchievement = (
   return api(token)
     .post('/v1/achievement/create', params)
     .then((res) => {
-      console.log(res)
       return res.data
     })
     .catch((e) => {

@@ -26,8 +26,6 @@ const useUserAchievement = ({ token }: Props) => {
     api(token)
       .get('/v1/achievement')
       .then((res) => {
-        console.log(res)
-
         setAchievements(res.data)
         dispatch(setReduxAchievements(res.data))
       })

@@ -1,12 +1,12 @@
 import { TimerStatus } from 'src/feature/slices/timerStatus'
+import { StoreType } from 'src/feature/store'
 
-export const storeData = {
+export const storeData: StoreType = {
   timerConfig: {
-    _id: 'testId',
-    workTime: 25,
-    restTime: 5,
+    workTime: 1500,
+    restTime: 300,
     cycle: 3,
-    longRestTime: 10,
+    longRestTime: 600,
     cycleToLongRestTime: 2,
   },
   timerStatus: {
@@ -35,6 +35,38 @@ export const storeData = {
     custumConfig: [
       {
         _id: 'testId',
+        workTime: 30,
+        restTime: 10,
+        cycle: 5,
+        longRestTime: 30,
+        cycleToLongRestTime: 3,
+      },
+      {
+        _id: 'testId2',
+        workTime: 30,
+        restTime: 10,
+        cycle: 5,
+        longRestTime: 30,
+        cycleToLongRestTime: 3,
+      },
+      {
+        _id: 'testId3',
+        workTime: 30,
+        restTime: 10,
+        cycle: 5,
+        longRestTime: 30,
+        cycleToLongRestTime: 3,
+      },
+      {
+        _id: 'testId4',
+        workTime: 30,
+        restTime: 10,
+        cycle: 5,
+        longRestTime: 30,
+        cycleToLongRestTime: 3,
+      },
+      {
+        _id: 'testId5',
         workTime: 30,
         restTime: 10,
         cycle: 5,
