@@ -45,9 +45,30 @@ jobs:
               circleci-agent step halt
             fi
 
+  tag:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      - checkout
+      - run: |
+          latest_tag=$(git describe --tags --abbrev=0)
+          tag_parts=($(echo $latest_tag | tr "." " "))
+          patch=$(expr ${tag_parts[2]} + 1)
+          version="${tag_parts[0]}.${tag_parts[1]}.${patch}"
+          echo "Creating tag ${version}"
+          git config --global user.email "${CIRCLE_PROJECT_USERNAME}@users.noreply.github.com"
+          git config --global user.name "${CIRCLE_PROJECT_USERNAME}"
+          git tag -a "${version}" -m "Version ${version}"
+          git push origin "${version}"
+
 workflows:
   version: 2
   test:
     jobs:
       - frontend-test
       - backend-test
+      - tag:
+          context: github
+          filters:
+            branches:
+              only: master
