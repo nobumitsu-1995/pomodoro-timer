@@ -5,12 +5,13 @@ jobs:
   frontend-test:
     docker:
       - image: cimg/node:19.8.1
-    working_directory: ~/frontend/react-pomodoro
     steps:
       - checkout
       - run:
           name: Install frontend dependencies
-          command: npm ci
+          command: |
+            cd frontend/react-pomodoro
+            npm ci
       - run:
           name: Run frontend tests
           command: |
@@ -23,12 +24,13 @@ jobs:
   backend-test:
     docker:
       - image: cimg/node:19.8.1
-    working_directory: ~/backend/express-pomodoro
     steps:
       - checkout
       - run:
           name: Install backend dependencies
-          command: npm ci
+          command: |
+            cd backend/express-pomodoro
+            npm ci
       - run:
           name: Run backend tests
           command: |
@@ -57,15 +59,18 @@ jobs:
   build-deploy:
     docker:
       - image: cimg/node:19.8.1
-    working_directory: ~/frontend/react-pomodoro
     steps:
       - checkout
       - run:
           name: Install dependencies
-          command: npm ci
+          command: |
+            cd frontend/react-pomodoro
+            npm ci
       - run:
           name: Build app
-          command: npm run build
+          command: |
+            cd frontend/react-pomodoro
+            npm run build
       - aws-cli/upload:
           bucket: pomodoro-timer.link
           files: frontend/react-pomodoro/build/**
