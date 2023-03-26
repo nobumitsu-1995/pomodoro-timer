@@ -1,19 +1,20 @@
+orbs:
+  aws-cli: circleci/aws-cli@1.1.0
+
 jobs:
   frontend-test:
     docker:
       - image: cimg/node:19.8.1
+    working_directory: ~/frontend/react-pomodoro
     steps:
       - checkout
       - run:
           name: Install frontend dependencies
-          command: |
-            cd frontend/react-pomodoro
-            npm ci
+          command: npm ci
       - run:
           name: Run frontend tests
           command: |
             if [ $(git diff --name-only HEAD^ HEAD | grep -E '^frontend/react-pomodoro/') ]; then
-              cd frontend/react-pomodoro
               npm run test:ci
             else
               circleci-agent step halt
@@ -22,18 +23,16 @@ jobs:
   backend-test:
     docker:
       - image: cimg/node:19.8.1
+    working_directory: ~/backend/express-pomodoro
     steps:
       - checkout
       - run:
           name: Install backend dependencies
-          command: |
-            cd backend/express-pomodoro
-            npm ci
+          command: npm ci
       - run:
           name: Run backend tests
           command: |
             if [ "$(git diff --name-only HEAD^ HEAD | grep -E '^backend/express-pomodoro/')" ]; then
-              cd backend/express-pomodoro
               npm run test
             else
               circleci-agent step halt
@@ -55,6 +54,24 @@ jobs:
           git tag -a "${version}" -m "Version ${version}"
           git push origin "${version}"
 
+  build-deploy:
+    docker:
+      - image: cimg/node:19.8.1
+    working_directory: ~/frontend/react-pomodoro
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Build app
+          command: npm run build
+      - aws-cli/upload:
+          bucket: pomodoro-timer.link
+          files: frontend/react-pomodoro/build/**
+          key_prefix: react-pomodoro/
+          overwrite: true
+
 workflows:
   version: 2
   test:
@@ -66,3 +83,10 @@ workflows:
           filters:
             branches:
               only: master
+      - build:
+          filters:
+            tags:
+              only: /^v.*/
+          branches:
+            only: master
+          working_directory: ~/repo
