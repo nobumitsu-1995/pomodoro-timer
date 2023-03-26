@@ -1,47 +1,53 @@
-version: 2.1
 jobs:
-  test-frontend:
+  frontend-test:
     docker:
-      - image: circleci/node:14
+      - image: node:lts-alpine
     steps:
       - checkout
-      - run: cd frontend/react-pomodoro && npm install
+      - run:
+          name: Install Git
+          command: apk add --no-cache git
+      - run:
+          name: Install frontend dependencies
+          command: |
+            cd frontend/react-pomodoro
+            npm ci
       - run:
           name: Run frontend tests
-          command: cd frontend/react-pomodoro && npm run test
-  test-backend:
+          command: |
+            if [ $(git diff --name-only HEAD^ HEAD | grep -E '^frontend/react-pomodoro/') ]; then
+              cd frontend/react-pomodoro
+              npm run test:ci
+            else
+              circleci-agent step halt
+            fi
+
+  backend-test:
     docker:
-      - image: circleci/node:14
+      - image: node:lts-alpine
     steps:
       - checkout
-      - run: cd backend/express-pomodoro && npm install
       - run:
-          name: Run backend tests
-          command: cd backend/express-pomodoro && npm run test
-  deploy:
-    docker:
-      - image: circleci/python:3.8
-    steps:
-      - checkout
+          name: Install Git
+          command: apk add --no-cache git
       - run:
           name: Install backend dependencies
-          command: cd ./backend/express-pomodoro && npm install
+          command: |
+            cd backend/express-pomodoro
+            npm ci
       - run:
           name: Run backend tests
-          command: cd ./backend/express-pomodoro && npm run test
+          command: |
+            if [ "$(git diff --name-only HEAD^ HEAD | grep -E '^backend/express-pomodoro/')" ]; then
+              cd backend/express-pomodoro
+              npm run test
+            else
+              circleci-agent step halt
+            fi
+
 workflows:
-  version: 2.1
+  version: 2
   test:
     jobs:
-      - test_frontend:
-          filters:
-            branches:
-              only:
-                - master
-                - /^pull\/.*$/
-      - test_backend:
-          filters:
-            branches:
-              only:
-                - master
-                - /^pull\/.*$/
+      - frontend-test
+      - backend-test
