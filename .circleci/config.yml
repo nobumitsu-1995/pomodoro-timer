@@ -1,12 +1,14 @@
+version: 2.1
+
+orbs:
+  aws-s3: circleci/aws-s3@3.1.1
+
 jobs:
   frontend-test:
     docker:
-      - image: node:lts-alpine
+      - image: cimg/node:19.8.1
     steps:
       - checkout
-      - run:
-          name: Install Git
-          command: apk add --no-cache git
       - run:
           name: Install frontend dependencies
           command: |
@@ -24,12 +26,9 @@ jobs:
 
   backend-test:
     docker:
-      - image: node:lts-alpine
+      - image: cimg/node:19.8.1
     steps:
       - checkout
-      - run:
-          name: Install Git
-          command: apk add --no-cache git
       - run:
           name: Install backend dependencies
           command: |
@@ -39,7 +38,6 @@ jobs:
           name: Run backend tests
           command: |
             if [ "$(git diff --name-only HEAD^ HEAD | grep -E '^backend/express-pomodoro/')" ]; then
-              cd backend/express-pomodoro
               npm run test
             else
               circleci-agent step halt
@@ -61,14 +59,48 @@ jobs:
           git tag -a "${version}" -m "Version ${version}"
           git push origin "${version}"
 
+  build-deploy:
+    docker:
+      - image: cimg/node:19.8.1
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            cd frontend/react-pomodoro
+            npm ci
+      - run:
+          name: Build app
+          command: |
+            cd frontend/react-pomodoro
+            npm run build
+      - aws-s3/sync:
+          from: frontend/react-pomodoro/build/**
+          to: s3://pomodoro-timer.link/
+
 workflows:
-  version: 2
   test:
     jobs:
       - frontend-test
       - backend-test
       - tag:
-          context: github
+          requires:
+            - frontend-test
+            - backend-test
+          filters:
+            branches:
+              only: master
+
+  publish:
+    jobs:
+      - build-deploy:
+          filters:
+            tags:
+              only: /^v.*/
+          requires:
+            - approve-publish
+      - approve-publish:
+          type: approval
           filters:
             branches:
               only: master
