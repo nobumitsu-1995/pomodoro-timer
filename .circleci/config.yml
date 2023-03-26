@@ -76,7 +76,7 @@ jobs:
             npm run build
       - aws-s3/sync:
           from: frontend/react-pomodoro/build/**
-          to: arn:aws:s3:::pomodoro-timer.link
+          to: s3://pomodoro-timer.link/
 
 workflows:
   test:
