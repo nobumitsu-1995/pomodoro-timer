@@ -23,7 +23,7 @@ exports[`Notice snapshot 1`] = `
         <a
           class="NoticesListItem__StyledA-sc-1s813br-1 faLdDl"
         >
-          title
+          test title
         </a>
       </li>
     </ul>

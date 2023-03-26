@@ -1,11 +1,29 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { fireEvent, render } from '@testing-library/react'
 import { Provider } from 'react-redux'
+import { act } from 'react-test-renderer'
+import configureMockStore from 'redux-mock-store'
 import Theme from 'src/assets/styles/Theme'
-import { store } from 'src/feature/store'
 import Container from './Container'
+import { storeData } from 'src/mock/storeData'
+import { Store, AnyAction } from '@reduxjs/toolkit'
+import { StoreType } from 'src/feature/store'
+import {
+  decrementRestTime,
+  decrementWorkTime,
+  incrementRestTime,
+  incrementWorkTime,
+} from 'src/feature/slices/timerConfig'
 
 describe('TimeConfig', () => {
+  const mockStore = configureMockStore()
+  const initialState = storeData
+  let store: Store<StoreType, AnyAction>
+
+  beforeEach(() => {
+    store = mockStore(initialState) as Store<StoreType, AnyAction>
+  })
+
   test('snapshot', () => {
     const tree = render(
       <Provider store={store}>
@@ -17,34 +35,86 @@ describe('TimeConfig', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('コンポーネント機能の使用テスト', () => {
-    const { getAllByText, getByText } = render(
-      <Provider store={store}>
-        <Theme>
-          <Container />
-        </Theme>
-      </Provider>
-    )
+  describe('コンポーネント機能の使用テスト', () => {
+    describe('workTime', () => {
+      test('up', () => {
+        const { getAllByText } = render(
+          <Provider store={store}>
+            <Theme>
+              <Container />
+            </Theme>
+          </Provider>
+        )
 
-    const workTimeUp = getAllByText('arrow_drop_up')[0]
-    const restTimeUp = getAllByText('arrow_drop_up')[1]
-    const workTimeDown = getAllByText('arrow_drop_down')[0]
-    const restTimeDown = getAllByText('arrow_drop_down')[1]
+        const workTimeUp = getAllByText('arrow_drop_up')[0]
 
-    fireEvent.click(workTimeUp)
-    fireEvent.click(workTimeUp)
-    expect(getByText('35')).toBeTruthy()
-    fireEvent.click(restTimeUp)
-    fireEvent.click(restTimeUp)
-    expect(getByText('15')).toBeTruthy()
-    fireEvent.click(workTimeDown)
-    fireEvent.click(workTimeDown)
-    fireEvent.click(workTimeDown)
-    expect(getByText('20')).toBeTruthy()
-    fireEvent.click(restTimeDown)
-    fireEvent.click(restTimeDown)
-    fireEvent.click(restTimeDown)
-    expect(getByText('5')).toBeTruthy()
-    expect(getByText('too small')).toBeTruthy()
+        act(() => {
+          fireEvent.click(workTimeUp)
+        })
+
+        expect(store.getActions()).toEqual([incrementWorkTime()])
+      })
+
+      test('down', () => {
+        const { getAllByText } = render(
+          <Provider store={store}>
+            <Theme>
+              <Container />
+            </Theme>
+          </Provider>
+        )
+
+        const workTimeDown = getAllByText('arrow_drop_down')[0]
+
+        act(() => {
+          fireEvent.click(workTimeDown)
+        })
+
+        expect(store.getActions()).toEqual([decrementWorkTime()])
+      })
+    })
+
+    describe('restTime', () => {
+      test('up', () => {
+        const { getAllByText } = render(
+          <Provider store={store}>
+            <Theme>
+              <Container />
+            </Theme>
+          </Provider>
+        )
+
+        const restTimeUp = getAllByText('arrow_drop_up')[1]
+
+        act(() => {
+          fireEvent.click(restTimeUp)
+        })
+
+        expect(store.getActions()).toEqual([incrementRestTime()])
+      })
+
+      test('down', () => {
+        store = mockStore({
+          ...initialState,
+          timerConfig: { ...initialState.timerConfig, restTime: 600 },
+        }) as Store<StoreType, AnyAction>
+
+        const { getAllByText } = render(
+          <Provider store={store}>
+            <Theme>
+              <Container />
+            </Theme>
+          </Provider>
+        )
+
+        const restTimeDown = getAllByText('arrow_drop_down')[1]
+
+        act(() => {
+          fireEvent.click(restTimeDown)
+        })
+
+        expect(store.getActions()).toEqual([decrementRestTime()])
+      })
+    })
   })
 })

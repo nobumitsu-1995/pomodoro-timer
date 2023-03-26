@@ -5,8 +5,6 @@ import { render } from '@testing-library/react'
 import Theme from 'src/assets/styles/Theme'
 
 describe('snapshot', () => {
-  console.log(stories)
-
   Object.entries(composeStories(stories)).forEach(([name, Component]) => {
     describe(name, () => {
       it('should render correctly', () => {
