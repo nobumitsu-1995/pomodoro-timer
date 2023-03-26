@@ -52,7 +52,7 @@ jobs:
       - checkout
       - run: |
           latest_tag=$(git describe --tags --abbrev=0)
-          tag_parts=($(echo $latest_tag | tr "v" " "))
+          tag_parts=($(echo $latest_tag | tr "v" "."))
           patch=$(expr ${tag_parts[2]} + 1)
           version="v${tag_parts[0]}.${tag_parts[1]}.${patch}"
           echo "Creating tag ${version}"
