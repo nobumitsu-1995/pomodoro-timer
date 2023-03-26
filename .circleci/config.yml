@@ -45,9 +45,31 @@ jobs:
               circleci-agent step halt
             fi
 
+  tag:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - attach_workspace:
+          at: .
+      - run: |
+          version=$(echo ${CIRCLE_PULL_REQUEST_TITLE} | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
+          changelog=$(git log --pretty=format:"- %s (@%an)" ${CIRCLE_SHA1}..${CIRCLE_BRANCH})
+          tag_message="${version}\n\n${changelog}"
+          echo "Creating tag ${version} with message:"
+          echo "${tag_message}"
+          git config --global user.email "${CIRCLE_PROJECT_USERNAME}@users.noreply.github.com"
+          git config --global user.name "${CIRCLE_PROJECT_USERNAME}"
+          git tag -a ${version} -m "${tag_message}"
+          git push origin ${version}
+
 workflows:
   version: 2
   test:
     jobs:
       - frontend-test
       - backend-test
+      - tag:
+          context: github
+          filters:
+            branches:
+              only: master
