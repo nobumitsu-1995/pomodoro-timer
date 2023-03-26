@@ -18,6 +18,7 @@ jobs:
           name: Run frontend tests
           command: |
             if [ $(git diff --name-only HEAD^ HEAD | grep -E '^frontend/react-pomodoro/') ]; then
+              cd frontend/react-pomodoro
               npm run test:ci
             else
               circleci-agent step halt
