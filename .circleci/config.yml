@@ -54,9 +54,8 @@ jobs:
           name: Install Git
           command: apk add --no-cache git
       - run: |
-          #!/bin/bash -eo pipefail
           latest_tag=$(git describe --tags --abbrev=0)
-          tag_parts=(${latest_tag//v/ })
+          tag_parts=$(echo $latest_tag | tr "v" "\n")
           patch=$((tag_parts[2]+1))
           version="v${tag_parts[0]}.${tag_parts[1]}.$patch"
           echo "Creating tag ${version}"
