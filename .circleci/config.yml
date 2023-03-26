@@ -1,3 +1,5 @@
+version: 2.1
+
 orbs:
   aws-cli: circleci/aws-cli@1.1.0
 
@@ -72,13 +74,19 @@ jobs:
             cd frontend/react-pomodoro
             npm run build
       - aws-cli/upload:
+          working_directory: frontend/react-pomodoro/build/
+          patterns: frontend/react-pomodoro/build/**
           bucket: pomodoro-timer.link
-          files: frontend/react-pomodoro/build/**
-          key_prefix: react-pomodoro/
+          region: ap-northeast-1
+          acl: public-read
+          aws-access-key-id: $AWS_ACCESS_KEY_ID
+          aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
+          aws-default-region: $AWS_DEFAULT_REGION
+          content-type: application/javascript
           overwrite: true
 
 workflows:
-  version: 2
+  version: 2.1
   test:
     jobs:
       - frontend-test
