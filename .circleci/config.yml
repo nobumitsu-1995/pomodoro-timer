@@ -45,9 +45,33 @@ jobs:
               circleci-agent step halt
             fi
 
+  tag:
+    docker:
+      - image: node:lts-alpine
+    steps:
+      - checkout
+      - run:
+          name: Install Git
+          command: apk add --no-cache git
+      - run: |
+          latest_tag=$(git describe --tags --abbrev=0)
+          tag_parts=(${latest_tag//v/ })
+          patch=$((tag_parts[2]+1))
+          version="v${tag_parts[0]}.${tag_parts[1]}.$patch"
+          echo "Creating tag ${version}"
+          git config --global user.email "${CIRCLE_PROJECT_USERNAME}@users.noreply.github.com"
+          git config --global user.name "${CIRCLE_PROJECT_USERNAME}"
+          git tag -a ${version}"
+          git push origin ${version}
+
 workflows:
   version: 2
   test:
     jobs:
       - frontend-test
       - backend-test
+      - tag:
+          context: github
+          filters:
+            branches:
+              only: master
