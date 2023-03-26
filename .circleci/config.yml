@@ -83,7 +83,7 @@ workflows:
           filters:
             branches:
               only: master
-      - build:
+      - build-deploy:
           filters:
             tags:
               only: /^v.*/
