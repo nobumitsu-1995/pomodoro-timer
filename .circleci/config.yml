@@ -1,5 +1,3 @@
-version: 2.1
-
 orbs:
   aws-cli: circleci/aws-cli@1.1.0
 
@@ -63,6 +61,7 @@ jobs:
       - image: cimg/node:19.8.1
     steps:
       - checkout
+      - aws-cli/install
       - run:
           name: Install dependencies
           command: |
@@ -86,7 +85,7 @@ jobs:
           overwrite: true
 
 workflows:
-  version: 2.1
+  version: 2
   test:
     jobs:
       - frontend-test
