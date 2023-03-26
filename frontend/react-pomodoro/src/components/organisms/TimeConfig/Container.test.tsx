@@ -6,8 +6,6 @@ import configureMockStore from 'redux-mock-store'
 import Theme from 'src/assets/styles/Theme'
 import Container from './Container'
 import { storeData } from 'src/mock/storeData'
-import { Store, AnyAction } from '@reduxjs/toolkit'
-import { StoreType } from 'src/feature/store'
 import {
   decrementRestTime,
   decrementWorkTime,
@@ -18,10 +16,11 @@ import {
 describe('TimeConfig', () => {
   const mockStore = configureMockStore()
   const initialState = storeData
-  let store: Store<StoreType, AnyAction>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let store: any
 
   beforeEach(() => {
-    store = mockStore(initialState) as Store<StoreType, AnyAction>
+    store = mockStore(initialState)
   })
 
   test('snapshot', () => {
@@ -97,7 +96,7 @@ describe('TimeConfig', () => {
         store = mockStore({
           ...initialState,
           timerConfig: { ...initialState.timerConfig, restTime: 600 },
-        }) as Store<StoreType, AnyAction>
+        })
 
         const { getAllByText } = render(
           <Provider store={store}>
