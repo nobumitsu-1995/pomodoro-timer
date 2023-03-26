@@ -93,6 +93,6 @@ workflows:
       - build-deploy:
           filters:
             tags:
-              only: /^v\d+\.\d+\.\d+$/
+              only: /^v\d+\.\d+\.\d+-r*$/
             branches:
               ignore: /.*/
