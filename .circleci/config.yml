@@ -47,14 +47,10 @@ jobs:
 
   tag:
     docker:
-      - image: node:lts-alpine
+      - image: cimg/base:2021.04
     steps:
       - checkout
-      - run:
-          name: Install Git
-          command: apk add --no-cache git
       - run: |
-          #!/bin/bash -eo pipefail
           latest_tag=$(git describe --tags --abbrev=0)
           tag_parts=($(echo $latest_tag | tr "v" " "))
           patch=$(expr ${tag_parts[2]} + 1)
