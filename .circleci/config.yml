@@ -78,7 +78,6 @@ jobs:
       - aws-s3/copy:
           from: frontend/react-pomodoro/build/**
           to: s3://pomodoro-timer.link/
-          arguments: --delete
 
 workflows:
   test:
