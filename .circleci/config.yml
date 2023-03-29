@@ -106,6 +106,13 @@ workflows:
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+$/
+            branches:
+              ignore: /.*/
       - build-deploy:
           requires:
-            - approval-deploy
+            - approval-deploy:
+                filters:
+                  tags:
+                    only: /^v\d+\.\d+\.\d+$/
+                  branches:
+                    ignore: /.*/
