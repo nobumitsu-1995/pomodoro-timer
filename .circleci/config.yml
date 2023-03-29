@@ -75,8 +75,8 @@ jobs:
           command: |
             cd frontend/react-pomodoro
             npm run build
-      - aws-s3/sync:
-          from: /frontend/react-pomodoro/build/**
+      - aws-s3/copy:
+          from: frontend/react-pomodoro/build/**
           to: s3://pomodoro-timer.link/
           arguments: --delete
 
