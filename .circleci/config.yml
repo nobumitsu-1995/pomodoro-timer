@@ -75,6 +75,11 @@ jobs:
           command: |
             cd frontend/react-pomodoro
             npm run build
+      - run:
+          name: debug
+          command: |
+            cd frontend/react-pomodoro/build/
+            ls
       - aws-s3/copy:
           from: frontend/react-pomodoro/build/**
           to: s3://pomodoro-timer.link/
