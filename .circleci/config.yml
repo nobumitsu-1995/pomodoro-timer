@@ -83,13 +83,14 @@ workflows:
     jobs:
       - frontend-test
       - backend-test
+  release:
+    jobs:
       - tag:
-          requires:
-            - frontend-test
-            - backend-test
           filters:
             branches:
               only: master
+  deploy:
+    jobs:
       - build-deploy:
           filters:
             tags:
