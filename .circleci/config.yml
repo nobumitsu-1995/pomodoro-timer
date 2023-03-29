@@ -93,11 +93,11 @@ workflows:
     jobs:
       - approval-deploy:
           type: approval
-      - build-deploy:
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+$/
             branches:
               ignore: /.*/
+      - build-deploy:
           requires:
             - approval-deploy
