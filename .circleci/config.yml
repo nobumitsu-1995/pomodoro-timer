@@ -90,6 +90,7 @@ workflows:
           filters:
             branches:
               only: master
+
   deploy:
     jobs:
       - build-deploy:
