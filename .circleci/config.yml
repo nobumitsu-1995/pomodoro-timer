@@ -38,6 +38,7 @@ jobs:
           name: Run backend tests
           command: |
             if [ "$(git diff --name-only HEAD^ HEAD | grep -E '^backend/express-pomodoro/')" ]; then
+              cd backend/express-pomodoro
               npm run test
             else
               circleci-agent step halt
@@ -91,13 +92,9 @@ workflows:
               only: master
   deploy:
     jobs:
-      - approval-deploy:
-          type: approval
+      - build-deploy:
           filters:
             tags:
               only: /^v\d+\.\d+\.\d+$/
             branches:
               ignore: /.*/
-      - build-deploy:
-          requires:
-            - approval-deploy
