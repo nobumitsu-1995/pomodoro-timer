@@ -110,9 +110,9 @@ workflows:
               ignore: /.*/
       - build-deploy:
           requires:
-            - approval-deploy:
-                filters:
-                  tags:
-                    only: /^v\d+\.\d+\.\d+$/
-                  branches:
-                    ignore: /.*/
+            - approval-deploy
+          filters:
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+            branches:
+              ignore: /.*/
