@@ -77,7 +77,7 @@ jobs:
             npm run build
       - aws-s3/sync:
           from: frontend/react-pomodoro/build/**
-          to: s3://pomodoro-timer.link/
+          to: s3://pomodoro-ti.link/
           arguments: --delete
 
 workflows:
