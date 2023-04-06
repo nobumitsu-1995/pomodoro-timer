@@ -6,18 +6,18 @@ exports[`snapshot Default should render correctly 1`] = `
     style="width: 500px;"
   >
     <section
-      class="sc-papXJ OidlZ"
+      class="sc-iqcoie ccVPXB"
     >
       <h2
-        class="sc-kDDrLX hKytcL"
+        class="sc-evZas fxtqmB"
       >
         User Achievements
       </h2>
       <div
-        class="sc-jqUVSM dKznWL"
+        class="sc-crXcEl kYbIMU"
       >
         <div
-          class="sc-bczRLJ fvfzlI"
+          class="sc-bczRLJ EZhHy"
         >
           <canvas
             height="150"
@@ -267,6 +267,33 @@ exports[`snapshot Default should render correctly 1`] = `
             </tbody>
           </table>
         </div>
+      </div>
+    </section>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot NoAchievement should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="width: 500px;"
+  >
+    <section
+      class="sc-iqcoie ccVPXB"
+    >
+      <h2
+        class="sc-evZas fxtqmB"
+      >
+        User Achievements
+      </h2>
+      <div
+        class="sc-breuTD bQhtxy"
+      >
+        <p
+          class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  bTPdKs"
+        >
+          Achievements are not exist yet.
+        </p>
       </div>
     </section>
   </div>

@@ -137,3 +137,11 @@ Default.args = {
     },
   ],
 }
+
+export const NoAchievement = Template.bind({})
+
+NoAchievement.args = {
+  labels: [],
+  datas: [],
+  achievements: [],
+}

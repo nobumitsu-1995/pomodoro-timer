@@ -3,21 +3,30 @@ import DoughnutGraph from 'src/components/molecules/DoughnutGraph/DoughnutGraph'
 import { AchievementType } from 'src/lib/types/modelType'
 import styled from 'styled-components'
 import AchievementList from '../../molecules/AchievementList/AchievementList'
+import { Text } from 'src/components/atoms'
 
 export type Props = {
   labels: string[]
   datas: number[]
-  achievements: AchievementType[]
+  achievements: AchievementType[] | []
 }
 
 const Presenter: FC<Props> = ({ labels, datas, achievements }) => {
   return (
     <StyledSection>
       <StyledH2>User Achievements</StyledH2>
-      <StyledDiv>
-        <DoughnutGraph labels={labels} datas={datas} />
-        <AchievementList achievements={achievements} />
-      </StyledDiv>
+      {achievements.length > 0 ? (
+        <StyledDiv>
+          <DoughnutGraph labels={labels} datas={datas} />
+          <AchievementList achievements={achievements} />
+        </StyledDiv>
+      ) : (
+        <StyledDiv2>
+          <Text textalign='center' bold='bold'>
+            Achievements are not exist yet.
+          </Text>
+        </StyledDiv2>
+      )}
     </StyledSection>
   )
 }
@@ -26,6 +35,10 @@ export default Presenter
 
 const StyledSection = styled.section`
   text-align: center;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `
 
 const StyledDiv = styled.div`
@@ -33,6 +46,11 @@ const StyledDiv = styled.div`
   display: inline-flex;
   align-items: start;
   gap: 52px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const StyledH2 = styled.h2`
@@ -46,4 +64,11 @@ const StyledH2 = styled.h2`
   font-size: 2rem;
   font-weight: bold;
   color: ${(props) => props.theme.color.black};
+`
+
+const StyledDiv2 = styled.div`
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
