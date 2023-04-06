@@ -2,7 +2,7 @@
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 import jwksClient from 'jwks-rsa'
-import { jwksUri, port } from '../../../main'
+import { audience, jwksUri } from '../../../main'
 
 const issuer = process.env.AUTH0_DOMAIN || ''
 
@@ -24,7 +24,7 @@ const getPublicKey = async (kid: string) => {
 const verifyToken = async (publicKey: string, token?: string) => {
   if (!token) throw new Error('token is undefined')
   const verifiedToken = await jwt.verify(token, publicKey, {
-    audience: `http://localhost:${port}`,
+    audience: audience,
     issuer,
   })
   if (!verifiedToken) throw new Error("can't get verifiedToken")
