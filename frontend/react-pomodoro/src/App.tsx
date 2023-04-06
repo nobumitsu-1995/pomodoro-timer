@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import Theme from './assets/styles/Theme'
-import { ModalBody } from './components/organisms'
+import { ModalBody, SpConsole } from './components/organisms'
 import { Header, TimerBlock, UserBlock } from './components/templates'
 import { api } from './lib/functions/axios'
 import { ModalProvider } from './lib/functions/ModalContext'
@@ -31,8 +31,13 @@ const App: React.FC = () => {
         <Header />
         <StyledMain>
           <TimerBlock />
-          {isAuthenticated && <UserBlock />}
-          <ModalBody />
+          <StyledDiv>
+            {isAuthenticated && <UserBlock />}
+            <ModalBody />
+          </StyledDiv>
+          <StyledDiv2>
+            <SpConsole />
+          </StyledDiv2>
         </StyledMain>
       </ModalProvider>
     </Theme>
@@ -43,4 +48,24 @@ export default App
 
 const StyledMain = styled.main`
   margin-top: 50px;
+
+  @media (max-width: 767px) {
+    margin-top: 40px;
+  }
+`
+
+const StyledDiv = styled.div`
+  display: block;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+`
+
+const StyledDiv2 = styled.div`
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+  }
 `

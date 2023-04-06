@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { HeaderNav } from '../organisms'
+import { HeaderNav } from '../organisms/'
 
 const Header: React.FC = () => {
   return (
     <StyledHeader>
       <StyledH1>Pomodoro Timer</StyledH1>
-      <HeaderNav />
+      <StyledDiv>
+        <HeaderNav />
+      </StyledDiv>
     </StyledHeader>
   )
 }
@@ -29,4 +31,10 @@ const StyledH1 = styled.h1`
   color: ${(props) => props.theme.color.black};
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
     -2px -2px 4px rgba(255, 255, 255, 1);
+`
+
+const StyledDiv = styled.div`
+  @media (max-width: 767px) {
+    display: none;
+  }
 `

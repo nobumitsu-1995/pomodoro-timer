@@ -25,7 +25,7 @@ export type Props = {
 
 const Presenter: React.FC<Props> = ({ time, cycleBar, iconButtonItems }) => {
   return (
-    <Paper css='position: relative;' width='350px' padding='120px 20px 20px'>
+    <StyledPaper css=''>
       <TimerAnimation />
       <StyledDiv>
         <TimerView {...time} />
@@ -37,7 +37,7 @@ const Presenter: React.FC<Props> = ({ time, cycleBar, iconButtonItems }) => {
           margin-top: 250px;
         `}
       />
-    </Paper>
+    </StyledPaper>
   )
 }
 
@@ -53,4 +53,13 @@ const StyledDiv = styled.div`
   right: 0;
   left: 0;
   margin: 0 auto;
+`
+
+const StyledPaper = styled(Paper)`
+  position: relative;
+  width: 350px;
+  padding: 120px 20px 20px;
+
+  @media (max-width: 767px) {
+  }
 `

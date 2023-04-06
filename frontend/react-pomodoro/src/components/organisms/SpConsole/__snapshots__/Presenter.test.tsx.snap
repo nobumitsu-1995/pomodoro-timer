@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot IsLoggedIn should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bZkfAO icQDbJ"
+  >
+    <nav
+      class="sc-ikZpkk jwuPIl"
+    >
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR bjpYcn"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          notifications
+        </span>
+      </button>
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR bjpYcn"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          help
+        </span>
+      </button>
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR dMoJvg"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          settings
+        </span>
+      </button>
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR bjpYcn"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          person
+        </span>
+      </button>
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR bjpYcn"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          logout
+        </span>
+      </button>
+    </nav>
+  </div>
+  <div
+    class="sc-kLLXSd iTGMzb"
+  >
+    accordion
+  </div>
+</DocumentFragment>
+`;
+
+exports[`snapshot IsLoggedOut should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bZkfAO icQDbJ"
+  >
+    <nav
+      class="sc-ikZpkk jwuPIl"
+    >
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR bjpYcn"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          notifications
+        </span>
+      </button>
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR bjpYcn"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          help
+        </span>
+      </button>
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR dMoJvg"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          settings
+        </span>
+      </button>
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR bjpYcn"
+        type="button"
+      >
+        <span />
+      </button>
+      <button
+        class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR bjpYcn"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          login
+        </span>
+      </button>
+    </nav>
+  </div>
+  <div
+    class="sc-kLLXSd iTGMzb"
+  >
+    accordion
+  </div>
+</DocumentFragment>
+`;

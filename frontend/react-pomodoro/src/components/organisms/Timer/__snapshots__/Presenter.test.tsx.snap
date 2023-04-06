@@ -3,7 +3,7 @@
 exports[`snapshot Default should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE hdRcTg Presenter___StyledPaper-sc-aqlps0-1 fJnbtJ"
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE jtvgsP Presenter__StyledPaper-sc-aqlps0-1 Presenter___StyledStyledPaper-sc-aqlps0-2 bipFqk"
   >
     &lt;TimerAnimation/&gt;
     <div
@@ -15,7 +15,7 @@ exports[`snapshot Default should render correctly 1`] = `
         20:30
       </p>
       <ul
-        class="TimerCycleBar__StyledUl-sc-pqmx46-0 hViJbA Presenter___StyledTimerCycleBar-sc-aqlps0-2 hnzBbe"
+        class="TimerCycleBar__StyledUl-sc-pqmx46-0 hViJbA Presenter___StyledTimerCycleBar-sc-aqlps0-3 dJFaRn"
       >
         <li
           class="TimerCycleBar__StyledLi-sc-pqmx46-1 AHpYZ"
@@ -55,7 +55,7 @@ exports[`snapshot Default should render correctly 1`] = `
       </ul>
     </div>
     <ul
-      class="sc-hKMtZM iMTbzD Presenter___StyledIconButtonList-sc-aqlps0-3 cgQghI"
+      class="sc-hKMtZM iMTbzD Presenter___StyledIconButtonList-sc-aqlps0-4 hHsPCj"
     >
       <li>
         <button

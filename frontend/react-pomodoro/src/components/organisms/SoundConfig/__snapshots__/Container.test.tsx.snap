@@ -3,7 +3,7 @@
 exports[`SoundConfig snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE gInPrw"
+    class="Paper__StyledDiv-sc-eiawt3-0 Paper___StyledStyledDiv-sc-eiawt3-1 mEzeE gInPLh"
   >
     <p
       class="Text__StyledP-sc-5vvbrk-0 Text___StyledStyledP-sc-5vvbrk-1  ejWLSz"
@@ -24,12 +24,12 @@ exports[`SoundConfig snapshot 1`] = `
         </span>
       </button>
       <input
-        class="RangeBar__StyledInput-sc-xofmb-0 idOAAH"
+        class="RangeBar__StyledInput-sc-xofmb-0 kRLRzb"
         max="100"
         min="0"
         type="range"
         value="50"
-        width="140"
+        width="180"
       />
       <button
         class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR ffEJkF"
