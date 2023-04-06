@@ -10,12 +10,15 @@ import { useSelector } from './feature/store'
 import { setNotices } from './feature/slices/notices'
 import { tokenGetSelector } from './feature/selectors/token'
 import useUserData from './lib/hooks/useUserData'
+import useGa4 from './lib/hooks/useGa4'
 
 const App: React.FC = () => {
   // Auth0認証後に受け取るトークン
   const token = useSelector(tokenGetSelector)
   const dispatch = useDispatch()
   const { isAuthenticated } = useUserData({ token })
+
+  useGa4()
 
   useEffect(() => {
     api()
