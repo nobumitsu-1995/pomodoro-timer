@@ -1,5 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import React, { useState } from 'react'
+import Console from 'src/components/templates/Console'
 import { Notice } from '..'
 import UserAchievement from '../UserAchievement/Container'
 import Presenter from './Presenter'
@@ -31,7 +32,7 @@ const Container = () => {
     },
     {
       id: 'config',
-      content: <Notice />,
+      content: <Console />,
     },
     {
       id: 'user',

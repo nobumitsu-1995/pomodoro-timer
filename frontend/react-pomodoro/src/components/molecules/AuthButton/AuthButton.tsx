@@ -4,24 +4,25 @@ import { Button } from '../../atoms'
 
 export type Props = {
   isLoggedIn: boolean
+  isSp?: boolean
 }
 
-const AuthButton: React.FC<Props> = ({ isLoggedIn }) => {
+const AuthButton: React.FC<Props> = ({ isLoggedIn, isSp = false }) => {
   const { loginWithRedirect, logout } = useAuth0()
   return (
     <>
       {isLoggedIn ? (
         <Button
-          size='50px'
-          borderradius='8px'
+          size={isSp ? '56px' : '50px'}
+          borderradius={isSp ? '28px' : '8px'}
           onClick={() => logout({ returnTo: window.location.origin })}
         >
           <span className='material-icons'>logout</span>
         </Button>
       ) : (
         <Button
-          size='50px'
-          borderradius='8px'
+          size={isSp ? '56px' : '50px'}
+          borderradius={isSp ? '28px' : '8px'}
           onClick={() => loginWithRedirect()}
         >
           <span className='material-icons'>login</span>

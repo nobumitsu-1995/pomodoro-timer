@@ -34,4 +34,8 @@ export default DoughnutGraph
 
 const StyledDiv = styled.div`
   width: 500px;
+
+  @media (max-width: 767px) {
+    width: 95vw;
+  }
 `

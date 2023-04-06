@@ -74,7 +74,8 @@ const StyledDiv2 = styled.div<{ isOpen: boolean }>`
   z-index: 2;
   width: 100vw;
   height: 100vh;
-  padding-bottom: 88px;
+  padding-bottom: 100px;
+  overflow-y: scroll;
 
   background: #fefefe;
   transform: translateY(100vh);

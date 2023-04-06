@@ -22,7 +22,7 @@ const Presenter: React.FC<Props> = ({
   onClickTry,
 }) => {
   return (
-    <Paper width='250px'>
+    <Paper width='350px'>
       <Text size='0.8rem' bold='bold' textalign='center'>
         Sound Config
       </Text>
@@ -33,7 +33,7 @@ const Presenter: React.FC<Props> = ({
           borderRadius='10px'
           onClick={onClick}
         />
-        <RangeBar width={140 as number} onChange={onChange} value={value} />
+        <RangeBar width={180 as number} onChange={onChange} value={value} />
         <Button size='20px' onClick={() => onClickTry()}>
           <span className='material-icons md-10'>audiotrack</span>
         </Button>

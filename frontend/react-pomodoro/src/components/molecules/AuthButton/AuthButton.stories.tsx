@@ -20,3 +20,8 @@ export const LogOutButton = Template.bind({})
 LogInButton.args = {
   isLoggedIn: true,
 }
+
+export const IsSp = Template.bind({})
+IsSp.args = {
+  isSp: true,
+}

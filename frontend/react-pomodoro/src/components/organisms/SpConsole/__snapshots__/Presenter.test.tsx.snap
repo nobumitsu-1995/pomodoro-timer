@@ -61,7 +61,7 @@ exports[`snapshot IsLoggedIn should render correctly 1`] = `
     </nav>
   </div>
   <div
-    class="sc-kLLXSd iodmNE"
+    class="sc-kLLXSd iTGMzb"
   >
     accordion
   </div>
@@ -125,7 +125,7 @@ exports[`snapshot IsLoggedOut should render correctly 1`] = `
     </nav>
   </div>
   <div
-    class="sc-kLLXSd iodmNE"
+    class="sc-kLLXSd iTGMzb"
   >
     accordion
   </div>
