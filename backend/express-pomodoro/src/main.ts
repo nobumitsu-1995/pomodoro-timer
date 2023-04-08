@@ -20,10 +20,10 @@ const isTest = process.env.NODE_ENV === 'test'
 const isDocker = process.env.DOCKER === 'true'
 const isLocal = process.env.NODE_ENV === 'development'
 const isProd = process.env.NODE_ENV === 'production'
-const client = isProd
+export const client = isProd
   ? process.env.CLIENT_URL || 'http://localhost:8080' // 本番環境
   : 'http://localhost:8080' // dev環境, test環境
-const dbPath = isTest
+export const dbPath = isTest
   ? 'mongodb://localhost:27017/pomodoro_test' // test環境
   : isDocker && isLocal
   ? 'mongodb://mongo-pomodoro:27017/pomodoro_dev' // dev環境
@@ -87,18 +87,6 @@ app.use(
 )
 app.use('/', (req, res) => {
   res.render('index')
-})
-
-// サーバーの起動
-app.listen(port, () => {
-  console.log(
-    `the server is runnning at 
-    PORT: ${port},
-    ENV: ${process.env.NODE_ENV},
-    DOCKER: ${process.env.DOCKER},
-    CLIENT: ${client},
-    DB: ${dbPath}`
-  )
 })
 
 export default app

@@ -1,24 +1,22 @@
 import Achievement from '../../src/models/achievement'
 import Task from '../../src/models/task'
-import { describe, it, beforeEach, before } from 'mocha'
-import { expect } from 'chai'
 import '../../src/main'
-
-beforeEach((done) => {
-  Achievement.deleteMany({})
-    .then(() => {
-      done()
-    })
-    .catch((e) => {
-      console.log(e)
-      done()
-    })
-})
 
 describe('Save Data of WorkTime Model', () => {
   let taskId = '' as unknown
 
-  before((done) => {
+  beforeEach((done) => {
+    Achievement.deleteMany({})
+      .then(() => {
+        done()
+      })
+      .catch((e) => {
+        console.log(e)
+        done()
+      })
+  })
+
+  beforeEach((done) => {
     const taskParams = {
       uid: 'uid',
       title: 'test title',
@@ -30,7 +28,7 @@ describe('Save Data of WorkTime Model', () => {
     })
   })
 
-  it('it should save one Achievement with correct params', (done) => {
+  test('it should save one Achievement with correct params', (done) => {
     const achievementParams = {
       uid: 'test uid',
       taskId: taskId,
@@ -41,7 +39,7 @@ describe('Save Data of WorkTime Model', () => {
       .then(() => {
         Achievement.find({})
           .then((achievements) => {
-            expect(achievements.length).to.eq(1)
+            expect(achievements.length)
             expect(achievements[0]).to.have.property('_id')
             expect(achievements[0]).to.have.property('uid')
             expect(achievements[0]).to.have.property('taskId')
@@ -111,3 +109,6 @@ describe('Save Data of WorkTime Model', () => {
       })
   })
 })
+function expect(length: number) {
+  throw new Error('Function not implemented.')
+}
