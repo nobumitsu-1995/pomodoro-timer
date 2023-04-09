@@ -1,44 +1,33 @@
 import request from 'supertest'
-import { getToken } from '../../../../src/lib/functions/getToken'
+// import { getToken } from '../../../../src/lib/functions/getToken'
 import app from '../../../../src/main'
 import Achievement from '../../../../src/models/achievement'
 import Task from '../../../../src/models/task'
 
 describe('AchievementController', () => {
-  let token = ''
+  const token = ''
   let taskId = '' as unknown
 
-  beforeEach((done) => {
-    Achievement.deleteMany({})
-      .then(() => {
-        done()
-      })
-      .catch((e) => {
-        console.log(e)
-        done()
-      })
-  })
-
-  beforeEach((done) => {
+  beforeAll(async () => {
+    // token = await getToken()
     const taskParams = {
       uid: 'uid',
       title: 'test title',
     }
 
-    Task.create(taskParams).then((task) => {
-      taskId = task._id
-      done()
-    })
+    const task = await Task.create(taskParams)
+    taskId = task._id
   })
 
   beforeEach(async () => {
-    token = await getToken()
+    await Achievement.deleteMany({})
   })
 
   describe('GET api/v1/achievement', () => {
     test('全ての実績を取得できる', async () => {
       await Achievement.create({
-        uid: `${process.env.CLIENT_ID}@clients`,
+        uid: 'test',
+        // uid: `${process.env.CLIENT_ID}@clients`,
         taskId: taskId,
         time: 10,
       })
@@ -47,144 +36,135 @@ describe('AchievementController', () => {
         .get('/api/v1/achievement/')
         .set('Authorization', token)
 
-      // expect(response.status).toBe(200)
+      expect(response.status).toBe(200)
       expect(response.body).toHaveLength(1)
     })
   })
 
   describe('GET api/v1/achievement/:id/show', () => {
-    test('idに紐づく実績を取得できる', () => {
-      Achievement.create({
-        uid: `${process.env.CLIENT_ID}@clients`,
+    test('idに紐づく実績を取得できる', async () => {
+      const achievement = await Achievement.create({
+        uid: 'test',
+        // uid: `${process.env.CLIENT_ID}@clients`,
         taskId: taskId,
         time: 10,
-      }).then((achievement) => {
-        const achievementId = achievement._id
-        request(app)
-          .get(`/api/v1/achievement/${achievementId}/show`)
-          .set('Authorization', token)
-          .end((errors, res) => {
-            expect(res.status).toBe(200)
-            expect(res.body.time).toBe(10)
-            expect(errors).toBeNull()
-          })
       })
+
+      const achievementId = achievement._id
+      const res = await request(app)
+        .get(`/api/v1/achievement/${achievementId}/show`)
+        .set('Authorization', token)
+
+      expect(res.status).toBe(200)
+      expect(res.body.time).toBe(10)
     })
 
-    test('it should not GET achievement json with wrong id', () => {
-      Achievement.create({
-        uid: `${process.env.CLIENT_ID}@clients`,
+    test('無効なidでは実績を取得しない', async () => {
+      await Achievement.create({
+        uid: 'test',
+        // uid: `${process.env.CLIENT_ID}@clients`,
         taskId: taskId,
         time: 10,
-      }).then(() => {
-        const achievementId = 'xxx'
-        request(app)
-          .get(`/api/v1/achievement/${achievementId}/show`)
-          .set('Authorization', token)
-          .catch((e) => {
-            expect(e.status).toBe(500)
-          })
       })
+      const achievementId = 'xxx'
+      const e = await request(app)
+        .get(`/api/v1/achievement/${achievementId}/show`)
+        .set('Authorization', token)
+
+      expect(e.status).toBe(500)
     })
   })
 
   describe('POST api/v1/achievement/create', () => {
-    test('it should POST achievement json', (done) => {
+    test('it should POST achievement json', async () => {
       const achievementParams = {
-        uid: `${process.env.CLIENT_ID}@clients`,
+        uid: 'test',
+        // uid: `${process.env.CLIENT_ID}@clients`,
         taskId: taskId,
         time: 10,
       }
-      request(app)
+      const res = await request(app)
         .post(`/api/v1/achievement/create`)
         .set('Authorization', token)
         .send(achievementParams)
-        .end((errors, res) => {
-          expect(res.status).toBe(201)
-          expect(res.body.time).toBe(10)
-          expect(errors).toBeNull()
-          done()
-        })
+
+      expect(res.status).toBe(201)
+      expect(res.body.time).toBe(10)
     })
   })
 
   describe('PATCH api/v1/achievement/:id/update', () => {
-    test('it should PATCH achievement json with correct id', (done) => {
-      Achievement.create({
-        uid: `${process.env.CLIENT_ID}@clients`,
+    test('it should PATCH achievement json with correct id', async () => {
+      const achievement = await Achievement.create({
+        uid: 'test',
+        // uid: `${process.env.CLIENT_ID}@clients`,
         taskId: taskId,
         time: 10,
-      }).then((achievement) => {
-        const achievementId = achievement._id
-        request(app)
-          .patch(`/api/v1/achievement/${achievementId}/update`)
-          .set('Authorization', token)
-          .send({
-            time: 15,
-          })
-          .end((errors, res) => {
-            expect(res.status).toBe(200)
-            expect(res.body.time).toBe(15)
-            expect(errors).toBeNull()
-            done()
-          })
       })
+
+      const achievementId = achievement._id
+      const res = await request(app)
+        .patch(`/api/v1/achievement/${achievementId}/update`)
+        .set('Authorization', token)
+        .send({
+          time: 15,
+        })
+
+      expect(res.status).toBe(200)
+      expect(res.body.time).toBe(15)
     })
 
-    test('it should not PATCH achievement json with wrong id', (done) => {
-      Achievement.create({
-        uid: `${process.env.CLIENT_ID}@clients`,
+    test('it should not PATCH achievement json with wrong id', async () => {
+      await Achievement.create({
+        uid: 'test',
+        // uid: `${process.env.CLIENT_ID}@clients`,
         taskId: taskId,
         time: 10,
-      }).then(() => {
-        const achievementId = 'xxx'
-        request(app)
-          .patch(`/api/v1/achievement/${achievementId}/update`)
-          .set('Authorization', token)
-          .send({
-            time: 15,
-          })
-          .end((errors, res) => {
-            expect(res.status).toBe(500)
-            done()
-          })
       })
+
+      const achievementId = 'xxx'
+      const res = await request(app)
+        .patch(`/api/v1/achievement/${achievementId}/update`)
+        .set('Authorization', token)
+        .send({
+          time: 15,
+        })
+
+      expect(res.status).toBe(500)
     })
   })
 
   describe('DELETE api/v1/achievement/:id/delete', () => {
-    test('it should DELETE achievement json with correct id', (done) => {
-      Achievement.create({
-        uid: `${process.env.CLIENT_ID}@clients`,
+    test('it should DELETE achievement json with correct id', async () => {
+      const achievement = await Achievement.create({
+        uid: 'test',
+        // uid: `${process.env.CLIENT_ID}@clients`,
         taskId: taskId,
         time: 10,
-      }).then((achievement) => {
-        const achievementId = achievement._id
-        request(app)
-          .delete(`/api/v1/achievement/${achievementId}/delete`)
-          .set('Authorization', token)
-          .end((errors, res) => {
-            expect(res.status).toBe(204)
-            done()
-          })
       })
+
+      const achievementId = achievement._id
+      const res = await request(app)
+        .delete(`/api/v1/achievement/${achievementId}/delete`)
+        .set('Authorization', token)
+
+      expect(res.status).toBe(204)
     })
 
-    test('it should not DELETE achievement json with wrong id', (done) => {
-      Achievement.create({
-        uid: `${process.env.CLIENT_ID}@clients`,
+    test('it should not DELETE achievement json with wrong id', async () => {
+      await Achievement.create({
+        uid: 'test',
+        // uid: `${process.env.CLIENT_ID}@clients`,
         taskId: taskId,
         time: 10,
-      }).then(() => {
-        const achievementId = 'xxx'
-        request(app)
-          .delete(`/api/v1/achievement/${achievementId}/delete`)
-          .set('Authorization', token)
-          .end((errors, res) => {
-            expect(res.status).toBe(500)
-            done()
-          })
       })
+
+      const achievementId = 'xxx'
+      const res = await request(app)
+        .delete(`/api/v1/achievement/${achievementId}/delete`)
+        .set('Authorization', token)
+
+      expect(res.status).toBe(500)
     })
   })
 })

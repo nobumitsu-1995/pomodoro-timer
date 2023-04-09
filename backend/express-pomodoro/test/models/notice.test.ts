@@ -1,18 +1,11 @@
 import Notice from '../../src/models/notice'
 import '../../src/main'
 
-beforeEach((done) => {
-  Notice.deleteMany({})
-    .then(() => {
-      done()
-    })
-    .catch((e) => {
-      console.log(e)
-      done()
-    })
-})
-
 describe('Save Data of Notice Model', () => {
+  beforeEach(async () => {
+    await Notice.deleteMany({})
+  })
+
   it('it should save one Notice with correct params', (done) => {
     const noticeParams = {
       content: 'notice content test',
@@ -24,12 +17,12 @@ describe('Save Data of Notice Model', () => {
       .then(() => {
         Notice.find({})
           .then((result) => {
-            expect(result.length).to.eq(1)
-            expect(result[0]).to.have.property('_id')
-            expect(result[0]).to.have.property('content')
-            expect(result[0]).to.have.property('publishedAt')
-            expect(result[0]).to.have.property('createdAt')
-            expect(result[0].content).to.eq('notice content test')
+            expect(result.length).toBe(1)
+            expect(result[0]).toHaveProperty('_id')
+            expect(result[0]).toHaveProperty('content')
+            expect(result[0]).toHaveProperty('publishedAt')
+            expect(result[0]).toHaveProperty('createdAt')
+            expect(result[0].content).toBe('notice content test')
             done()
           })
           .catch((e) => {
@@ -53,7 +46,7 @@ describe('Save Data of Notice Model', () => {
         console.log(notice)
       })
       .catch((e) => {
-        expect(e).to.have.property('message')
+        expect(e).toHaveProperty('message')
         done()
       })
   })
@@ -70,7 +63,7 @@ describe('Save Data of Notice Model', () => {
         console.log(notice)
       })
       .catch((e) => {
-        expect(e).to.have.property('message')
+        expect(e).toHaveProperty('message')
         done()
       })
   })

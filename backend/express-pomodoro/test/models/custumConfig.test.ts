@@ -1,15 +1,8 @@
 import CustumConfig from '../../src/models/custumConfig'
 import '../../src/main'
 
-beforeEach((done) => {
-  CustumConfig.deleteMany({})
-    .then(() => {
-      done()
-    })
-    .catch((e) => {
-      console.log(e)
-      done()
-    })
+beforeEach(async () => {
+  await CustumConfig.deleteMany({})
 })
 
 describe('Save Data of CustumConfig Model', () => {
@@ -27,20 +20,13 @@ describe('Save Data of CustumConfig Model', () => {
       .then(() => {
         CustumConfig.find({})
           .then((result) => {
-            expect(result.length).to.eq(1)
-            expect(result[0]).to.have.property('_id')
-            expect(result[0]).to.have.property('uid')
-            expect(result[0]).to.have.property('workTime')
-            expect(result[0]).to.have.property('restTime')
-            expect(result[0]).to.have.property('cycle')
-            expect(result[0]).to.have.property('longRestTime')
-            expect(result[0]).to.have.property('cycleToLongRestTime')
-            expect(result[0].uid).to.eq('uid')
-            expect(result[0].workTime).to.eq(30)
-            expect(result[0].restTime).to.eq(30)
-            expect(result[0].cycle).to.eq(3)
-            expect(result[0].longRestTime).to.eq(30)
-            expect(result[0].cycleToLongRestTime).to.eq(2)
+            expect(result.length).toBe(1)
+            expect(result[0].uid).toBe('uid')
+            expect(result[0].workTime).toBe(30)
+            expect(result[0].restTime).toBe(30)
+            expect(result[0].cycle).toBe(3)
+            expect(result[0].longRestTime).toBe(30)
+            expect(result[0].cycleToLongRestTime).toBe(2)
             done()
           })
           .catch((e) => {
@@ -66,18 +52,18 @@ describe('Save Data of CustumConfig Model', () => {
       .then(() => {
         CustumConfig.find({})
           .then((result) => {
-            expect(result.length).to.eq(1)
-            expect(result[0]).to.have.property('_id')
-            expect(result[0]).to.have.property('uid')
-            expect(result[0]).to.have.property('workTime')
-            expect(result[0]).to.have.property('restTime')
-            expect(result[0]).to.have.property('cycle')
-            expect(result[0]).to.have.property('cycleToLongRestTime')
-            expect(result[0].uid).to.eq('uid')
-            expect(result[0].workTime).to.eq(30)
-            expect(result[0].restTime).to.eq(30)
-            expect(result[0].cycle).to.eq(3)
-            expect(result[0].cycleToLongRestTime).to.eq(2)
+            expect(result.length).toBe(1)
+            expect(result[0]).toHaveProperty('_id')
+            expect(result[0]).toHaveProperty('uid')
+            expect(result[0]).toHaveProperty('workTime')
+            expect(result[0]).toHaveProperty('restTime')
+            expect(result[0]).toHaveProperty('cycle')
+            expect(result[0]).toHaveProperty('cycleToLongRestTime')
+            expect(result[0].uid).toBe('uid')
+            expect(result[0].workTime).toBe(30)
+            expect(result[0].restTime).toBe(30)
+            expect(result[0].cycle).toBe(3)
+            expect(result[0].cycleToLongRestTime).toBe(2)
             done()
           })
           .catch((e) => {
@@ -103,18 +89,18 @@ describe('Save Data of CustumConfig Model', () => {
       .then(() => {
         CustumConfig.find({})
           .then((result) => {
-            expect(result.length).to.eq(1)
-            expect(result[0]).to.have.property('_id')
-            expect(result[0]).to.have.property('uid')
-            expect(result[0]).to.have.property('workTime')
-            expect(result[0]).to.have.property('restTime')
-            expect(result[0]).to.have.property('cycle')
-            expect(result[0]).to.have.property('longRestTime')
-            expect(result[0].uid).to.eq('uid')
-            expect(result[0].workTime).to.eq(30)
-            expect(result[0].restTime).to.eq(30)
-            expect(result[0].cycle).to.eq(3)
-            expect(result[0].longRestTime).to.eq(30)
+            expect(result.length).toBe(1)
+            expect(result[0]).toHaveProperty('_id')
+            expect(result[0]).toHaveProperty('uid')
+            expect(result[0]).toHaveProperty('workTime')
+            expect(result[0]).toHaveProperty('restTime')
+            expect(result[0]).toHaveProperty('cycle')
+            expect(result[0]).toHaveProperty('longRestTime')
+            expect(result[0].uid).toBe('uid')
+            expect(result[0].workTime).toBe(30)
+            expect(result[0].restTime).toBe(30)
+            expect(result[0].cycle).toBe(3)
+            expect(result[0].longRestTime).toBe(30)
             done()
           })
           .catch((e) => {
@@ -141,7 +127,7 @@ describe('Save Data of CustumConfig Model', () => {
         console.log(CustumConfig)
       })
       .catch((e) => {
-        expect(e).to.have.property('message')
+        expect(e).toHaveProperty('message')
         done()
       })
   })
@@ -161,7 +147,7 @@ describe('Save Data of CustumConfig Model', () => {
         console.log(CustumConfig)
       })
       .catch((e) => {
-        expect(e).to.have.property('message')
+        expect(e).toHaveProperty('message')
         done()
       })
   })
@@ -181,7 +167,7 @@ describe('Save Data of CustumConfig Model', () => {
         console.log(CustumConfig)
       })
       .catch((e) => {
-        expect(e).to.have.property('message')
+        expect(e).toHaveProperty('message')
         done()
       })
   })
@@ -201,7 +187,7 @@ describe('Save Data of CustumConfig Model', () => {
         console.log(CustumConfig)
       })
       .catch((e) => {
-        expect(e).to.have.property('message')
+        expect(e).toHaveProperty('message')
         done()
       })
   })

@@ -23,12 +23,12 @@ describe('Save Data of Task Model', () => {
       .then(() => {
         Task.find({})
           .then((tasks) => {
-            expect(tasks.length).to.eq(1)
-            expect(tasks[0]).to.have.property('_id')
-            expect(tasks[0]).to.have.property('uid')
-            expect(tasks[0]).to.have.property('title')
-            expect(tasks[0]).to.have.property('createdAt')
-            expect(tasks[0].title).to.eq('test title')
+            expect(tasks.length).toBe(1)
+            expect(tasks[0]).toHaveProperty('_id')
+            expect(tasks[0]).toHaveProperty('uid')
+            expect(tasks[0]).toHaveProperty('title')
+            expect(tasks[0]).toHaveProperty('createdAt')
+            expect(tasks[0].title).toBe('test title')
             done()
           })
           .catch((e) => {
@@ -51,7 +51,7 @@ describe('Save Data of Task Model', () => {
         console.log(task)
       })
       .catch((e) => {
-        expect(e).to.have.property('message')
+        expect(e).toHaveProperty('message')
         done()
       })
   })
@@ -67,7 +67,7 @@ describe('Save Data of Task Model', () => {
         console.log(task)
       })
       .catch((e) => {
-        expect(e).to.have.property('message')
+        expect(e).toHaveProperty('message')
         done()
       })
   })
