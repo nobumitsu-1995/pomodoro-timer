@@ -34,7 +34,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "test:ci": "CI=true node --max_old_space_size=1024 --trace-gc ./node_modules/react-scripts/bin/react-scripts.js test --env=jsdom --maxWorkers=2"
+    "test:ci": "CI=true node --max_old_space_size=1024 --trace-gc ./node_modules/react-scripts/bin/react-scripts.js test --env=jsdom --maxWorkers=2",
+    "generate": "hygen component new"
   },
   "jest": {
     "transformIgnorePatterns": [
@@ -91,6 +92,7 @@
     "babel-plugin-named-exports-order": "^0.0.2",
     "eslint": "^8.24.0",
     "eslint-plugin-react": "^7.31.8",
+    "hygen": "^6.2.11",
     "prop-types": "^15.8.1",
     "react-test-renderer": "^18.2.0",
     "redux-mock-store": "^1.5.4",
