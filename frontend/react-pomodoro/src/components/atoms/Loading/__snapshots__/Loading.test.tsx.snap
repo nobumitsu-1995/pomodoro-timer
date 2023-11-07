@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Default should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="Loading__StyledDiv1-sc-cobyo2-0 iGiRqq"
+  >
+    <div
+      class="Loading__StyledDiv2-sc-cobyo2-1 hxGEPB"
+    >
+      <span
+        class="Loading__StyledSpan-sc-cobyo2-2 jHanKb"
+      />
+      <span
+        class="Loading__StyledSpan-sc-cobyo2-2 hlkMFM"
+      />
+      <span
+        class="Loading__StyledSpan-sc-cobyo2-2 iZZoBB"
+      />
+      <span
+        class="Loading__StyledSpan-sc-cobyo2-2 iewMzK"
+      />
+      <span
+        class="Loading__StyledSpan-sc-cobyo2-2 iMPEdg"
+      />
+      <span
+        class="Loading__StyledSpan-sc-cobyo2-2 jTwCbr"
+      />
+      <span
+        class="Loading__StyledSpan2-sc-cobyo2-3 kwBXIu"
+      />
+    </div>
+    <p
+      class="Loading__StyledP-sc-cobyo2-4 gcyLyn"
+    >
+      LOADING...
+    </p>
+    <div
+      class="Loading__StyledDiv3-sc-cobyo2-5 TlTIn"
+    >
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 cBRRGI"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 jedswA"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 kZXBFw"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 bhnamc"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 kFoSHE"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 fSeJYA"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 hNYThw"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 cibtuY"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 qHCrE"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 jedJcA"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 gduZcA"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 CEkOY"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 xUCPE"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 DKokk"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 iSxnJg"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 drGzvE"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 dmWRwk"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 hUAuYk"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 eTRKYk"
+      />
+      <span
+        class="Loading__StyledSpan3-sc-cobyo2-6 fZrQgA"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -11,12 +11,13 @@ import { setNotices } from './feature/slices/notices'
 import { tokenGetSelector } from './feature/selectors/token'
 import useUserData from './lib/hooks/useUserData'
 import useGa4 from './lib/hooks/useGa4'
+import Loading from './components/atoms/Loading/Loading'
 
 const App: React.FC = () => {
   // Auth0認証後に受け取るトークン
   const token = useSelector(tokenGetSelector)
   const dispatch = useDispatch()
-  const { isAuthenticated } = useUserData({ token })
+  const { isAuthenticated, isLoading } = useUserData({ token })
 
   useGa4()
 
@@ -33,14 +34,22 @@ const App: React.FC = () => {
       <ModalProvider>
         <Header />
         <StyledMain>
-          <TimerBlock />
-          <StyledDiv>
-            {isAuthenticated && <UserBlock />}
-            <ModalBody />
-          </StyledDiv>
-          <StyledDiv2>
-            <SpConsole />
-          </StyledDiv2>
+          {isLoading ? (
+            <StyledDiv3>
+              <Loading />
+            </StyledDiv3>
+          ) : (
+            <>
+              <TimerBlock />
+              <StyledDiv>
+                {isAuthenticated && <UserBlock />}
+                <ModalBody />
+              </StyledDiv>
+              <StyledDiv2>
+                <SpConsole />
+              </StyledDiv2>
+            </>
+          )}
         </StyledMain>
       </ModalProvider>
     </Theme>
@@ -71,4 +80,9 @@ const StyledDiv2 = styled.div`
   @media (max-width: 767px) {
     display: block;
   }
+`
+
+const StyledDiv3 = styled.div`
+  display: flex;
+  justify-content: center;
 `

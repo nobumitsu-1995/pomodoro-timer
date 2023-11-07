@@ -4,28 +4,38 @@ import { AchievementType } from 'src/lib/types/modelType'
 import styled from 'styled-components'
 import AchievementList from '../../molecules/AchievementList/AchievementList'
 import { Text } from 'src/components/atoms'
+import Loading from 'src/components/atoms/Loading/Loading'
 
 export type Props = {
   labels: string[]
   datas: number[]
   achievements: AchievementType[] | []
+  isLoading: boolean
 }
 
-const Presenter: FC<Props> = ({ labels, datas, achievements }) => {
+const Presenter: FC<Props> = ({ labels, datas, achievements, isLoading }) => {
   return (
     <StyledSection>
       <StyledH2>User Achievements</StyledH2>
-      {achievements.length > 0 ? (
-        <StyledDiv>
-          <DoughnutGraph labels={labels} datas={datas} />
-          <AchievementList achievements={achievements} />
-        </StyledDiv>
+      {isLoading ? (
+        <StyledDiv3>
+          <Loading />
+        </StyledDiv3>
       ) : (
-        <StyledDiv2>
-          <Text textalign='center' bold='bold'>
-            Achievements are not exist yet.
-          </Text>
-        </StyledDiv2>
+        <>
+          {achievements.length > 0 ? (
+            <StyledDiv>
+              <DoughnutGraph labels={labels} datas={datas} />
+              <AchievementList achievements={achievements} />
+            </StyledDiv>
+          ) : (
+            <StyledDiv2>
+              <Text textalign='center' bold='bold'>
+                Achievements are not exist yet.
+              </Text>
+            </StyledDiv2>
+          )}
+        </>
       )}
     </StyledSection>
   )
@@ -70,5 +80,11 @@ const StyledDiv2 = styled.div`
   margin-top: 40px;
   display: flex;
   align-items: center;
+  justify-content: center;
+`
+
+const StyledDiv3 = styled.div`
+  margin-top: 20px;
+  display: flex;
   justify-content: center;
 `

@@ -3,10 +3,10 @@
 exports[`SpConsole snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-gSAPjG jYfoQm"
+    class="sc-lbxAil jUgsSE"
   >
     <nav
-      class="sc-iNWwEs hgDHxE"
+      class="sc-jfmDQi kkpLlk"
     >
       <button
         class="Button__StyledButton-sc-mes1hd-0 Button___StyledStyledButton-sc-mes1hd-1 fxBFHR bjpYcn"
@@ -57,7 +57,7 @@ exports[`SpConsole snapshot 1`] = `
     </nav>
   </div>
   <div
-    class="sc-lbxAil kCviSV"
+    class="sc-iNWwEs ccdlvO"
   />
 </DocumentFragment>
 `;

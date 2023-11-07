@@ -16,15 +16,12 @@ const UserAchievement = () => {
 
   return (
     <Fragment>
-      {isLoading ? (
-        <>loading</>
-      ) : (
-        <Presenter
-          labels={labels}
-          datas={datas}
-          achievements={totalAchievements}
-        />
-      )}
+      <Presenter
+        labels={labels}
+        datas={datas}
+        achievements={totalAchievements}
+        isLoading={isLoading}
+      />
     </Fragment>
   )
 }
